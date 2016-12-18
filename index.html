@@ -8,6 +8,33 @@
 			margin: 0px;
 			padding: 0px;
 		}
+
+
+body{
+background: linear-gradient(251deg, #00ffbd, #0100ff, #ff8500, #ff4100);
+background-size: 800% 800%;
+
+-webkit-animation: ani 10s ease infinite;
+-moz-animation: ani 10s ease infinite;
+animation: ani 10s ease infinite;
+}
+
+@-webkit-keyframes ani {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@-moz-keyframes ani {
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+@keyframes ani { 
+    0%{background-position:10% 0%}
+    50%{background-position:91% 100%}
+    100%{background-position:10% 0%}
+}
+
 		canvas{
 			display: block;
 		}
