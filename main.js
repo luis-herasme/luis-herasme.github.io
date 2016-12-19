@@ -19,7 +19,7 @@ window.onload = function() {
 		context.clearRect(0, 0, width , height);
 		context.beginPath();
 		context.arc(centerX, y, 50 ,0 , Math.PI * 2, false);
-
+		context.fillStyle = "#fff";
 		context.fill();
 
 		angle += speed;
