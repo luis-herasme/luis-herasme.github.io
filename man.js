@@ -10,17 +10,27 @@ function main() {
 	function canvasSupport() {
 		return !!document.createElement('canvas').getContext;
 	}
-
-	var context = theCanvas.getContext("2d");
-	setInterval(function (){
-		let audio = new Audio('arte.m4a');
-		audio.play();		
-	}, 1000);
 	
+	var context = theCanvas.getContext("2d");
+	
+	let ina = setInterval(function(){
+
+	let audio = new Audio('arte.m4a');
+	audio.play();
+	}, 500);
+
+	
+	
+	var luis = 5;
+
+	let a = 2;
+
 	var imageNumber1 = new Image();
 	imageNumber1.onload = function() {
 		context.drawImage(imageNumber1, 100, 100);
 	}
+	
+
 
 	imageNumber1.src = "gol.png";
 	context.fillStyle = "#ffffaa";
