@@ -29,18 +29,23 @@ function main() {
 	imageNumber1.onload = function() {
 		context.drawImage(imageNumber1, 100, 100);
 	}
-	setInterval(al , 10);
+	setInterval(al , 500);
 	function al(){
-		for (let i = 0; i<10 ; i++){
+		context.strokeStyle = color();
+
 			let x = Math.round(Math.random() * window.innerWidth - 50); 
 			let y = Math.round(Math.random() * window.innerHeight - 50);
-			context.strokeStyle = color();
+
+			
+
 			let segundos = setInterval( function(){
-				context.strokeRect(x, y, 100, 100);		
+				context.beginPath();
+				context.arc(x, y, 50,0,Math.PI*2);		
+				context.stroke();
 				x = x + 1;
 				y = y + 1;
 			}, 10);
-		}
+		
 	}
 
 	var ax = setTimeout() 
