@@ -3,90 +3,112 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Document</title>
+<!-- Latest compiled and minified CSS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<!-- Latest compiled and minified JavaScript -->
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 	<style>
 		html, body{
 			margin: 0px;
 			padding: 0px;
+			
 		}
-
-
-body{
-background: linear-gradient(251deg, #00ffbd, #0100ff, #ff8500, #ff4100);
-background-size: 800% 800%;
-
--webkit-animation: ani 10s ease infinite;
--moz-animation: ani 10s ease infinite;
-animation: ani 10s ease infinite;
-}
-
-@-webkit-keyframes ani {
-    0%{background-position:10% 0%}
-    50%{background-position:91% 100%}
-    100%{background-position:10% 0%}
-}
-@-moz-keyframes ani {
-    0%{background-position:10% 0%}
-    50%{background-position:91% 100%}
-    100%{background-position:10% 0%}
-}
-@keyframes ani { 
-    0%{background-position:10% 0%}
-    50%{background-position:91% 100%}
-    100%{background-position:10% 0%}
-}
-
+		body{
+			background: linear-gradient(251deg, #00ffbd, #0100ff, #ff8500, #ff4100);
+			background-size: 800% 800%;
+			-webkit-animation: ani 10s ease infinite;
+			-moz-animation: ani 10s ease infinite;
+			animation: ani 10s ease infinite;
+		}
+		@-webkit-keyframes ani {
+			0%{background-position:10% 0%}
+			50%{background-position:91% 100%}
+			100%{background-position:10% 0%}
+		}
+		@-moz-keyframes ani {
+			0%{background-position:10% 0%}
+			50%{background-position:91% 100%}
+			100%{background-position:10% 0%}
+		}
+		@keyframes ani { 
+			0%{background-position:10% 0%}
+			50%{background-position:91% 100%}
+			100%{background-position:10% 0%}
+		}
 		canvas{
 			display: block;
 		}
 		.otros{
-			position: fixed;
+			-webkit-box-shadow: 0px 0px 12px 0px rgba(71,71,71,1);
+-moz-box-shadow: 0px 0px 12px 0px rgba(71,71,71,1);
+box-shadow: 0px 0px 12px 0px rgba(71,71,71,1);
 			text-align: center;
 			margin-left: 5px;
-			width: 25%;
-			
-			padding: 10px;
-			border-radius: 0px 0px 15% 15%;
-
-
-background: -moz-linear-gradient(45deg,  rgba(169,228,247,1) 0%, rgba(15,180,231,1) 100%); 
-background: -webkit-linear-gradient(45deg,  rgba(169,228,247,1) 0%,rgba(15,180,231,1) 100%);
-background: linear-gradient(45deg,  rgba(169,228,247,1) 0%,rgba(15,180,231,1) 100%); 
+			height: 100%;
+			border-radius: 50%;
+			padding: 50px;
+			/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0f9ff+0,cbebff+47,a1dbff+100;Blue+3D+%2313 */
+			background-color: white;		
 		}
 		.titulo{
 			padding: 15px;
-			
-			font-family: verdana;
-			background-color: black;
-			color: white;
-			border-radius: 5px;
+			font-family: 'Open Sans', sans-serif;
+			margin-bottom: 5px;
+			border-radius: 50px;
 		}
 		.item{
+			-webkit-box-shadow: 0px 0px 5px 0px rgba(207,207,207,1);
+			-moz-box-shadow: 0px 0px 5px 0px rgba(207,207,207,1);
+			box-shadow: 0px 0px 5px 0px rgba(207,207,207,1);
 			text-decoration: none;
-			font-family: verdana;
-			color: #339FFF;
+
+color: black;
 			background-color: white;
+
+			font-family: 'Open Sans', sans-serif;
+			
+			margin: 5px;
+	
+			-webkit-transition: background 0.5s; /* Safari */
+			transition: background-color 0.5s;
 			padding: 10px;
-			border-radius: 5px;
+			border-radius: 50px;
 			
 		}
 		.item:hover{
-			color: white;
-			background-color:#339FFF ;
+			color:white;
+					background-color: black;
 		}
 		a{
 			text-decoration: none;
 		}
 	</style>
+	
 </head>
 <body>
-	<div class="otros">
-		<p class="titulo">Otras cosas</p>
-		<a href="event.html"><p class="item">perro</p></a>
-		<a href="as.html"><p class="item">Arte Luis</p></a>
-		<a href="circulo.html"><p class="item">Sistema solar</p></a>
-		<a href="fly.html"><p class="item">Moscas</p></a>
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-4 col-sm-5 col-xs-6 affix">
+				   
+           
+			<div class="otros">
+				<h2><p class="titulo">Otras cosas</p></h2>
+				<a href="event.html"><p class="item">perro</p></a>
+				<a href="as.html"><p class="item">Arte Luis</p></a>
+				<a href="circulo.html"><p class="item">Sistema solar</p></a>
+				<a href="fly.html"><p class="item">Moscas</p></a>
+			</div>
+			       
+			</div>
+		</div>
 	</div>
 	<canvas id="canvas"></canvas>
+	
 	<script src="main.js"></script>
 </body>
 </html>
