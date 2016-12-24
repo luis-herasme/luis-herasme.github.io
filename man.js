@@ -29,16 +29,6 @@ function main() {
 	imageNumber1.onload = function() {
 		context.drawImage(imageNumber1, 100, 100);
 	}
-	
-
-
-	imageNumber1.src = "gol.png";
-	context.fillStyle = "#ffffaa";
-	context.fillRect(0, 0, 500, 500);
-	context.fillStyle = "#000000";
-	context.font = "20px Sans-Serif";
-	context.textBaseline = "top";
-	context.fillText("Esto es 2D", 195, 80);
 	setInterval(al , 10);
 	function al(){
 		for (let i = 0; i<10 ; i++){
