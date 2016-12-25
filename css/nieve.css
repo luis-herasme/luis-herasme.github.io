@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Mountains+of+Christmas');
 * {
     margin: 0px;
     padding: 0px;
@@ -6,10 +7,18 @@
 canvas {
     display: block;
     position: fixed;
+    top: 0px;
 }
 
 body {
-    background-color: #154360;
+    background: rgba(73, 155, 234, 1);
+    background: -moz-radial-gradient(center, ellipse cover, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+    background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop(0%, rgba(73, 155, 234, 1)), color-stop(100%, rgba(32, 124, 229, 1)));
+    background: -webkit-radial-gradient(center, ellipse cover, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+    background: -o-radial-gradient(center, ellipse cover, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+    background: -ms-radial-gradient(center, ellipse cover, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+    background: radial-gradient(ellipse at center, rgba(73, 155, 234, 1) 0%, rgba(32, 124, 229, 1) 100%);
+    filter: progid: DXImageTransform.Microsoft.gradient( startColorstr='#499bea', endColorstr='#207ce5', GradientType=1);
     text-align: center;
 }
 
@@ -18,7 +27,16 @@ body {
 }
 
 h1 {
+    margin-top: 25%;
     color: white;
-    font-family: Tahoma, sans-serif, Verdana;
+    font-family: 'Mountains of Christmas', cursive;
     font-size: 88px;
+}
+
+.luis {
+    bottom: 10px;
+    text-align: center;
+    color: white;
+    font-family: 'Mountains of Christmas', cursive;
+    font-size: 24px;
 }

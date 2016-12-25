@@ -61,14 +61,6 @@ window.onload = function() {
         requestAnimationFrame(draw);
     }
 
-    let header = document.createElement("div");
-    header.setAttribute("class", "header")
-    let titulo = document.createElement("h1");
-    let texto = document.createTextNode("Feliz navidad");
-    titulo.appendChild(texto);
-    header.appendChild(titulo);
-    document.body.appendChild(header);
-
     let myAudio = new Audio("./audio/navidad.mp3");
     myAudio.onload = function() {
         myAudio.play();
