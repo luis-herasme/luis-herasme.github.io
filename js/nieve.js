@@ -9,7 +9,7 @@ window.onload = function() {
     document.body.appendChild(lienzo);
     let contexto = lienzo.getContext("2d");
     let snows = [];
-    let numSnow = 200;
+    let numSnow = 1;
 
     let snow = {
         create: function() {
@@ -42,14 +42,16 @@ window.onload = function() {
         snows.push(snow.create());
     }
 
-    //    let nieve = setInterval(function() {
     snows = [];
     for (let i = 0; i < numSnow; i += 1) {
         snows.push(snow.create());
     }
     draw();
-    //    }, 1000);
 
+    let nieve = setInterval(function() {
+        numSnow += 1;
+        snows.push(snow.create());
+    }, 100);
 
     function draw() {
         contexto.clearRect(0, 0, anchoPantalla, altoPantalla);
@@ -67,5 +69,14 @@ window.onload = function() {
     header.appendChild(titulo);
     document.body.appendChild(header);
 
+    let myAudio = new Audio("./audio/navidad.mp3");
+    myAudio.onload = function() {
+        myAudio.play();
+    }
+    myAudio.addEventListener("ended", function() {
+        myAudio.currentTime = 0;
+        myAudio.play();
+    });
+    myAudio.play();
 
 }

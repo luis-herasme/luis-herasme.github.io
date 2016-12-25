@@ -19,7 +19,7 @@ function main() {
 
     }
 
-    let myAudio = new Audio("audio.mp3");
+    let myAudio = new Audio("./audio/audio.mp3");
     myAudio.addEventListener("ended", function() {
         this.currentTime = 0;
         this.play();
@@ -42,7 +42,7 @@ function main() {
     }
 
     document.getElementById('fondo').ondragstart = function() { return false; };
-    hunter.src = "hunter.png";
+    hunter.src = "./img/hunter.png";
 
     document.addEventListener('mousemove', movimiento, false);
 
@@ -101,7 +101,7 @@ function main() {
 
             context.beginPath();
             let img = new Image();
-            img.src = "fly.png";
+            img.src = "./img/fly.png";
 
             context.drawImage(img, width / 2 + x, height / 2 + y, 50, 50);
             context.fill();

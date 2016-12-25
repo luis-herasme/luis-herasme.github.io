@@ -1,0 +1,24 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+canvas {
+    display: block;
+    position: fixed;
+}
+
+body {
+    background-color: #154360;
+    text-align: center;
+}
+
+.header {
+    text-align: center;
+}
+
+h1 {
+    color: white;
+    font-family: Tahoma, sans-serif, Verdana;
+    font-size: 88px;
+}
