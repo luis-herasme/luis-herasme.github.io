@@ -9,7 +9,7 @@ window.onload = function() {
     document.body.appendChild(lienzo);
     let contexto = lienzo.getContext("2d");
     let snows = [];
-    let numSnow = 200;
+    let numSnow = 1000;
 
     let snow = {
         create: function() {
