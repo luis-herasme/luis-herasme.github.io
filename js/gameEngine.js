@@ -35,6 +35,11 @@ function gameEngine(width, height) {
         ctx.strokeRect(x, y, w, h);
     }
 
+    function image(img, x, y, w, h) {
+        ctx.beginPath();
+        ctx.drawImage(img, x, y, w, h);
+    }
+
     function vector2d(x = 0, y = 0) {
         this.x = x;
         this.y = y;
@@ -48,6 +53,7 @@ function gameEngine(width, height) {
         circle,
         rect,
         vector2d,
+        image,
         clear,
         strokeRect,
         centerX,
