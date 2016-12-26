@@ -77,6 +77,7 @@ function main() {
                     game.rect(posX - 2 + worldPos.x, posY - 2 + worldPos.y, scale - 1, scale - 1, "#cfc");
                     if (valu == 0) {
                         comidaPos.push([posX, posY]);
+
                         console.log("1Hum..");
                     }
                 }
@@ -94,6 +95,8 @@ function main() {
             if (xPosition > game.centerX - 50 && xPosition < game.centerX + 50) {
                 if (yPosition > game.centerY - 50 && yPosition < game.centerY + 50) {
                     console.log("Hum..");
+                    ball.size += 5;
+                    document.getElementById("puntos").innerHTML = ball.size;
                     comidaPos.splice(h, 1);
                 }
             }
