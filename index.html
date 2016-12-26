@@ -4,17 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <link rel="stylesheet" href="./css/theme.css">
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
     <script src="./js/gameEngine.js"></script>
     <script src=" ./js/game.js "></script>
     <link rel="stylesheet " href="./css/game.css ">
 </head>
 
 <body>
+    <div class="" id="nombreJuego">
+
+    </div>
     <div class="score">
         <p>Puntuación:
             <bold id="puntos">50</bold>
         </p>
     </div>
+    <div class="cover" id="cover">
+
+    </div>
+    <h1 id="hx1">Juego.io</h1>
+    <div class="menu" id="menu">
+
+        <div class="input-group item">
+            <span class="input-group-addon">Nombre de la partida</span>
+            <input type="text" id="nombre" class="form-control" aria-label="Amount (to the nearest dollar)">
+        </div>
+        <div class="input-group item">
+            <span class="input-group-addon" id="basic-addon1">Tamaño del mapa</span>
+            <div class="btn-group">
+                <button type="button" class="btn btn-primary" id="tamano">Tamaño</button>
+                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li id="grande"><a href="#">Grande</a></li>
+                    <li id="mediano"><a href="#">Mediano</a></li>
+                    <li id="pequeno"><a href="#">Pequeño</a></li>
+
+                </ul>
+            </div>
+        </div>
+
+        <div class="input-group item">
+            <span class="input-group-addon" id="basic-addon3">Cantidad de comida</span>
+            <div class="btn-group">
+                <button type="button" class="btn btn-danger" id="fre">comida</button>
+                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li id="muyfre"><a href="#">Mucha comida</a></li>
+                    <li id="norfre"><a href="#">Normal</a></li>
+                    <li id="pocofre"><a href="#">Poca comida</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li id="nofre"><a href="#">No se generara comida</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="input-group item">
+            <span class="input-group-addon" id="basic-addon3">Tiempo de la partida</span>
+            <div class="btn-group">
+                <button type="button" class="btn btn-warning" id="tim">Tiempo</button>
+                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="caret"></span>
+                    <span class="sr-only">Toggle Dropdown</span>
+                </button>
+                <ul class="dropdown-menu">
+                    <li id="tim5"><a href="#">5 minutos</a></li>
+                    <li id="tim10"><a href="#">10 minutos</a></li>
+                    <li id="tim15"><a href="#">15 minutos</a></li>
+                    <li role="separator" class="divider"></li>
+                    <li id="timI"><a href="#">Indefinido</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="input-group item btnL">
+
+            <input type="button" id="jugar" class="form-control btn btn-success btnL " value="jugar ">
+        </div>
+
+    </div>
+
 </body>
 
 </html>

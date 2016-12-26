@@ -1,6 +1,6 @@
 "use strict";
 
-window.onload = main;
+window.onload = interFaz;
 window.onmousemove = mousePos;
 //window.onwheel = mouseScroll;
 
@@ -11,12 +11,12 @@ var mouseX = 0,
     mapaT = 50,
     amountFood = 10,
     ball,
+    frecuencia = 0.98,
     comida = {},
     worldPos,
     hongo = new Image(),
     grass = new Image(),
     comidaPos = [];
-
 
 hongo.src = "./img/hongo.png";
 grass.src = "./img/grass.png"
@@ -56,6 +56,85 @@ function mouseScroll() {
 }
 */
 
+function interFaz() {
+    var jugar = document.getElementById("jugar");
+    var tam = document.getElementById("tamano");
+    var grande = document.getElementById("grande");
+
+    grande.onclick = function() {
+        tam.innerText = "Grande";
+        mapaT = mapaT * 3;
+    }
+    var mediano = document.getElementById("mediano");
+    mediano.onclick = function() {
+        tam.innerText = "Mediano";
+        mapaT = mapaT * 2;
+    }
+    var pequeno = document.getElementById("pequeno");
+    pequeno.onclick = function() {
+        tam.innerText = "Pequeño";
+        mapaT = mapaT * 1;
+    }
+
+    var fre = document.getElementById("fre");
+
+    var muyfre = document.getElementById("muyfre");
+    muyfre.onclick = function() {
+        fre.innerText = "Mucha comida";
+        frecuencia = 0.95;
+    }
+    var norfre = document.getElementById("norfre");
+    norfre.onclick = function() {
+        fre.innerText = "Normal";
+        frecuencia = 0.98;
+    }
+    var pocofre = document.getElementById("pocofre");
+    pocofre.onclick = function() {
+        fre.innerText = "Poca comida";
+        frecuencia = 0.995;
+    }
+    var nofre = document.getElementById("nofre");
+    nofre.onclick = function() {
+        fre.innerText = "No se generara comida";
+        frecuencia = 1;
+    }
+
+    var tim = document.getElementById("tim");
+
+    var tim5 = document.getElementById("tim5");
+    tim5.onclick = function() {
+        tim.innerText = "5 Minutos";
+    }
+    var tim10 = document.getElementById("tim10");
+    tim10.onclick = function() {
+        tim.innerText = "10 Minutos";
+    }
+    var tim15 = document.getElementById("tim15");
+    tim15.onclick = function() {
+        tim.innerText = "15 Minutos";
+    }
+    var timI = document.getElementById("timI");
+    timI.onclick = function() {
+        tim.innerText = "Indefinido";
+    }
+
+    jugar.onclick = function() {
+        var nombre = document.getElementById("nombre").value;
+        var nj = document.getElementById("nombreJuego");
+        var te = document.createElement("p");
+        te.innerText = nombre;
+        nj.appendChild(te);
+        nj.setAttribute('class', 'nj');
+        var hx1 = document.getElementById("hx1");
+        var menu = document.getElementById("menu");
+        var cover = document.getElementById("cover");
+        hx1.setAttribute('class', 'hidden');
+        menu.setAttribute('class', 'hidden');
+        cover.setAttribute('class', 'hidden');
+        main();
+    }
+}
+
 function mousePos() {
     var e = window.event;
     mouseX = e.clientX;
@@ -63,6 +142,7 @@ function mousePos() {
 }
 
 function main() {
+
     comida.size = scale;
     var game = new gameEngine();
     worldPos = new game.vector2d();
@@ -82,7 +162,7 @@ function main() {
             result.push([]);
             for (var y = 0; y < size; y++) {
                 let posible = Math.random();
-                if (posible > 0.97) {
+                if (posible > frecuencia) {
                     result[x].push("food");
                 } else {
                     result[x].push("land");
@@ -92,7 +172,6 @@ function main() {
         return result;
     }
     var valu = 0;
-
 
     function mapa(map) {
         game.clear();
@@ -108,20 +187,15 @@ function main() {
 
                     if (valu == 0) {
                         comidaPos.push([posX, posY]);
-
-                        //console.log("1Hum..");
                     }
                 }
             }
         }
         valu = 1;
-        //console.log(comidaPos);
         for (var h = 0; h < comidaPos.length; h++) {
 
-            var xPosition = comidaPos[h][0] /*+ (scale / 2) - 2*/ + worldPos.x;
-            var yPosition = comidaPos[h][1] /*+ (scale / 2) - 2*/ + worldPos.y;
-
-            //game.circle(xPosition, yPosition, comida.size / 2, "#ff5959");
+            var xPosition = comidaPos[h][0] + worldPos.x;
+            var yPosition = comidaPos[h][1] + worldPos.y;
             game.image(hongo, xPosition, yPosition, comida.size, comida.size);
             if (xPosition > game.centerX - ball.size && xPosition < game.centerX + ball.size) {
                 if (yPosition > game.centerY - ball.size && yPosition < game.centerY + ball.size) {
@@ -135,7 +209,6 @@ function main() {
     }
 
     render();
-
 
     /*setInterval(function() {
         comida.size += 1;
