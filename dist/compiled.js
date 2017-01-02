@@ -46,8 +46,8 @@
 
 	"use strict";
 	var createWorld_1 = __webpack_require__(1);
-	var preload_1 = __webpack_require__(3);
-	var starter_1 = __webpack_require__(4);
+	var preload_1 = __webpack_require__(5);
+	var starter_1 = __webpack_require__(6);
 	var StartGame = (function () {
 	    function StartGame() {
 	        var width = window.innerWidth;
@@ -61,10 +61,8 @@
 	        preload_1.preload.bind(this)();
 	    };
 	    StartGame.prototype.create = function () {
-	        var mundo = new createWorld_1.createWorld(this.game, 20, 100);
+	        var mundo = new createWorld_1.createWorld(this.game, 10, 10);
 	        mundo.loadGrass();
-	        mundo.loadSand();
-	        mundo.loadWater();
 	    };
 	    StartGame.prototype.update = function () {
 	    };
@@ -86,12 +84,13 @@
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var Grass_1 = __webpack_require__(7);
-	var Water_1 = __webpack_require__(8);
+	var Grass_1 = __webpack_require__(2);
+	var Water_1 = __webpack_require__(4);
 	var createWorld = (function () {
 	    function createWorld(game, width, height) {
 	        game.kineticScrolling.start();
-	        game.world.setBounds(0, 0, 10300, 20300);
+	        game.world.setBounds(-2000, 0, 5000, 5000);
+	        game.world.rotation = 45;
 	        this.game = game;
 	        this.objectos = [];
 	        this.width = width;
@@ -128,134 +127,54 @@
 
 /***/ },
 /* 2 */
-/***/ function(module, exports) {
-
-	"use strict";
-	var style1 = {
-	    fontFamily: 'Verdana',
-	    fontSize: '35px',
-	    fontWeight: 'bold',
-	    fill: '#fff',
-	    stroke: '#E74C3C',
-	    strokeThickness: 5,
-	    wordWrap: true,
-	    wordWrapWidth: 440
-	};
-	exports.style1 = style1;
-	var style2 = {
-	    fontFamily: 'Verdana',
-	    fontSize: '35px',
-	    fontWeight: 'bold',
-	    fill: '#fff',
-	    stroke: '#000',
-	    strokeThickness: 5,
-	    wordWrap: true,
-	    wordWrapWidth: 440
-	};
-	exports.style2 = style2;
-	var style3 = {
-	    fontFamily: 'Verdana',
-	    fontSize: '15px',
-	    fontWeight: 'bold',
-	    fill: '#F7EDCA',
-	    stroke: '#E74C3C',
-	    strokeThickness: 5,
-	    wordWrap: true,
-	    wordWrapWidth: 440
-	};
-	exports.style3 = style3;
-	var style4 = {
-	    fontFamily: 'Verdana',
-	    fontSize: '15px',
-	    fontWeight: 'bold',
-	    fill: '#F7EDCA',
-	    stroke: '#515A5A',
-	    strokeThickness: 5,
-	    wordWrap: true,
-	    wordWrapWidth: 440
-	};
-	exports.style4 = style4;
-	/*
-	    dropShadow: true,
-	    dropShadowColor: '#000000',
-	    dropShadowAngle: Math.PI / 6,
-	    dropShadowDistance: 6,
-	*/ 
-
-
-/***/ },
-/* 3 */
-/***/ function(module, exports) {
-
-	"use strict";
-	function preload() {
-	    this.game.load.spritesheet('water', './assets/water.png', 256, 256, 32);
-	    this.game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
-	    var game = this.game;
-	    this.game.scale.setResizeCallback(function () {
-	        game.scale.setMaximum();
-	    });
-	    this.game.load.image('grass', './assets/grass.jpg');
-	    this.game.load.image('sand', './assets/sand.jpg');
-	}
-	exports.preload = preload;
-
-
-/***/ },
-/* 4 */
-/***/ function(module, exports) {
-
-	"use strict";
-	function starter() {
-	    this.game.kineticScrolling = this.game.plugins.add(Phaser.Plugin.KineticScrolling);
-	    this.game.kineticScrolling.configure({
-	        kineticMovement: true,
-	        timeConstantScroll: 325,
-	        horizontalScroll: true,
-	        verticalScroll: true,
-	        horizontalWheel: false,
-	        verticalWheel: false,
-	        deltaWheel: 40
-	    });
-	}
-	exports.starter = starter;
-
-
-/***/ },
-/* 5 */,
-/* 6 */,
-/* 7 */
 /***/ function(module, exports, __webpack_require__) {
 
 	"use strict";
-	var textStyles_1 = __webpack_require__(2);
+	var textStyles_1 = __webpack_require__(3);
 	var Grass = (function () {
 	    function Grass(game, posicionX, posicionY) {
+	        this.tomado = false;
 	        this.x = posicionX;
 	        this.y = posicionY;
 	        this.game = game;
 	        this.numero = -1;
 	        this.cuadradoCreado = false;
 	        this.imagen = this.game.add.sprite(0, 0, 'grass');
+	        if (Math.random() > 0.2) {
+	            this.forest = this.game.add.sprite(0, 0, 'forest');
+	            this.forest.x = this.x - 25;
+	            this.forest.y = this.y + 125;
+	            this.forest.rotation = -45;
+	            this.forest.scale.set(0.13);
+	        }
+	        console.log(this.x, this.y);
 	        this.imagen.x = this.x;
 	        this.imagen.y = this.y;
 	        this.imagen.inputEnabled = true;
 	        this.imagen.events.onInputDown.add(this.clicked, this);
 	        this.imagen.scale.set(0.4);
-	        this.texto = this.game.add.text(this.x + 20, this.y + 20, this.numero, textStyles_1.style2);
+	        this.texto = this.game.add.text(this.x + 20, this.y + 20, this.numero, textStyles_1.style1);
+	        this.texto.rotation = -45;
 	        this.graphics = this.game.add.graphics(0, 0);
 	        this.angulo = 0;
+	        this.termino = true;
 	    }
 	    Grass.prototype.clicked = function () {
 	        var _this = this;
-	        this.graphics2 = this.game.add.graphics(0, 0);
-	        var carga = setInterval(function () {
-	            _this.loaderCircular();
-	            if (_this.angulo == 360) {
-	                _this.angulo = 0;
-	                clearInterval(carga);
-	            }
-	        }, 100);
+	        if (this.termino) {
+	            this.graphics2 = this.game.add.graphics(0, 0);
+	            this.termino = false;
+	            var carga_1 = setInterval(function () {
+	                _this.loaderCircular();
+	                if (_this.angulo >= 360) {
+	                    _this.angulo = 0;
+	                    clearInterval(carga_1);
+	                    _this.termino = true;
+	                }
+	            }, 50);
+	            //this.graphics2.destroy();
+	            this.tomado = true;
+	        }
 	    };
 	    Grass.prototype.loaderCircular = function () {
 	        this.graphics2.lineStyle(0);
@@ -275,6 +194,7 @@
 	            }
 	            this.texto.destroy();
 	            this.texto = this.game.add.text(this.x + 20, this.y + 20, this.numero, textStyles_1.style2);
+	            this.texto.rotation = -45;
 	            this.graphics2.destroy();
 	        }
 	    };
@@ -290,7 +210,46 @@
 
 
 /***/ },
-/* 8 */
+/* 3 */
+/***/ function(module, exports) {
+
+	"use strict";
+	var style1 = {
+	    font: 'bold 25px Verdana',
+	    fill: '#FFFFFF',
+	    stroke: '#E74C3C',
+	    strokeThickness: 5,
+	    wordWrap: true,
+	    wordWrapWidth: 440
+	};
+	exports.style1 = style1;
+	var style2 = {
+	    font: 'bold 25px Verdana',
+	    fill: '#FFFFFF',
+	    stroke: '#424949',
+	    strokeThickness: 5,
+	    wordWrap: true,
+	    wordWrapWidth: 440
+	};
+	exports.style2 = style2;
+	var style3 = {
+	    fill: '#F7EDCA',
+	    stroke: '#E74C3C',
+	    strokeThickness: 5,
+	    wordWrap: true,
+	    wordWrapWidth: 440
+	};
+	exports.style3 = style3;
+	/*
+	    dropShadow: true,
+	    dropShadowColor: '#000000',
+	    dropShadowAngle: Math.PI / 6,
+	    dropShadowDistance: 6,
+	*/ 
+
+
+/***/ },
+/* 4 */
 /***/ function(module, exports) {
 
 	"use strict";
@@ -312,6 +271,45 @@
 	    return Water;
 	}());
 	exports.Water = Water;
+
+
+/***/ },
+/* 5 */
+/***/ function(module, exports) {
+
+	"use strict";
+	function preload() {
+	    this.game.load.spritesheet('water', './assets/water.png', 256, 256, 32);
+	    this.game.scale.scaleMode = Phaser.ScaleManager.RESIZE;
+	    var game = this.game;
+	    this.game.scale.setResizeCallback(function () {
+	        game.scale.setMaximum();
+	    });
+	    this.game.load.image('grass', './assets/grass.jpg');
+	    this.game.load.image('sand', './assets/sand.jpg');
+	    this.game.load.image('forest', './assets/forest.png');
+	}
+	exports.preload = preload;
+
+
+/***/ },
+/* 6 */
+/***/ function(module, exports) {
+
+	"use strict";
+	function starter() {
+	    this.game.kineticScrolling = this.game.plugins.add(Phaser.Plugin.KineticScrolling);
+	    this.game.kineticScrolling.configure({
+	        kineticMovement: true,
+	        timeConstantScroll: 325,
+	        horizontalScroll: true,
+	        verticalScroll: true,
+	        horizontalWheel: false,
+	        verticalWheel: false,
+	        deltaWheel: 40
+	    });
+	}
+	exports.starter = starter;
 
 
 /***/ }
