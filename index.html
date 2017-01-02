@@ -4,96 +4,96 @@
 <head>
     <meta charset="UTF-8">
     <title>Document</title>
-    <!-- Latest compiled and minified CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-    <link rel="stylesheet" href="./css/theme.css">
-    <!-- Latest compiled and minified JavaScript -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
-    <script src="./js/gameEngine.js"></script>
-    <script src=" ./js/game.js "></script>
-    <link rel="stylesheet " href="./css/game.css ">
+
+    <script src="./dist/phaser.min.js"></script>
+    <script src="./dist/phaser-kinetic-scrolling-plugin.min.js"></script>
+    <script src="./dist/compiled.js"></script>
+
+    <link rel="stylesheet" href="./css/tema.css">
+    <link rel="stylesheet" href="./css/index.css">
 </head>
 
 <body>
-    <div class="" id="nombreJuego">
-
-    </div>
-    <div class="score">
-        <p>Puntuación:
-            <bold id="puntos">50</bold>
-        </p>
-    </div>
-    <div class="cover" id="cover">
-
-    </div>
-    <h1 id="hx1">Juego.io</h1>
-    <div class="menu" id="menu">
-
-        <div class="input-group item">
-            <span class="input-group-addon">Nombre de la partida</span>
-            <input type="text" id="nombre" class="form-control" aria-label="Amount (to the nearest dollar)">
+    <script src="./dist/compiled.js"></script>
+    <div class="row">
+        <div class="col-md-3" style="position: fixed;top:20px;right:5px;">
+            <div class="list-group cuadro">
+                <a href="#" class="list-group-item titu">Leaderboard</a>
+                <a href="#" class="list-group-item listItem">1. Dapibus ac facilisis in</a>
+                <a href="#" class="list-group-item listItem">2. Morbi leo risus</a>
+                <a href="#" class="list-group-item listItem">3. Masdasdgfo risus</a>
+                <a href="#" class="list-group-item listItem">4. Morbasdfasdfasdfisus</a>
+                <a href="#" class="list-group-item listItem">5. dffdsfasdggus</a>
+                <a href="#" class="list-group-item titu">22. EL NOMBRE QUE TE PUSISTE</a>
+            </div>
         </div>
-        <div class="input-group item">
-            <span class="input-group-addon" id="basic-addon1">Tamaño del mapa</span>
-            <div class="btn-group">
-                <button type="button" class="btn btn-primary" id="tamano">Tamaño</button>
-                <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li id="grande"><a href="#">Grande</a></li>
-                    <li id="mediano"><a href="#">Mediano</a></li>
-                    <li id="pequeno"><a href="#">Pequeño</a></li>
+    </div>
 
-                </ul>
+    <div class="row">
+        <div class="col-md-4" style="position: fixed;bottom:20px;left:5px;">
+            <div class="contenedorOro">
+
+                <nav class="navbar navbar-default" id="goldReserve">
+                    <div class="container-fluid">
+                        <div class="navbar-header">
+                            <a class="navbar-brand">
+                                <img src="./assets/money-bag.svg" id="flag">
+                            </a>
+                            <p class="navbar-text navbar-right goldText" id="oro">Reserve: 50</p>
+                        </div>
+                    </div>
+                </nav>
+                <div class="row">
+                    <div class="col-md-6 sinpa1">
+                        <nav class="navbar navbar-default" id="goldProduction">
+                            <div class="container-fluid">
+                                <div class="navbar-header">
+                                    <a class="navbar-brand">
+                                        <img src="./assets/money-bag.svg" id="flag">
+                                    </a>
+                                    <p class="navbar-text navbar-right goldText">+ 1</p>
+                                </div>
+                            </div>
+
+                        </nav>
+                    </div>
+                    <div class="col-md-6 sinpa2">
+                        <div class="progress mzero">
+                            <div class="progress-bar progress-bar-success" id="pro"></div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
 
-        <div class="input-group item">
-            <span class="input-group-addon" id="basic-addon3">Cantidad de comida</span>
-            <div class="btn-group">
-                <button type="button" class="btn btn-danger" id="fre">comida</button>
-                <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li id="muyfre"><a href="#">Mucha comida</a></li>
-                    <li id="norfre"><a href="#">Normal</a></li>
-                    <li id="pocofre"><a href="#">Poca comida</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li id="nofre"><a href="#">No se generara comida</a></li>
-                </ul>
-            </div>
+        <div class="col-md-3" style="position: fixed;top:20px;left:5px;">
+            <nav class="navbar navbar-default" id="goldReserve">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand">
+                            <img src="./assets/peace-dove.svg" id="flag">
+                        </a>
+                        <p id="goldText" class="navbar-text navbar-right">Aliados</p>
+                    </div>
+                </div>
+            </nav>
+            <nav class="navbar navbar-default" id="goldReserve">
+                <div class="container-fluid">
+                    <div class="navbar-header">
+                        <a class="navbar-brand">
+                            <img src="./assets/flag.svg" id="flag">
+                        </a>
+                        <p id="terrenos" class="navbar-text navbar-right goldText">Territorios: 1</p>
+                    </div>
+                </div>
+            </nav>
+
         </div>
-
-        <div class="input-group item">
-            <span class="input-group-addon" id="basic-addon3">Tiempo de la partida</span>
-            <div class="btn-group">
-                <button type="button" class="btn btn-warning" id="tim">Tiempo</button>
-                <button type="button" class="btn btn-warning dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    <span class="caret"></span>
-                    <span class="sr-only">Toggle Dropdown</span>
-                </button>
-                <ul class="dropdown-menu">
-                    <li id="tim5"><a href="#">5 minutos</a></li>
-                    <li id="tim10"><a href="#">10 minutos</a></li>
-                    <li id="tim15"><a href="#">15 minutos</a></li>
-                    <li role="separator" class="divider"></li>
-                    <li id="timI"><a href="#">Indefinido</a></li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="input-group item btnL">
-
-            <input type="button" id="jugar" class="form-control btn btn-success btnL " value="jugar ">
-        </div>
-
     </div>
-
 </body>
 
 </html>

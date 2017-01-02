@@ -1,0 +1,96 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+canvas {
+    display: block;
+}
+
+#flag {
+    width: 25px;
+}
+
+.sd {
+    background-color: #2E86C1;
+}
+
+#terrenos2 {
+    font-weight: bold;
+    font-size: 15px;
+}
+
+#goldReserve {
+    background-color: black;
+    border: solid 2px #fff;
+    margin-bottom: 10px !important;
+}
+
+#goldProduction {
+    width: 100%;
+    background-color: black;
+    border: solid 2px #fff;
+    margin-top: 3px;
+    margin-right: 0px;
+    margin-bottom: 0px !important;
+    margin-left: 0px;
+}
+
+.cuadro {
+    border: solid 1px white;
+    padding: 0px;
+}
+
+.listItem {
+    color: black !important;
+}
+
+.list-group-item {
+    border-color: white !important;
+}
+
+.goldText {
+    font-size: 16px;
+    color: white;
+}
+
+.contenedorOro {
+    border: solid 2px white;
+    background-color: black;
+    padding: 15px;
+}
+
+.titu {
+    background-color: black !important;
+    color: white !important;
+}
+
+.titu:hover {
+    background-color: black !important;
+    color: white !important;
+}
+
+.mzero {
+    height: 49px;
+    padding-left: 0px;
+    margin-top: 3px;
+    margin-right: 0px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+}
+
+.sinpa1 {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 15px;
+    padding-right: 0px;
+}
+
+.sinpa2 {
+    padding-bottom: 0px;
+    padding-top: 0px;
+    padding-left: 0px;
+    padding-right: 15px;
+}
