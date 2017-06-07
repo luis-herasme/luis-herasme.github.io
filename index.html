@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+    <link rel="stylesheet" href="./materialize/css/materialize.min.css">
+
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Domine');
+        body {
+            background: black;
+        }
+
+        * {
+            font-family: 'Domine', serif;
+        }
+
+        .logo {
+            font-size: 36px;
+        }
+
+        .typed-cursor {
+            opacity: 1;
+            -webkit-animation: blink 0.7s infinite;
+            -moz-animation: blink 0.7s infinite;
+            animation: blink 0.7s infinite;
+        }
+
+        @keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-webkit-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        @-moz-keyframes blink {
+            0% {
+                opacity: 1;
+            }
+            50% {
+                opacity: 0;
+            }
+            100% {
+                opacity: 1;
+            }
+        }
+
+        h1 {
+            color: white;
+        }
+
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .background {
+            position: absolute;
+            display: block;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+    </style>
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
+
+</head>
+
+<body>
+    <canvas class="background"></canvas>
+    <div class="container center">
+
+        <h1>
+            Luis
+            <br> Herasme
+
+        </h1>
+
+        <div class="card">
+            <div class="card-content">
+                <p class="logo"><span id="element"></span></p>
+
+
+                <h4>Who I am?</h4>
+                <div class="container">
+                    <p>
+                        I'm a young programmer from the Dominican Republic and I'm passionate about Programming, Designing, and Entrepreneurship
+                    </p>
+                </div>
+
+
+                <h4>What have I made?</h4>
+
+                <div class="row">
+                    <div class="col m6">
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="Mars.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">A 3D website</span>
+                                
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">A 3D website</span>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col m6">
+
+                        <div class="card">
+                            <div class="card-image waves-effect waves-block waves-light">
+                                <img class="activator" src="Anipeli.png">
+                            </div>
+                            <div class="card-content">
+                                <span class="card-title activator grey-text text-darken-4">Movies website</span>
+                                
+                            </div>
+                            <div class="card-reveal">
+                                <span class="card-title grey-text text-darken-4">Movies website</span>
+                                <p></p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+    <script src="typed.min.js"></script>
+    <script>
+        Typed.new('#element', {
+            strings: ["Programming", "Entrepreneurship", "Designing"],
+            typeSpeed: 120
+        });
+
+        setInterval(function () {
+
+            Typed.new('#element', {
+                strings: ["Programming", "Entrepreneurship", "Designing"],
+                typeSpeed: 120
+            });
+
+        }, 10000)
+    </script>
+    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="./materialize/js/materialize.min.js"></script>
+    <script>
+        
+        window.onload = function () {
+            Particles.init({
+                selector: '.background',
+                maxParticles: 250,
+                color: '#ffffff',
+                connectParticles: false,
+            });
+        };
+    </script>
+
+</body>
+
+</html>
