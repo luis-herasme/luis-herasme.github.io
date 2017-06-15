@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Juego</title>
+    <script src="./jquery-3.2.1.min.js"></script>
+    <link rel="stylesheet" href="./uikit.min.css">
+    <script src="./uikit.min.js"></script>
+    <script src="./howler.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
+    <script src="./bundle.js"></script>
+</head>
+
+<body>
+    <div id="modal-example" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body wood">
+            <h2 class="uk-modal-title white">Opciones</h2>
+            <button id="musica" class="no uk-width-@1">Parar musica de fondo</button>
+            <p class="uk-text-right">
+                <button class="no uk-modal-close" type="button">Cerrar</button>
+            </p>
+        </div>
+    </div>
+    <div id="inventario" uk-modal>
+        <div class="uk-modal-dialog uk-modal-body wood">
+            <h2 class="uk-modal-title white">Inventario</h2>
+            <div class="inventario" id="invent">
+                <h3 class="white">El inventario esta vacio</h3>
+            </div>
+            <p class="uk-text-right">
+                <button class="no uk-modal-close" type="button">Cerrar</button>
+            </p>
+        </div>
+    </div>
+    <div class="uk-container uk-text-center">
+        <div id="menu">
+            <div class="uk-float-left">
+                <div uk-toggle="target: #modal-example" class="no">
+                    Opciones
+                </div>
+            </div>
+        </div>
+        <img src="./logo.png" alt="">
+        <div class="uk-flex uk-flex-center ">
+            <div class="uk-card uk-card-secondary uk-margin-top uk-card-body uk-width-1-2@m">
+                <h3 class="uk-card-title" id="text">Aventurero</h3>
+                <div id="options">
+                    <div id="nuevo" class="si btn_music">
+                        Empezar nueva partida
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
