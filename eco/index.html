@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+* { margin:0; padding:0; } 
+body{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+html, body { 
+    width:100%; 
+    height:100%; 
+}
+
+canvas { display:block; } 
+.datos {
+    position: fixed;
+    top:0px;
+    background-color: black;
+    opacity: 0.75;
+    margin: 5PX;
+    padding: 5px;
+}
+#config{
+    position: fixed;
+    left: 50%;
+    top:50%;  
+    background: #CCC;
+    color: #333;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+#blo {
+    width: 5000px;
+    height: 5000px;
+    background-color: black;
+    opacity: 0.85;
+    position: fixed;
+    top: 0px;
+
+}
+.boton {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+    color: black;
+    color: white;
+    border: 2px solid #4CAF50; /* Green */
+    background-color: #4CAF50; /* Green */
+    width: 100%;
+    padding: 5px;
+}
+
+.boton:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid white; /* Green */
+    color: black;
+}
+
+input{
+    float: right;
+    width: 15%;
+}
+
+    </style>
+    <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js'></script>-->
+</head>
+<body>
+    <canvas id="lienzo"></canvas>
+    <div class="datos">
+        <h1>
+            <span id='plantas'>Poblacion de plantas: 0</span>
+            <br>
+            <span id='conejos'>Poblacion de conejos: 0</span>
+            <br>
+            <span id='coyotes'>Poblacion de coyotes: 0</span>
+            <br>
+            <span class="boton" id='instrucciones'>Instrucciones</span>
+            <script>
+                let intu = document.getElementById('instrucciones')
+                intu.addEventListener('click', () => {
+                    alert('Click derecho para crear conejo \nClick izquierdo para crear una planta')
+                })
+            </script>
+        </h1>
+    </div>
+    <div id="blo"></div>
+    <div id="config">
+<!--
+<canvas id="myCxhart" width="400" height="400"></canvas>
+<script>
+var ctx = document.getElementById("myChart");
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Red", "Blue", "Yellow", "Green", "Purple", "Orange","Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        datasets: [{
+//            label: '# of Votes',
+            data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+
+            ],
+            borderColor: [
+                'rgba(255,99,132,1)',
+
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            yAxes: [{
+                ticks: {
+                    beginAtZero:true
+                }
+            }]
+        }
+    }
+});
+
+</script>
+        -->
+    <h2>Configuracion</h2>
+    <br>
+    <br>
+    <h3>Plantas</h3>
+    <hr>
+    <br>
+    Tamaño maximo de planta<input id='plantSize' value='10' type="number">
+    <br>
+    <br>
+    Tasa de crecimiento de la plata <input type="number" id='growRate' value="0.02">
+    <br>
+    <br>
+    <br>
+    <div class="lado">
+ 
+    <h3>Conejos</h3>
+    <hr>
+    <br>
+    Ritmo al cual los conejos mueren de hambre <input id='hrate' value="0.2" type="number">
+    <br>
+    <br>
+    Velocidad de los conejos y coyotes<input id='rvelo' value="5" type="number">
+    <br>
+    <br>
+    Frecuencia de reproduccion del conejo<input id='rfre' value='1' type="number">
+    <br>
+    <br>
+    Tamaño maximo de conejo<input id='rMaxSize' value='25' type="number">
+    <br>
+    <br>
+    Tamaño inicial de conejo<input id='rISize' value='5' type="number">
+    <br>
+    <br>
+    <br>
+
+
+
+    </div>
+
+    <button id="hecho" class="boton">Hecho</button>
+
+
+    </div>
+
+    <script src="./dist/bundle.js"></script>
+</body>
+</html>
