@@ -30,8 +30,8 @@ canvas { display:block; }
     position: fixed;
     left: 50%;
     top:50%;  
-    background: #CCC;
-    color: #333;
+    background: rgba(0,0,0,0.5);
+    color: #888;
     padding: 20px;
     transform: translate(-50%, -50%);
     z-index: 10;
@@ -76,9 +76,26 @@ input{
     float: right;
     width: 15%;
 }
+.xChart{
+    position: fixed;
+    bottom: 0px;
+    width: 500px;
+    padding: 0px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 15px;
+}
+.xChart2{
+    right: 0px;
+    position: fixed;
+    bottom: 0px;
+    width: 500px;
+    padding: 0px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 15px;
+}
 
     </style>
-    <!--<script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js'></script>-->
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js'></script>
 </head>
 <body>
     <canvas id="lienzo"></canvas>
@@ -94,48 +111,83 @@ input{
             <script>
                 let intu = document.getElementById('instrucciones')
                 intu.addEventListener('click', () => {
-                    alert('Click derecho para crear conejo \nClick izquierdo para crear una planta')
+                    alert('Click derecho para crear 50 conejos \nClick izquierdo para crear una planta \nWASD para moverte\nr para generar coyote en su posicion inicial\ng para generar 50 plantas')
                 })
             </script>
         </h1>
     </div>
     <div id="blo"></div>
-    <div id="config">
-<!--
-<canvas id="myCxhart" width="400" height="400"></canvas>
+    
+    <div class="xChart">
+
+<canvas id="myChart" width="400" height="150"></canvas>
 <script>
-var ctx = document.getElementById("myChart");
-var myChart = new Chart(ctx, {
+var ctx = document.getElementById("myChart").getContext('2d');
+
+window.myChart = new Chart(ctx, {
     type: 'line',
     data: {
-        labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange","Red", "Blue", "Yellow", "Green", "Purple", "Orange","Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
+        labels: [0],
         datasets: [{
-//            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3, 12, 19, 3, 5, 2, 3],
-            backgroundColor: [
-                'rgba(255, 99, 132, 0.2)',
-
-            ],
-            borderColor: [
-                'rgba(255,99,132,1)',
-
-            ],
-            borderWidth: 1
-        }]
-    },
-    options: {
-        scales: {
-            yAxes: [{
-                ticks: {
-                    beginAtZero:true
-                }
-            }]
+            label: 'Poblacion Plantas',
+            data: [0],
+            borderColor: 'rgba(0, 255, 0, 0.5)',
+        },
+        {
+            label: 'Poblacion Coyotes',
+            data: [0],
+            borderColor: 'rgba(255, 0, 0, 0.5)',
+          
+        },
+        {
+            label: 'Poblacion Conejos',
+            data: [0],
+            borderColor: 'rgba(0, 0, 255, 0.5)',
+          
         }
+        ]
     }
 });
-
 </script>
-        -->
+        
+    </div>
+
+    <div class="xChart2">
+
+<canvas id="myChart2" width="400" height="150"></canvas>
+<script>
+var ctx2 = document.getElementById("myChart2").getContext('2d');
+
+window.myChart2 = new Chart(ctx2, {
+    type: 'line',
+    data: {
+        labels: [0],
+        datasets: [{
+            label: 'Genes verdes',
+            data: [0],
+            borderColor: 'rgba(0, 255, 0, 0.5)',
+        },
+        {
+            label: 'Genes rojos',
+            data: [0],
+            borderColor: 'rgba(255, 0, 0, 0.5)',
+          
+        },
+        {
+            label: 'Genes azules',
+            data: [0],
+            borderColor: 'rgba(0, 0, 255, 0.5)',
+          
+        }
+        ]
+    }
+});
+</script>
+        
+    </div>
+
+    <div id="config">
+
     <h2>Configuracion</h2>
     <br>
     <br>
@@ -145,7 +197,7 @@ var myChart = new Chart(ctx, {
     Tamaño maximo de planta<input id='plantSize' value='10' type="number">
     <br>
     <br>
-    Tasa de crecimiento de la plata <input type="number" id='growRate' value="0.02">
+    Tasa de crecimiento de la plata <input type="number" id='growRate' value="0.12">
     <br>
     <br>
     <br>

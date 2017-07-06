@@ -159,6 +159,11 @@ exports.default = Vector2D;
 
 var canvasWindow = document.getElementById('lienzo');
 
+var pos = {
+  x: 0,
+  y: 0
+};
+
 canvasWindow.width = window.innerWidth;
 canvasWindow.height = window.innerHeight;
 
@@ -172,27 +177,32 @@ function rect(x, y, positionX, positionY) {
 }
 
 function circle(positionX, positionY, size, color, texto, position) {
-  if (position.x < window.innerWidth && position.x > 0) {
-    if (position.y < window.innerHeight && position.y > 0) {
-      context.beginPath();
-      context.fillStyle = color;
-      context.arc(positionX, positionY, size, 0, 2 * Math.PI);
-      // context.stroke()
-      context.fill();
-      if (texto) {
-        context.fillStyle = '#ffffff';
-        context.fillText(texto.toFixed(2), position.x - 15, position.y - 20);
-      }
-    }
+  //if (position.x < window.innerWidth - x && position.x > 0 - x) {
+  //  if (position.y < window.innerHeight - y && position.y > 0 - y) {
+  context.beginPath();
+  context.fillStyle = color;
+  context.arc(positionX, positionY, size, 0, 2 * Math.PI);
+  context.lineWidth = 5;
+  context.stroke();
+  context.fill();
+  if (texto) {
+    context.fillStyle = '#ffffff';
+    context.fillText(texto.toFixed(2), position.x - 15, position.y - 20);
   }
+  //  }
+  //}
 }
 
 function clear() {
-  context.fillStyle = '#000000';
-  context.fillRect(0, 0, window.innerWidth, window.innerHeight);
+  context.fillStyle = '#2F2F3F';
+  //console.log(-pos.y)
+  context.save();
+  context.setTransform(1, 0, 0, 1, 0, 0);
+  context.fillRect(0, 0, canvasWindow.width, canvasWindow.height);
+  context.restore();
 }
 
-module.exports = { circle: circle, rect: rect, clear: clear };
+module.exports = { circle: circle, rect: rect, clear: clear, context: context, pos: pos };
 
 /***/ }),
 /* 2 */
@@ -228,7 +238,7 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 var Bunny = function (_Animal) {
   _inherits(Bunny, _Animal);
 
-  function Bunny(x, y) {
+  function Bunny(x, y, genes) {
     _classCallCheck(this, Bunny);
 
     var _this = _possibleConstructorReturn(this, (Bunny.__proto__ || Object.getPrototypeOf(Bunny)).call(this, x, y));
@@ -237,15 +247,34 @@ var Bunny = function (_Animal) {
     _this.hungry = 100;
     _this.lastSize = 0;
     _this.hijos = [];
+    _this.maxVelocity = Math.random();
+
+    if (genes) {
+      genes.c = (genes.c * 19 + Math.random()) / 20;
+      genes.v = (genes.v * 19 + Math.random()) / 20;
+      genes.hr = (genes.hr * 19 + Math.random()) / 20;
+
+      _this.maxVelocity = genes.v;
+      _this.color = 'rgb(' + Math.round(genes.hr * 255) + ',' + Math.round(genes.c * 255) + ',' + Math.round(genes.v * 255) + ')';
+      _this.genes = genes;
+    } else {
+      _this.camuflage = Math.random();
+      _this.genes = {
+        c: _this.camuflage,
+        v: _this.maxVelocity,
+        hr: _this.hrate
+      };
+    }
     return _this;
   }
 
   _createClass(Bunny, [{
     key: 'think',
-    value: function think(comida, posiciones, poblacion) {
+    value: function think(comida, posiciones, poblacion, evitar) {
       var _this2 = this;
 
-      this.hungry -= this.hrate;
+      this.hungry -= this.genes.hr / 6;
+
       var relativo = posiciones.map(function (x) {
         return _Vector2D2.default.sub(x, _this2.position);
       });
@@ -254,32 +283,47 @@ var Bunny = function (_Animal) {
       });
       var masCercano = Math.min.apply(Math, _toConsumableArray(distances));
 
-      if (masCercano < this.size * 2) {
-        this.size += this.frecuency;
-        this.hungry += 10;
-        this.velocity = new _Vector2D2.default(0, 0);
-        comida.splice(distances.indexOf(masCercano), 1);
-      }
+      var relativoC = evitar.map(function (x) {
+        return _Vector2D2.default.sub(x, _this2.position);
+      });
+      var distancesC = relativoC.map(function (x) {
+        return x.mag();
+      });
+      var masCercanoC = Math.min.apply(Math, _toConsumableArray(distancesC));
+      var indicex = distancesC.indexOf(masCercanoC);
 
-      if (this.size > this.lastSize + 10) {
-        poblacion.push(new Bunny(this.position.x + Math.random() * this.size * 4 * (Math.random() > 0.5 ? -1 : 1), this.position.y + Math.random() * this.size * 4 * (Math.random() > 0.5 ? -1 : 1)));
-        this.lastSize = this.size;
-      }
+      if (indicex !== -1) {
+        if (masCercanoC < 100) {
+          var vector2 = _Vector2D2.default.normalize(relativoC[indicex]);
+          vector2.mult(-0.3);
+          this.addForce(vector2);
+        } else {
+          var indice = distances.indexOf(masCercano);
+          if (indice !== -1) {
+            var vector = _Vector2D2.default.normalize(relativo[indice]);
+            vector.mult(0.1);
+            this.addForce(vector);
+          }
+        }
+        if (masCercano < this.size * 2) {
+          this.size += this.genes.hr * 2.5;
+          this.hungry += 10;
+          comida.splice(distances.indexOf(masCercano), 1);
+        }
 
-      if (this.size > this.maxSize) {
-        poblacion.push(new Bunny(this.position.x + Math.random() * this.size * 4 * (Math.random() > 0.5 ? -1 : 1), this.position.y + Math.random() * this.size * 4 * (Math.random() > 0.5 ? -1 : 1)));
-        poblacion.splice(poblacion.indexOf(this), 1);
-      }
+        if (this.size > this.lastSize + 10) {
+          poblacion.push(new Bunny(this.position.x + Math.random() * this.size * 4 * (Math.random() > 0.5 ? -1 : 1), this.position.y + Math.random() * this.size * 4 * (Math.random() > 0.5 ? -1 : 1), this.genes));
+          this.lastSize = this.size;
+        }
 
-      if (this.hungry <= 0) {
-        poblacion.splice(poblacion.indexOf(this), 1);
-      }
+        if (this.size > this.maxSize) {
+          poblacion.push(new Bunny(this.position.x + Math.random() * this.size * 4 * (Math.random() > 0.5 ? -1 : 1), this.position.y + Math.random() * this.size * 4 * (Math.random() > 0.5 ? -1 : 1), this.genes));
+          poblacion.splice(poblacion.indexOf(this), 1);
+        }
 
-      var indice = distances.indexOf(masCercano);
-      if (indice !== -1) {
-        var vector = _Vector2D2.default.normalize(relativo[indice]);
-        vector.mult(0.1);
-        this.aceleration = vector;
+        if (this.hungry <= 0) {
+          poblacion.splice(poblacion.indexOf(this), 1);
+        }
       }
     }
   }]);
@@ -329,10 +373,11 @@ var Animal = function () {
     key: 'update',
     value: function update() {
       this.position.add(this.velocity);
+      this.aceleration.mult(this.time);
       this.velocity.add(this.aceleration);
 
-      if (this.velocity.mag() > 10) {
-        this.velocity.limit(this.maxVelocity);
+      if (this.velocity.mag() > this.maxVelocity) {
+        this.velocity.limit(this.maxVelocity * 10);
       }
       /*
           if (this.position.x > window.innerWidth) {
@@ -354,6 +399,11 @@ var Animal = function () {
       */
       this.aceleration.zero();
       this.display();
+    }
+  }, {
+    key: 'addForce',
+    value: function addForce(force) {
+      this.aceleration.add(force);
     }
   }, {
     key: 'display',
@@ -394,6 +444,10 @@ var _Animal = __webpack_require__(3);
 
 var _Animal2 = _interopRequireDefault(_Animal);
 
+var _Vector2D = __webpack_require__(0);
+
+var _Vector2D2 = _interopRequireDefault(_Vector2D);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function main() {
@@ -406,9 +460,9 @@ function main() {
   var rMaxSize = Number(document.getElementById('rMaxSize').value);
   var rISize = Number(document.getElementById('rISize').value);
 
-  _Coyote2.default.prototype.maxVelocity = rvelo / 4;
+  //  Coyote.prototype.maxVelocity = rvelo / 4
 
-  _Bunny2.default.prototype.maxVelocity = rvelo / 2;
+  //  Bunny.prototype.maxVelocity = rvelo / 2
   _Bunny2.default.prototype.frecuency = rfre;
   _Bunny2.default.prototype.hrate = hrate;
 
@@ -418,39 +472,242 @@ function main() {
   document.body.removeChild(document.getElementById('config'));
   document.body.removeChild(document.getElementById('blo'));
   var plantas = [];
-
-  for (var i = 0; i < 50; i++) {
-    var planta = new _Plant2.default(Math.random() * window.innerWidth, Math.random() * window.innerHeight, growRate, plantSize);
-    plantas.push(planta);
+  function generate() {
+    for (var i = 0; i < 50; i++) {
+      var planta = new _Plant2.default(Math.random() * 2.5 * window.innerWidth, Math.random() * 2.5 * window.innerHeight, growRate, plantSize);
+      plantas.push(planta);
+    }
   }
 
+  generate();
+  var last = {
+    w: 0,
+    a: 0,
+    s: 0,
+    d: 0
+  };
+
+  document.addEventListener('keyup', function (e) {
+    if (e.key === 'w') {
+      last.w = 0;
+    } else if (e.key === 's') {
+      last.s = 0;
+    } else if (e.key === 'a') {
+      last.a = 0;
+    } else if (e.key === 'd') {
+      last.d = 0;
+    }
+  });
+
   var conejos = [];
-  conejos.push(new _Bunny2.default(window.innerWidth / 2, window.innerHeight / 2));
-  conejos.push(new _Bunny2.default(window.innerWidth / 2 + 10, window.innerHeight / 2));
+  for (var i = 0; i < 50; i++) {
+    conejos.push(new _Bunny2.default(window.innerWidth * Math.random(), window.innerHeight * Math.random()));
+  }
+
   var coyotes = [];
   coyotes.push(new _Coyote2.default(50, 50));
+
+  document.addEventListener('keydown', function (e) {
+    if (e.key === 'g') {
+      generate();
+    }
+    if (e.key === 'w') {
+      last.w += 1;
+      _render2.default.pos.y += 5 + last.w;
+      _render2.default.context.translate(0, 5 + last.w);
+    }
+    if (e.key === 's') {
+      last.s += 1;
+      _render2.default.pos.y -= 5 + last.s;
+      _render2.default.context.translate(0, -5 - last.s);
+    }
+    if (e.key === 'd') {
+      last.d += 1;
+      _render2.default.pos.x -= 5 + last.d;
+      _render2.default.context.translate(-5 - last.d, 0);
+    }
+    if (e.key === 'a') {
+      last.a += 1;
+      _render2.default.pos.x += 5 + last.a;
+      _render2.default.context.translate(5 + last.a, 0);
+    }
+    if (e.key === 'r') {
+      coyotes.push(new _Coyote2.default(50, 50));
+    }
+  });
 
   var p = document.getElementById('plantas');
   var cy = document.getElementById('coyotes');
   var c = document.getElementById('conejos');
+  var count = 0;
+
+  var data = {
+    labels: [0],
+    datasets: [{
+      label: 'Poblacion Conejos',
+      data: [0],
+      borderColor: 'rgba(0, 0, 255, 0.5)'
+    }, {
+      label: 'Poblacion Coyotes',
+      data: [0],
+      borderColor: 'rgba(255, 0, 0, 0.5)'
+    }, {
+      label: 'Poblacion Plantas',
+      data: [0],
+      borderColor: 'rgba(0, 255, 0, 0.5)'
+    }]
+  };
+
+  var data2 = {
+    labels: [0],
+    datasets: [{
+      label: 'Genes verdes',
+      data: [0],
+      borderColor: 'rgba(0, 255, 0, 0.5)'
+    }, {
+      label: 'Genes rojos',
+      data: [0],
+      borderColor: 'rgba(255, 0, 0, 0.5)'
+
+    }, {
+      label: 'Genes azules',
+      data: [0],
+      borderColor: 'rgba(0, 0, 255, 0.5)'
+
+    }]
+  };
+
+  var updateData = function updateData(oldData, newData) {
+    var labels = oldData['labels'];
+    var dataSetA = oldData['datasets'][0]['data'];
+    var dataSetB = oldData['datasets'][1]['data'];
+    var dataSetC = oldData['datasets'][2]['data'];
+
+    // labels.shift()
+    count++;
+
+    labels.push(count.toString());
+
+    dataSetA.push(newData.A);
+    dataSetB.push(newData.B);
+    dataSetC.push(newData.C);
+    if (labels.length >= 100) {
+      labels.shift();
+      dataSetA.shift();
+      dataSetB.shift();
+      dataSetC.shift();
+    }
+  };
+
+  var updateData2 = function updateData2(oldData, newData) {
+    var labels = oldData['labels'];
+    var dataSetA = oldData['datasets'][0]['data'];
+    var dataSetB = oldData['datasets'][1]['data'];
+    var dataSetC = oldData['datasets'][2]['data'];
+
+    // labels.shift()
+    count++;
+
+    labels.push(count.toString());
+    dataSetA.push(newData.A);
+    dataSetB.push(newData.B);
+    dataSetC.push(newData.C);
+
+    if (labels.length >= 300) {
+      labels.shift();
+      dataSetA.shift();
+      dataSetB.shift();
+      dataSetC.shift();
+    }
+  };
+  var newData2 = void 0;
   setInterval(function () {
     p.innerText = 'Poblacion de plantas: ' + plantas.length;
     c.innerText = 'Poblacion de conejos: ' + conejos.length;
     cy.innerText = 'Poblacion de coyotes: ' + coyotes.length;
-  }, 500);
+
+    var newData = {
+      A: conejos.length,
+      B: coyotes.length,
+      C: plantas.length
+    };
+    newData2 = {
+      A: conejos.reduce(function (valorAnterior, valorActual) {
+        return valorAnterior + valorActual.genes.c;
+      }, conejos[0].genes.c) / conejos.length,
+      B: conejos.reduce(function (valorAnterior, valorActual) {
+        return valorAnterior + valorActual.genes.v;
+      }, conejos[0].genes.v) / conejos.length,
+      C: conejos.reduce(function (valorAnterior, valorActual) {
+        return valorAnterior + valorActual.genes.hr;
+      }, conejos[0].genes.hr) / conejos.length
+    };
+    if (plantas.length < 150) {
+      generate();
+      generate();
+      generate();
+    }
+
+    updateData(data, newData);
+
+    updateData2(data2, newData2);
+
+    window.myChart2.data.datasets = data2.datasets;
+    window.myChart2.data.labels = data2.labels;
+    window.myChart2.update();
+
+    window.myChart.data.datasets = data.datasets;
+    window.myChart.data.labels = data.labels;
+    window.myChart.update();
+  }, 750);
+  function linaje() {
+    var genes = {
+      c: newData2.A,
+      v: newData2.B,
+      hr: newData2.C
+    };
+    for (var x = 0; x < 50; x++) {
+      conejos.push(new _Bunny2.default(window.innerWidth * 3 * Math.random, window.innerHeight * 3 * Math.random, genes));
+    }
+  }
+  function addFox() {
+    //for (var x = 0; x < 50; x++) {
+    coyotes.push(new _Coyote2.default(window.innerWidth * 3 * Math.random, window.innerHeight * 3 * Math.random));
+    //}
+  }
+
+  var deltaTime = Date.now();
   function a() {
+    var t = Date.now();
+    _Animal2.default.prototype.time = t - deltaTime;
+
+    deltaTime = t;
     _render2.default.clear();
 
     plantas.forEach(function (e, index) {
       e.display(); // Should be display
-      e.grow(plantas);
+      if (index % 2 === 0) {
+        e.grow(plantas);
+      }
     });
 
-    var pos = plantas.map(function (x) {
+    var posicionesPlantas = plantas.map(function (x) {
       return x.position;
     });
+    var posicionesConejosCoyotes = coyotes.map(function (x) {
+      return x.position;
+    });
+    var posicionesConejosconejos = conejos.map(function (x) {
+      return x.position;
+    });
+
+    posicionesConejosconejos.forEach(function (v, i) {
+      _Vector2D2.default.sub(v, posicionesPlantas);
+    });
+
+    var si = Math.random() > _Animal2.default.prototype.time / 100 ? 1 : 0;
     conejos.forEach(function (conejo, index) {
-      conejo.think(plantas, pos, conejos);
+      conejo.think(plantas, posicionesPlantas, conejos, posicionesConejosCoyotes);
       conejo.update();
     });
 
@@ -459,47 +716,35 @@ function main() {
     });
 
     coyotes.forEach(function (coyote, index) {
-      coyote.think(conejos, pos2, coyotes);
+      if (!si) {
+        coyote.think(conejos, pos2, coyotes);
+      }
       coyote.update();
     });
-
     requestAnimationFrame(a);
   }
   a();
   document.addEventListener('click', addPlant);
   document.addEventListener('contextmenu', function (event) {
     event.preventDefault();
-    conejos.push(new _Bunny2.default(event.clientX, event.clientY));
+    console.log(newData2);
+    var genes = {
+      c: newData2.A,
+      v: newData2.B,
+      hr: newData2.C
+    };
+    for (var x = 0; x < 25; x++) {
+      conejos.push(new _Bunny2.default(event.clientX - _render2.default.pos.x, event.clientY - _render2.default.pos.y, genes));
+    }
   });
   function addPlant(e) {
-    plantas.push(new _Plant2.default(e.clientX, e.clientY, growRate, plantSize));
+    console.log('Click', _render2.default.pos.y);
+    console.log('Click', e.clientY);
+    console.log('Click', e.clientY - _render2.default.pos.y);
+
+    plantas.push(new _Plant2.default(e.clientX - _render2.default.pos.x, e.clientY - _render2.default.pos.y, growRate, plantSize));
   }
 }
-/*
-let leftKey = 37, upKey = 38, rightKey = 39, downKey = 40
-let keystate = []
-
-document.addEventListener('keydown', function (e) {
-  keystate[e.keyCode] = true
-})
-
-document.addEventListener('keyup', function (e) {
-  delete keystate[e.keyCode]
-})
-
-if (keystate[leftKey]) {
-//code to be executed when left arrow key is pushed.
-}
-if (keystate[upKey]) {
-//code to be executed when up arrow key is pushed.
-}
-if (keystate[rightKey]) {
-//code to be executed when right arrow key is pushed.
-}
-if (keystate[downKey]) {
-//code to be executed when down arrow key is pushed.
-}
-*/
 var h = document.getElementById('hecho');
 h.addEventListener('click', main);
 
@@ -612,6 +857,7 @@ var Coyote = function (_Bunny) {
     _this.color = '#ff0000';
     _this.hungry = 100;
     _this.lastSize = _this.size;
+    _this.maxVelocity = 0.75;
     return _this;
   }
 
@@ -620,7 +866,8 @@ var Coyote = function (_Bunny) {
     value: function think(comida, posiciones, poblacion) {
       var _this2 = this;
 
-      this.hungry -= 0.02;
+      this.hungry -= 0.2;
+
       var relativo = posiciones.map(function (x) {
         return _Vector2D2.default.sub(x, _this2.position);
       });
@@ -630,18 +877,24 @@ var Coyote = function (_Bunny) {
       var masCercano = Math.min.apply(Math, _toConsumableArray(distances));
 
       if (masCercano < this.size * 2) {
-        this.size += 4;
-        this.hungry += 10;
-        comida.splice(distances.indexOf(masCercano), 1);
+        var conejo = comida[distances.indexOf(masCercano)];
+        if (conejo) {
+          if (conejo.genes.c > Math.random()) {
+            this.size += 4;
+            this.hungry += 10;
+            this.velocity = new _Vector2D2.default(0, 0);
+            comida.splice(distances.indexOf(masCercano), 1);
+          }
+        }
       }
 
       if (this.size > this.lastSize + 10) {
-        poblacion.push(new Coyote(this.position.x + Math.random() * this.size * 7 * (Math.random() > 0.5 ? -1 : 1), this.position.y + Math.random() * this.size * 7 * (Math.random() > 0.5 ? -1 : 1)));
+        poblacion.push(new Coyote(this.position.x + Math.random() * this.size * 2 * (Math.random() > 0.5 ? -1 : 1), this.position.y + Math.random() * this.size * 2 * (Math.random() > 0.5 ? -1 : 1)));
         this.lastSize = this.size;
       }
 
       if (this.size > 25) {
-        poblacion.push(new Coyote(this.position.x + Math.random() * this.size * 7 * (Math.random() > 0.5 ? -1 : 1), this.position.y + Math.random() * this.size * 7 * (Math.random() > 0.5 ? -1 : 1)));
+        poblacion.push(new Coyote(this.position.x + Math.random() * this.size * 2 * (Math.random() > 0.5 ? -1 : 1), this.position.y + Math.random() * this.size * 2 * (Math.random() > 0.5 ? -1 : 1)));
         poblacion.splice(poblacion.indexOf(this), 1);
       }
 
