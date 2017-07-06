@@ -93,7 +93,14 @@ input{
     background-color: rgba(0,0,0,0.5);
     padding: 15px;
 }
-
+#instrucciones {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	padding: 15px;
+	width: 25%;
+	text-align: center;
+}
     </style>
     <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js'></script>
 </head>
@@ -107,15 +114,17 @@ input{
             <br>
             <span id='coyotes'>Poblacion de coyotes: 0</span>
             <br>
-            <span class="boton" id='instrucciones'>Instrucciones</span>
-            <script>
-                let intu = document.getElementById('instrucciones')
-                intu.addEventListener('click', () => {
-                    alert('Click derecho para crear 50 conejos \nClick izquierdo para crear una planta \nWASD para moverte\nr para generar coyote en su posicion inicial\ng para generar 50 plantas')
-                })
-            </script>
         </h1>
     </div>
+
+    <div class="boton" id='instrucciones'>Instrucciones</div>
+    <script>
+        let intu = document.getElementById('instrucciones')
+        intu.addEventListener('click', () => {
+            alert('Click derecho para crear 50 conejos [Los conejos se generan con el promedio genetico] \nClick izquierdo para crear una planta \nWASD para moverte [Debes estar en minusculas cuando los preciones]\nr para generar coyote en su posicion inicial\ng para generar 50 plantas')
+        })
+    </script>
+
     <div id="blo"></div>
     
     <div class="xChart">
