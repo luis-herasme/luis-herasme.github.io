@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+* { margin:0; padding:0; } 
+body{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;
+    overflow: hidden;
+}
+html, body { 
+    width:100%; 
+    height:100%; 
+}
+
+canvas { display:block; } 
+.datos {
+    position: fixed;
+    top:0px;
+    background-color: black;
+    opacity: 0.75;
+    margin: 5PX;
+    padding: 5px;
+}
+#config{
+    position: fixed;
+    left: 50%;
+    top:50%;  
+    background: rgba(0,0,0,0.5);
+    color: #888;
+    padding: 20px;
+    transform: translate(-50%, -50%);
+    z-index: 10;
+}
+body{
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+.boton {
+    -webkit-transition-duration: 0.4s; /* Safari */
+    transition-duration: 0.4s;
+
+    color: black;
+    color: white;
+    border: 2px solid #4CAF50; /* Green */
+    background-color: #4CAF50; /* Green */
+    width: 100%;
+    padding: 5px;
+}
+
+.boton:hover {
+    cursor: pointer;
+    background-color: white;
+    border: 2px solid white; /* Green */
+    color: black;
+}
+
+input{
+    float: right;
+    width: 15%;
+}
+.xChart{
+    position: fixed;
+    bottom: 0px;
+    width: 500px;
+    padding: 0px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 15px;
+}
+.xChart2{
+    right: 0px;
+    position: fixed;
+    bottom: 0px;
+    width: 500px;
+    padding: 0px;
+    background-color: rgba(0,0,0,0.5);
+    padding: 15px;
+}
+#instrucciones {
+	position: absolute;
+	top: 5px;
+	right: 5px;
+	padding: 15px;
+	width: 25%;
+	text-align: center;
+}
+    </style>
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.6.0/Chart.bundle.min.js'></script>
+</head>
+<body>
+    <canvas id="lienzo"></canvas>
+    <div class="datos">
+        <h1>
+            <span id='plantas'>Poblacion de plantas: 0</span>
+            <br>
+            <span id='conejos'>Poblacion de conejos: 0</span>
+            <br>
+            <span id='coyotes'>Poblacion de coyotes: 0</span>
+            <br>
+        </h1>
+    </div>
+
+    <div class="boton" id='instrucciones'>Instrucciones</div>
+    <script>
+        let intu = document.getElementById('instrucciones')
+        intu.addEventListener('click', () => {
+            alert('Click derecho para crear 50 conejos [Los conejos se generan con el promedio genetico] \nClick izquierdo para crear una planta \nWASD para moverte [Debes estar en minusculas cuando los preciones]\nr para generar coyote en su posicion inicial\ng para generar 50 plantas')
+        })
+    </script>
+    
+    <div class="xChart">
+
+<canvas id="myChart" width="400" height="150"></canvas>
+<script>
+var ctx = document.getElementById("myChart").getContext('2d');
+
+window.myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [0],
+        datasets: [{
+            label: 'Poblacion Plantas',
+            data: [0],
+            borderColor: 'rgba(0, 255, 0, 0.5)',
+        },
+        {
+            label: 'Poblacion Coyotes',
+            data: [0],
+            borderColor: 'rgba(255, 0, 0, 0.5)',
+          
+        },
+        {
+            label: 'Poblacion Conejos',
+            data: [0],
+            borderColor: 'rgba(0, 0, 255, 0.5)',
+          
+        }
+        ]
+    }
+});
+</script>
+        
+    </div>
+
+    <div class="xChart2">
+        <p id='color' style="padding: 15px;text-shadow: 1px 1px #000;">This is the average color</p>
+        <canvas id="myChart2" width="400" height="150"></canvas>
+        <script>
+        var ctx2 = document.getElementById("myChart2").getContext('2d');
+
+        window.myChart2 = new Chart(ctx2, {
+            type: 'line',
+            data: {
+                labels: [0],
+                datasets: [{
+                    label: 'Genes verdes',
+                    data: [0],
+                    borderColor: 'rgba(0, 255, 0, 0.5)',
+                },
+                {
+                    label: 'Genes rojos',
+                    data: [0],
+                    borderColor: 'rgba(255, 0, 0, 0.5)',
+                
+                },
+                {
+                    label: 'Genes azules',
+                    data: [0],
+                    borderColor: 'rgba(0, 0, 255, 0.5)',
+                
+                }
+                ]
+            }
+        });
+        </script>
+    </div>
+    <script src="./dist/bundle.js"></script>
+</body>
+</html>

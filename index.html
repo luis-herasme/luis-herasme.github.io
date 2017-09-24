@@ -6,169 +6,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Luis Herasme</title>
-
     <link rel="stylesheet" href="./materialize/css/materialize.min.css">
-
-    <style>
-        @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
-        body {
-            background: #0575E6;
-            background: -webkit-linear-gradient(to right, #021B79, #0575E6);
-            background: linear-gradient(to right, #021B79, #0575E6);
-        }
-
-        * {
-            font-family: 'Roboto Mono', monospace;
-        }
-
-        .logo2 {
-            font-size: 30px;
-        }
-
-        .typed-cursor {
-            opacity: 1;
-            -webkit-animation: blink 0.7s infinite;
-            -moz-animation: blink 0.7s infinite;
-            animation: blink 0.7s infinite;
-        }
-
-        @keyframes blink {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @-webkit-keyframes blink {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        @-moz-keyframes blink {
-            0% {
-                opacity: 1;
-            }
-            50% {
-                opacity: 0;
-            }
-            100% {
-                opacity: 1;
-            }
-        }
-
-        h1 {
-            font-weight: bold;
-            color: white;
-            font-weight: bold;
-        }
-
-        html,
-        body {
-            margin: 0;
-            padding: 0;
-        }
-
-        .background {
-            position: absolute;
-            display: block;
-            top: 0;
-            left: 0;
-            z-index: 0;
-        }
-
-        p {
-            font-size: 16px;
-        }
-
-
-
-
-
-
-
-
-
-
-
-    </style>
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
+    <link rel="stylesheet" href="./index.css">
 
 </head>
 
 <body>
     <canvas class="background"></canvas>
-    <div class="container center">
+    <div class="container">
 
-        <h1>Luis<br>Herasme</h1>
+        <h1>Luis Herasme</h1>
+        <h6 style="color: white;"><span id='element'></span></h6>
 
-        <div class="card">
-            <div class="card-content">
-                <p class="logo2"><span id="element"></span></p>
-
-
-                <h4>Who I am?</h4>
-                <div class="container">
-                    <p>
-                        I'm a young programmer from the Dominican Republic and I'm passionate about Programming, Design and Entrepreneurship.
-                    </p>
-                </div>
+        <a class="waves-effect waves-effect btn" style="background:#FFF; color:black;">Blog</a>
+        <a class="waves-effect waves-effect btn" style="background:#FFF; color:black;">Projects</a>
 
 
-                <h4>What have I made?</h4>
-
-                <div class="row">
-                    <div class="col m6">
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="Mars.png">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">A 3D website</span>
-
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">A 3D website</span>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="col m6">
-
-                        <div class="card">
-                            <div class="card-image waves-effect waves-block waves-light">
-                                <img class="activator" src="Anipeli.png">
-                            </div>
-                            <div class="card-content">
-                                <span class="card-title activator grey-text text-darken-4">Movies website</span>
-
-                            </div>
-                            <div class="card-reveal">
-                                <span class="card-title grey-text text-darken-4">Movies website</span>
-                                <p></p>
-                            </div>
-                        </div>
-                    </div>
-
-                </div>
-                        
-                        <h5>Old samples</h5>
-                        <small>
-                            The list is not up to date.
-                        </small>
+        <div class="row">
+            <div class="col m3">
+                <div class="card">
+                    <div class="card-content">
+                        <h5>Projects</h5>
+                        <small>The list is not up to date</small>
                         <ul>
                             <li><a href="./game project/P/index.html">Old video Game</a></li>
                             <li><a href="./cubeGame/index.html">Game with cubes</a></li>
@@ -177,8 +38,39 @@
                             <li><a href="./2d/index.html">2D Particles simulation</a></li>
                             <li><a href="./3d/index.html">3D Particles simulation</a></li>
                             <li><a href="./snake/index.html">Snake Game</a></li>
+                            <li><a href="./Ecosistem simulator/index.html">Ecosystem simulation 2</a></li>
+                            <li><a href="./Planet formation/index.html">Planet formation</a></li>
+                            <li><a href="./Electricity/index.html">Electricity</a></li>
+                            <li><a href="./Tanks/index.html">Tanks Game</a></li>
                         </ul>
-
+                    </div>
+                    <div class="github-widget" data-username="LuisHerasme"></div>
+                    <script src="https://unpkg.com/github-card@1.2.1/dist/widget.js"></script>
+                </div>
+            </div>
+            <div class="col m9">
+                <div class="card">
+                    <div class="card-content">
+                        <h4>Posts</h4>
+                        <div class="post">
+                            <small style="color:#333;">From 9 / 24 / 17</small>
+                            <h5>What I'm working on?</h5>
+                            <p>
+                                Currently, I'm building a game engine in javascript once the game engine gets completed, I'll create
+                                 a new game weekly in the engine, The game engine is currently called "<a href="https://github.com/LuisHerasme/Lienzo-Engine">Lienzo Engine</a>" but it can change.
+                            </p>
+                            <br>
+                            <p>
+                                To get the engine working, I need various libraries like a physics engine the physics
+                                 engine the one that I'm writing is called <a href="https://github.com/LuisHerasme/FisicaJs">FisicaJs</a>, To develop the engine I'll also need a 
+                                 class to manipulate vectors the vector class that I'm writing right now for the engine is called <a href="https://github.com/LuisHerasme/Vector">Vector_Class</a> 
+                                 and that class uses under the hood is <a href="https://github.com/LuisHerasme/vectorFunctionsJs">vector_functions</a>, vector_functions a set of functions to manipulate 
+                                 vectors that I wrote, I'm also working on a render engine is called <a href="https://github.com/LuisHerasme/CanvasRender">canvas_render</a> is too much work and I think that is necessary to write
+                                 it in WebGL and until now I have only use the context 2d in the canvas so is very probable that I'll use PIXI.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
@@ -187,21 +79,22 @@
     <script src="typed.min.js"></script>
     <script>
         Typed.new('#element', {
-            strings: ["Programming", "Entrepreneurship", "Designing"],
-            typeSpeed: 120
+            strings: ["Programming", "Entrepreneurship", "Design"],
+            typeSpeed: 100
         });
 
         setInterval(function () {
 
             Typed.new('#element', {
-                strings: ["Programming", "Entrepreneurship", "Designing"],
-                typeSpeed: 120
+                strings: ["Programming", "Entrepreneurship", "Design"],
+                typeSpeed: 100
             });
 
         }, 10000)
     </script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="./materialize/js/materialize.min.js"></script>
+    <!--
     <script>
         window.onload = function () {
             Particles.init({
@@ -212,6 +105,7 @@
             });
         };
     </script>
+-->
 
 </body>
 
