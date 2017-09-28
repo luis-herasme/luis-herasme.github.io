@@ -377,19 +377,37 @@ module.exports = { Body, Engine }
 
 
 const fisica = __webpack_require__(1)
-let engine = new fisica.Engine()
+
+const engine = new fisica.Engine()
 engine.setBounds([0, window.innerWidth, 0, window.innerHeight])
 
-setInterval(() => {
-  engine.update()
-  engine.bodies.forEach((body) => {
-    if (body.parent.update) body.parent.update()
-  })
-})
-
-module.exports = {
-  engine
+function Winner () {
+  this.players = 3
+  this.update = () => {
+    console.log(this.players)
+    if (this.players === 1) {
+      Object.values(this.inmute).forEach((gO) => {
+        if (gO) {
+          if (gO.vida > 0) {
+            alert(gO.name + 'GANOO')
+            gO.victorias++
+          }
+        }
+        setTimeout(() => this.reviveAll(), 1000)
+      })
+    }
+  }
+  this.reviveAll = () => {
+    Object.values(this.inmute).forEach((gO) => {
+      if (gO.vida <= 0) gO.toRevive()
+    })
+  }
+  return this
 }
+
+const win = new Winner()
+
+module.exports = { engine, win }
 
 
 /***/ }),
@@ -475,99 +493,136 @@ module.exports = Vector
 /***/ (function(module, exports, __webpack_require__) {
 
 
-/* global PIXI */
+/* global PIXI, Moon, requestAnimationFrame */
 
 const Player = __webpack_require__(5)
 const Package = __webpack_require__(11)
+const { engine, win } = __webpack_require__(2)
 
-const render = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight)
-document.body.appendChild(render.view)
-let stage = new PIXI.Container()
+document.getElementById('play').addEventListener('click', startGame)
 
-let gameObjects = {}
-let srcs = ['green1', 'red1', 'blue1']
-let names = ['LUIS', 'EL BUZO', 'OTRO']
-PIXI.loader
-  .add('assets/green1.png')
-  .add('assets/red1.png')
-  .add('assets/blue1.png')
-  .add('assets/ball.png')
-  .add('assets/ground.jpg')
-  .load(setup)
+function startGame () {
+  let nombres = [document.getElementById('play1').value,
+    document.getElementById('play2').value,
+    document.getElementById('play3').value]
+  document.body.removeChild(document.getElementById('main'))
+  document.getElementById('ui').style.visibility = 'visible'
 
-function setup () {
-  let texture = PIXI.TextureCache['assets/ground.jpg']
-  let sprite = new PIXI.Sprite(texture)
-  sprite.scale.set(3.3, 2.45)
-  stage.addChild(sprite)
-  srcs.forEach((src, index) => {
-    let ctrl
-    if (index === 0) ctrl = new Control('w', 's', 'd', 'a', 'r')
-    else if (index === 1) ctrl = new Control('arrowup', 'arrowdown', 'arrowright', 'arrowleft', 'm')
-    else if (index === 2) ctrl = new Control('8', '5', '6', '4', '+')
-    gameObjects[src] = new Player(names[index], src, ctrl, stage)
-    stage.addChild(gameObjects[src])
-  })
-}
+  const render = PIXI.autoDetectRenderer(window.innerWidth, window.innerHeight)
+  document.body.appendChild(render.view)
+  let stage = new PIXI.Container()
 
-function Control (up, down, right, left, attack) {
-  this.up = up.toLowerCase()
-  this.down = down.toLowerCase()
-  this.right = right.toLowerCase()
-  this.left = left.toLowerCase()
-  this.attack = attack.toLowerCase()
-  return this
-}
+  let gameObjects = {}
+  let srcs = ['green1', 'red1', 'blue1']
+  PIXI.loader
+    .add('assets/green1.png')
+    .add('assets/red1.png')
+    .add('assets/blue1.png')
+    .add('assets/ball.png')
+    .add('assets/ground.png')
+    .add('assets/Bubble.png')
+    .load(setup)
 
-let keys = {}
-
-setInterval(() => {
-  Object.keys(keys).some((key) => {
-    if (keys[key]) {
-      Object.keys(gameObjects).forEach((gO) => {
-        gameObjects[gO].keypress(keys)
-      })
-      return true
+  const UI = new Moon({
+    el: '#ui',
+    data: {
+      players: []
     }
   })
-}, 20)
 
-document.addEventListener('keydown', function (event) {
-  keys[event.key.toLowerCase()] = true
-  Object.keys(gameObjects).forEach((gO) => {
-    gameObjects[gO].keydown(event.key.toLowerCase())
+  let players = []
+  let inmute = {}
+  function setup () {
+    let texture = PIXI.TextureCache['assets/ground.png']
+    let sprite = new PIXI.Sprite(texture)
+    sprite.scale.set(1.175, 1)
+    stage.addChild(sprite)
+    srcs.forEach((src, index) => {
+      let ctrl
+      if (index === 0) ctrl = new Control('e', 'd', 'f', 's', 'q')
+      else if (index === 1) ctrl = new Control('arrowup', 'arrowdown', 'arrowright', 'arrowleft', 'm')
+      else if (index === 2) ctrl = 'MOUSE'
+      const GO = new Player(nombres[index], src, ctrl, stage, UI, gameObjects, index)
+      gameObjects[src] = GO
+      inmute[src] = GO
+      players.push(gameObjects[src])
+      stage.addChild(gameObjects[src])
+    })
+    UI.set('players', players)
+    win.gameObjects = gameObjects
+    win.inmute = inmute
+  }
+  setInterval(() => {
+    const alive = Object.values(gameObjects).filter((GO) => {
+      return GO
+    })
+    UI.set('players', alive)
+  }, 100)
+
+  function Control (up, down, right, left, attack) {
+    this.up = up.toLowerCase()
+    this.down = down.toLowerCase()
+    this.right = right.toLowerCase()
+    this.left = left.toLowerCase()
+    this.attack = attack.toLowerCase()
+    return this
+  }
+
+  let keys = {}
+
+  setInterval(() => {
+    Object.keys(keys).some((key) => {
+      if (keys[key]) {
+        Object.keys(gameObjects).forEach((gO) => {
+          if (gameObjects[gO]) {
+            if (gameObjects[gO].keypress) gameObjects[gO].keypress(keys)
+          }
+        })
+        return true
+      }
+    })
+  }, 20)
+
+  document.addEventListener('keydown', function (event) {
+    keys[event.key.toLowerCase()] = true
+    Object.keys(gameObjects).forEach((gO) => {
+      if (gameObjects[gO]) {
+        if (gameObjects[gO].keydown) gameObjects[gO].keydown(event.key.toLowerCase())
+      }
+    })
   })
-})
 
-document.addEventListener('keyup', function (event) {
-  keys[event.key.toLowerCase()] = false
-})
+  document.addEventListener('keyup', function (event) {
+    keys[event.key.toLowerCase()] = false
+  })
 
-setInterval(() => {
-  render.render(stage)
-  if (Math.random() < 0.001) {
-    stage.addChild(new Package(stage))
-  }
-})
-
-/*
-  if (!gameManager.paused) {
-    gameManager.scene.run('keyUp', event.key)
-  }
-  */
   /*
-  document.addEventListener('mousedown', function () {
-    if (!gameManager.paused) {
-      gameManager.scene.run('globalMouseDown')
-    }
-  })
+  let updatableObjects
+  setTimeout(() => {
+    updatableObjects = engine.bodies.filter((body, ind) => {
+      return body.parent.update
+    })
 
-  document.addEventListener('mouseup', function () {
-    if (!gameManager.paused) {
-      gameManager.scene.run('globalMouseUp')
-    }
-  })
-*/
+    setInterval(() => {
+      updatableObjects.forEach((obj) => obj.parent.update())
+    })
+  }, 1000)
+  */
+
+  setInterval(() => {
+    stage.addChild(new Package(stage))
+  }, 5000)
+
+  function update () {
+    engine.update()
+    engine.bodies.forEach((body) => {
+      if (body.parent.update) body.parent.update()
+    })
+    render.render(stage)
+    requestAnimationFrame(update)
+  }
+  update()
+}
 
 
 /***/ }),
@@ -579,8 +634,20 @@ setInterval(() => {
 
 const vector = __webpack_require__(0)
 const { FireBall, Cold, Normal } = __webpack_require__(6)
-const { engine } = __webpack_require__(2)
+const { engine, win } = __webpack_require__(2)
 const fisica = __webpack_require__(1)
+
+function mouseMovement () {
+  const movement = vector.sub([this.position.x, this.position.y], [mouse.x, mouse.y])
+  if (vector.mag(movement) > 10) {
+    this.translate(this.velocity, 0)
+    this.rotation = vector.angle(movement) + Math.PI / 2
+  }
+  if (mouse.click) {
+    this.attack()
+    mouse.click = false
+  }
+}
 
 var textStyle = new PIXI.TextStyle({
   fontFamily: 'Arial',
@@ -592,22 +659,35 @@ var textStyle = new PIXI.TextStyle({
 })
 
 class Player extends PIXI.Container {
-  constructor (name, src, controls, stage) {
+  constructor (name, src, controls, stage, ui, players, idx) {
     super()
+    this.ui = ui
+    this.players = players
+    this.idx = idx
 
-    this.velocity = 5
+    this.velocity = 2
 
     this.name = name
     this.stage = stage
     this.controls = controls
-    this.bullets = 15
+    this.bullets = 100
     this.type = 'PLAYER'
+
+    this.intervalID = null
+
+    this.intervalManager = function (flag, animate, time) {
+      if (flag) {
+        this.intervalID = setInterval(animate, time)
+      } else {
+        clearInterval(this.intervalID)
+      }
+    }
 
     // Sprite
     let texture = PIXI.TextureCache['assets/' + src + '.png']
     this.sprite = new PIXI.Sprite(texture)
-
-    this.sprite.scale.set(0.5)
+    this.scale.set(0.4)
+    // this.sprite.scale.set(0.25)
     this.sprite.anchor.set(0.5)
 
     this.position.x = Math.random() * window.innerWidth
@@ -620,6 +700,8 @@ class Player extends PIXI.Container {
 
     // HEALTH
     this.vida = 100
+
+    this.victorias = 0
 
     this.gVida = new PIXI.Graphics()
     this.gVida.beginFill(0x000000)
@@ -634,49 +716,44 @@ class Player extends PIXI.Container {
 
     // ENGINE
     this.body = new fisica.Body('Circle', {
-      radius: 30,
+      radius: 20,
       position: [this.position.x, this.position.y],
       collision: function (self, other) {
         if (other.parent.name === 'Bullet') {
-          other.parent.destroy()
-          self.parent.vida -= other.parent.damage
-          self.parent.vidaRender()
-          if (self.parent.vida <= 0) {
-            self.parent.destroy()
+          if (!self.parent.escudo) {
+            other.parent.destroy()
+            self.parent.vida -= other.parent.damage
+            self.parent.vidaRender()
+            if (self.parent.vida <= 0) {
+              self.parent.destroy()
+            }
+          }
+          if (other.parent.name !== self.parent.lName) {
+            self.parent.lName = other.parent.name
+            other.velocity.inverse()
+          } else {
+            self.parent.lName = undefined
           }
         }
-        // console.log('SELF', self, 'OTHER', other.parent)
       }
     })
 
     this.canShoot = true
-
+    this.lName = undefined
     this.body.parent = this
     engine.add(this.body)
     this.src = src
-    if (this.src === 'blue1') {
-      setInterval(() => {
-        let direction = vector.normalize(vector.sub([this.position.y, this.position.x], [mouse.y, mouse.x]))
-        let rotation = vector.angle(vector.inverse(direction))
-        if (vector.distance([this.position.x, this.position.y], [mouse.x, mouse.y]) > 10) {
-          this.translate(...vector.inverse(direction))
-        }
-        if (rotation > 0) {
-          this.sprite.rotation = -rotation
-        } else {
-          this.sprite.rotation = Math.abs(rotation)
-        }
-        if (mouse.click) {
-          this.attack()
-          mouse.click = false
-        }
-      }, 20)
-    }
+
+    if (this.controls === 'MOUSE') this.intervalManager(true, mouseMovement.bind(this), 20)
   }
 
   destroy () {
     engine.destroy(this.body)
     this.stage.removeChild(this)
+    this.players[this.src] = undefined
+    if (this.controls === 'MOUSE') this.intervalManager(false)
+    win.players -= 1
+    win.update()
   }
 
   vidaRender () {
@@ -687,6 +764,20 @@ class Player extends PIXI.Container {
     this.gVida.drawRect(-40, -20, 80 * (this.vida / 100), 10)
   }
 
+  toRevive () {
+    engine.add(this.body)
+    this.stage.addChild(this)
+    this.players[this.src] = this
+    this.vida = 100
+    this.bullets = 100
+    this.vidaRender()
+    if (this.controls === 'MOUSE') this.intervalManager(true, mouseMovement.bind(this), 20)
+    this.position.x = Math.random() * window.innerWidth
+    this.position.y = Math.random() * window.innerHeight
+    win.players += 1
+    win.update()
+  }
+
   update () {
     this.body.center[0] = this.position.x
     this.body.center[1] = this.position.y
@@ -695,6 +786,7 @@ class Player extends PIXI.Container {
   attack () {
     if (this.canShoot) {
       if (this.bullets > 0) {
+        /*
         let bullet
         if (this.name === 'LUIS') {
           bullet = new FireBall(this)
@@ -703,6 +795,8 @@ class Player extends PIXI.Container {
         } else {
           bullet = new Normal(this)
         }
+        */
+        let bullet = new Normal(this)
         this.stage.addChild(bullet)
         this.bullets --
         this.canShoot = false
@@ -717,13 +811,13 @@ class Player extends PIXI.Container {
     let translationY = vector.angleMagnitude(this.rotation, y)
     let translationX = vector.angleMagnitude(this.rotation + Math.PI / 2, x)
     let translation = vector.add(translationY, translationX)
-    let pos = vector.add([this.position.x, this.position.y], translation)
-    this.position.x = pos[0]
-    this.position.y = pos[1]
+    let position = vector.add([this.position.x, this.position.y], translation)
+    this.position.x = position[0]
+    this.position.y = position[1]
   }
 
   keypress (keys) {
-    if (this.name !== 'blue1') {
+    if (this.controls !== 'MOUSE') {
       if (keys[this.controls.up]) {
         this.translate(this.velocity, 0)
       }
@@ -741,6 +835,14 @@ class Player extends PIXI.Container {
 
   keydown (key) {
     if (key === this.controls.attack) this.attack()
+    if (key === 'v') {
+      let texture = PIXI.TextureCache['assets/Bubble.png']
+      let sprite = new PIXI.Sprite(texture)
+      sprite.anchor.set(0.5)
+      sprite.scale.set(0.5)
+      this.escudo = true
+      this.addChild(sprite)
+    }
   }
 }
 
@@ -787,7 +889,7 @@ class FireBall extends Ball {
 
 class Normal extends Ball {
   constructor (parent) {
-    super(parent, 2500, 5, 0x000000, 0x333333, 1, 10, 2)
+    super(parent, 10000, 5, 0x000000, 0x333333, 4, 50, 20)
   }
 }
 
@@ -829,26 +931,19 @@ class Ball extends PIXI.Graphics {
     this.beginFill(fill)
     this.drawCircle(0, 0, size)
     this.endFill()
+
     // START
     this.x = parent.position.x
     this.y = parent.position.y
-    if (parent.src !== 'blue1') {
-      this.body = new fisica.Body('Circle', {
-        radius: size,
-        restitution: 1,
-        collision: desktroyOtherBall,
-        position: vector.add([parent.position.x, parent.position.y], vector.angleMagnitude(parent.rotation + Math.PI / 2, 70))
-      })
-      this.body.addForce(new Vector(...vector.angleMagnitude(parent.rotation + Math.PI / 2, velocity)))
-    } else {
-      this.body = new fisica.Body('Circle', {
-        radius: size,
-        restitution: 1,
-        collision: desktroyOtherBall,
-        position: vector.add([parent.position.x, parent.position.y], vector.angleMagnitude(parent.sprite.rotation + Math.PI / 2, 70))
-      })
-      this.body.addForce(new Vector(...vector.angleMagnitude(parent.sprite.rotation + Math.PI / 2, velocity)))
-    }
+
+    this.body = new fisica.Body('Circle', {
+      radius: size,
+      restitution: 1,
+      collision: desktroyOtherBall,
+      position: vector.add([parent.position.x, parent.position.y], vector.angleMagnitude(parent.rotation + Math.PI / 2, 40))
+    })
+    this.body.addForce(new Vector(...vector.angleMagnitude(parent.rotation + Math.PI / 2, velocity)))
+
     this.body.parent = this
     engine.add(this.body)
     this.timeout = setTimeout(() => this.destroy(), time)
@@ -1159,12 +1254,12 @@ class Package extends PIXI.Container {
     this.text = new PIXI.Text(this.name, textStyle)
     this.text.anchor.set(0.5)
     this.text.y = -20
-
+    this.scale.set(0.65)
     this.addChild(this.box)
     this.addChild(this.text)
 
     this.body = new fisica.Body('Circle', {
-      radius: 30,
+      radius: 10,
       position: [this.position.x, this.position.y],
       collision: function (self, other) {
         if (other.parent.type) {
