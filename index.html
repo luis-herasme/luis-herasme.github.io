@@ -10,7 +10,35 @@
     <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <script src="https://npmcdn.com/particlesjs@2.0.2/dist/particles.min.js"></script>
     <link rel="stylesheet" href="./index.css">
+   <style>
+    #ex:hover {
 
+    }
+    body {
+        /*background: #333 !important;*/
+    }
+    #ex:hover card-content .post {
+        transition: 500ms;
+        
+  border: 1px solid #0072ff;
+  border-width: 0px 0px 0px 3px;
+  padding-left: 15px;
+
+    }
+    pre {
+        padding: 5px;
+        border-radius: 5px;
+
+        background-color: white !important;
+        color: #232526 !important;
+    }
+    pre:hover {
+        cursor: pointer;
+        transition: 1000ms;
+        background-color: #232526 !important;
+        color: white !important;
+    }
+    </style>
 </head>
 
 <body>
@@ -18,10 +46,18 @@
     <div class="container">
 
         <h1>Luis Herasme</h1>
-        <h6 style="color: white;"><span id='element'></span></h6>
-
-        <a class="waves-effect waves-effect btn" style="background:#FFF; color:black;">Blog</a>
-        <a class="waves-effect waves-effect btn" style="background:#FFF; color:black;">Projects</a>
+        <h6 style="color: white;"><span id='element'></span>
+            <br>
+            <br>
+            <a href="https://github.com/LuisHerasme" class="waves-effect waves-effect btn" style="background:black; color:white;">Github</a>
+            <!--
+<br>
+<br>
+            <a class="waves-effect waves-effect btn" style="background:#FFF; color:black;">Blog</a>
+            <a class="waves-effect waves-effect btn" style="background:#FFF; color:black;">Projects</a>
+            -->
+    
+        </h6>
 
 
         <div class="row">
@@ -44,33 +80,65 @@
                             <li><a href="./Tanks/index.html">Tanks Game</a></li>
                         </ul>
                     </div>
+                    <!--
                     <div class="github-widget" data-username="LuisHerasme"></div>
                     <script src="https://unpkg.com/github-card@1.2.1/dist/widget.js"></script>
+                    -->
                 </div>
             </div>
             <div class="col m9">
+                <h4 style="color:#fff;">Posts</h4>
                 <div class="card">
-                    <div class="card-content">
-                        <h4>Posts</h4>
-                        <div class="post">
-                            <small style="color:#333;">From 9 / 24 / 17</small>
-                            <h5>What I'm working on?</h5>
-                            <p>
-                                Currently, I'm building a game engine in javascript once the game engine gets completed, I'll create
-                                 a new game weekly in the engine, The game engine is currently called "<a href="https://github.com/LuisHerasme/Lienzo-Engine">Lienzo Engine</a>" but it can change.
-                            </p>
-                            <br>
-                            <p>
-                                To get the engine working, I need various libraries like a physics engine the physics
-                                 engine the one that I'm writing is called <a href="https://github.com/LuisHerasme/FisicaJs">FisicaJs</a>, To develop the engine I'll also need a 
-                                 class to manipulate vectors the vector class that I'm writing right now for the engine is called <a href="https://github.com/LuisHerasme/Vector">Vector_Class</a> 
-                                 and that class uses under the hood is <a href="https://github.com/LuisHerasme/vectorFunctionsJs">vector_functions</a>, vector_functions a set of functions to manipulate 
-                                 vectors that I wrote, I'm also working on a render engine is called <a href="https://github.com/LuisHerasme/CanvasRender">canvas_render</a> is too much work and I think that is necessary to write
-                                 it in WebGL and until now I have only use the context 2d in the canvas so is very probable that I'll use PIXI.
-                            </p>
+                    <div id='ex'>
+                        <div class="card-content">
+                            <div class="post">
+                                <small style="color:#333;">From 9 / 24 / 17</small>
+                                <h5>What I'm working on?</h5>
+                                <p>
+                                    Currently, I'm building a game engine in javascript once the game engine gets completed, I'll create
+                                    a new game weekly in the engine, The game engine is currently called "<a href="https://github.com/LuisHerasme/Lienzo-Engine">Lienzo Engine</a>" but it can change.
+                                </p>
+                                <br>
+                                <p>
+                                    To get the engine working, I need various libraries like a physics engine the physics
+                                    engine the one that I'm writing is called <a href="https://github.com/LuisHerasme/FisicaJs">FisicaJs</a>, To develop the engine I'll also need a 
+                                    class to manipulate vectors the vector class that I'm writing right now for the engine is called <a href="https://github.com/LuisHerasme/Vector">Vector_Class</a> 
+                                    and that class uses under the hood is <a href="https://github.com/LuisHerasme/vectorFunctionsJs">vector_functions</a>, vector_functions a set of functions to manipulate 
+                                    vectors that I wrote, I'm also working on a render engine is called <a href="https://github.com/LuisHerasme/CanvasRender">canvas_render</a> is too much work and I think that is necessary to write
+                                    it in WebGL and until now I have only use the context 2d in the canvas so is very probable that I'll use PIXI.
+                                </p>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <div class="card">
+                        <div id='ex'>
+                            <div class="card-content">
+                                <div class="post">
+                                    <small style="color:#333;">From 9 / 24 / 17</small>
+                                    <h5>Big changes in FisicaJs</h5>
+                                    <p>
+                                        In the new FisicaJs there will be collision modes:
+                                        <ol>
+                                            <li>SCC (Simple Circle Collision)</li>
+                                            <li>AABB (Axis-Aligned Bounding Box)</li>
+                                            <li>Mesh collider</li>
+                                        </ol>
+                                        they are organized from faster to slower, the collision mode will allow me to make the physics engine run faster if you
+                                        set certain collision type
+                                    </p>
+                                    <br>
+                                    <p>
+                                        You can activate each different mode by typing
+                                        <pre><code class="JavaScript">
+const fisica = require('fisica')
+fisica.mode('SCC')    
+                                        </code></pre>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
             </div>
         </div>
     </div>
@@ -91,6 +159,14 @@
             });
 
         }, 10000)
+        /*
+        let ex = document.getElementById('ex')
+
+        ex.addEventListener('click', function () {
+            ex.className += 
+        })
+        */
+
     </script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="./materialize/js/materialize.min.js"></script>
