@@ -659,7 +659,6 @@ document.addEventListener('keydown', (e) => {
       player.center[1] + (-25 * Math.cos(player.rotation + Math.PI / 2))])
     bala.addForce(new Vector(force[0], force[1]))
     objects.push(bala)
-    player.shoot(bala)
     world.add(bala)
   }
 })
