@@ -1,10 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
 @import url('https://fonts.googleapis.com/css?family=Lato');
+@import url('https://fonts.googleapis.com/css?family=Megrim');
 
 body {
-    background: #232526;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #414345, #232526);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #414345, #232526); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background-color: #ffffff;
     
 }
 
@@ -62,9 +61,9 @@ h1, h6, .b {
 
 h1 {
   font-weight: bold;
-  color: white;
-  font-weight: bold;
-  font-family: 'Lato', sans-serif;
+  color: black;
+  font-weight: lighter;
+  font-family: 'Megrim', cursive;
 }
 
 html,
@@ -72,7 +71,16 @@ body {
     margin: 0;
     padding: 0;
 }
+/*
+.conta {
+    padding: 10px !important;
+}
 
+.conta:hover {
+    transition: 500ms;
+    padding: 0px !important;
+}
+*/
 .background {
     position: absolute;
     display: block;

@@ -15,13 +15,12 @@
         padding: 5px;
         border-radius: 5px;
         background-color: white !important;
-        color: #232526 !important;
+        color: black !important;
     }
     pre:hover {
         cursor: pointer;
         transition: 1000ms;
-        background-color: #232526 !important;
-        color: white !important;
+
     }
     </style>
 </head>
@@ -31,7 +30,7 @@
     <div class="container">
 
         <h1>Luis Herasme</h1>
-        <h6 style="color: white;"><span id='element'></span>
+        <h6 style="color: black;"><span id='element'></span>
             <br>
             <br>
             <a href="https://github.com/LuisHerasme" class="waves-effect waves-effect btn" style="background:white; color:black;">Github</a>
@@ -45,88 +44,187 @@
         </h6>
 
 
+        <h5>Projects</h5>
         <div class="row">
+
             <div class="col m3">
-                <div class="card">
-                    <div class="card-content">
-                        <h5>Projects</h5>
-                        <small>The list is not up to date</small>
-                        <ul>
-                            <li><a href="./game project/P/index.html">Old video Game</a></li>
-                            <li><a href="./cubeGame/index.html">Game with cubes</a></li>
-                            <li><a href="./eco/index.html">Ecosystem simulation</a></li>
-                            <li><a href="./tree/index.html">Tree generator</a></li>
-                            <li><a href="./2d/index.html">2D Particles simulation</a></li>
-                            <li><a href="./3d/index.html">3D Particles simulation</a></li>
-                            <li><a href="./snake/index.html">Snake Game</a></li>
-                            <li><a href="./Ecosistem simulator/index.html">Ecosystem simulation 2</a></li>
-                            <li><a href="./Planet formation/index.html">Planet formation</a></li>
-                            <li><a href="./Electricity/index.html">Electricity</a></li>
-                            <li><a href="./Tanks/index.html">Tanks Game</a></li>
-                            <li><a href="./Cellular Automata/index.html">Cellular automata</a></li>
-                            <li><a href="./spaceShip/index.html">Spaceship</a></li>
-                            <li><a href="./Evol/index.html">Evolution</a></li>
-                        </ul>
+                <a href="./game project/P/index.html">
+                    <div class="conta">
+                        <div class="card">
+                            <div class="card-image">
+                                <img src="./img/aventurero.png" alt="">
+                                <span class="card-title">Aventurero</span>
+                            </div>
+                        </div>
                     </div>
-                    <!--
-                    <div class="github-widget" data-username="LuisHerasme"></div>
-                    <script src="https://unpkg.com/github-card@1.2.1/dist/widget.js"></script>
-                    -->
-                </div>
+                </a>
             </div>
-            <div class="col m9">
-                <h4 style="color:#fff;">Posts</h4>
-                <div class="card">
-                    <div id='ex'>
-                        <div class="card-content">
-                            <div class="post">
-                                <small style="color:#333;">From 9 / 24 / 17</small>
-                                <h5>What I'm working on?</h5>
-                                <p>
-                                    Currently, I'm building a game engine in javascript once the game engine gets completed, I'll create
-                                    a new game weekly in the engine, The game engine is currently called "<a href="https://github.com/LuisHerasme/Lienzo-Engine">Lienzo Engine</a>" but it can change.
-                                </p>
-                                <br>
-                                <p>
-                                    To get the engine working, I need various libraries like a physics engine the physics
-                                    engine the one that I'm writing is called <a href="https://github.com/LuisHerasme/FisicaJs">FisicaJs</a>, To develop the engine I'll also need a 
-                                    class to manipulate vectors the vector class that I'm writing right now for the engine is called <a href="https://github.com/LuisHerasme/Vector">Vector_Class</a> 
-                                    and that class uses under the hood is <a href="https://github.com/LuisHerasme/vectorFunctionsJs">vector_functions</a>, vector_functions a set of functions to manipulate 
-                                    vectors that I wrote, I'm also working on a render engine is called <a href="https://github.com/LuisHerasme/CanvasRender">canvas_render</a> is too much work and I think that is necessary to write
-                                    it in WebGL and until now I have only use the context 2d in the canvas so is very probable that I'll use PIXI.
-                                </p>
-                            </div>
+
+            <div class="col m3">
+                <a href="./2d/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/2D Collisions.png" alt="">
+                            <span class="card-title">2D Particles simulation</span>
+                        </div>
+                    </div>
+                    </div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./3d/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/3D Collisions.png" alt="">
+                            <span class="card-title">3D Particles simulation</span>
                         </div>
                     </div>
                 </div>
-                <div class="card">
-                        <div id='ex'>
-                            <div class="card-content">
-                                <div class="post">
-                                    <small style="color:#333;">From 9 / 30 / 17</small>
-                                    <h5>Big changes in FisicaJs</h5>
-                                    <p>
-                                        In the new FisicaJs there will be collision modes:
-                                        <ol>
-                                            <li>SCC (Simple Circle Collision)</li>
-                                            <li>AABB (Axis-Aligned Bounding Box)</li>
-                                            <li>Mesh collider</li>
-                                        </ol>
-                                        they are organized from faster to slower, the collision mode will allow me to make the physics engine run faster if you
-                                        set certain collision type
-                                    </p>
-                                    <br>
-                                    <p>
-                                        You can activate each different mode by typing
-                                        <pre><code class="JavaScript">
-const fisica = require('fisica')
-fisica.mode('SCC')    
-                                        </code></pre>
-                                    </p>
-                                </div>
-                            </div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./snake/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Snake.png" alt="">
+                            <span class="card-title">Snake game</span>
                         </div>
                     </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./cubeGame/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/gameOfCubes.png" alt="">
+                            <span class="card-title">Game of cubes</span>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./eco/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Evolution.png" alt="">
+                            <span class="card-title">Ecosistem simulation</span>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./Ecosistem simulator/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Evolution2.png" alt="">
+                            <span class="card-title">Ecosistem simulation2</span>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./tree/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Tree.png" alt="">
+                            <span class="card-title">Tree generator</span>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./Planet formation/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Planet.png" alt="">
+                            <span class="card-title">Planet formation</span>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./Electricity/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Electricity.png" alt="">
+                            <span class="card-title">Electricity</span>
+                        </div>
+                    </div>
+                </div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./Tanks/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Tanks.png" alt="">
+                            <span class="card-title">Tanks Game</span>
+                        </div>
+                    </div></div>
+                </a>
+            </div>
+
+
+            <div class="col m3">
+                <a href="./Cellular Automata/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Celular.png" alt="">
+                            <span class="card-title">Cellular automata</span>
+                        </div>
+                    </div></div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./spaceShip/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Space.png" alt="">
+                            <span class="card-title">Spaceship</span>
+                        </div>
+                    </div></div>
+                </a>
+            </div>
+
+            <div class="col m3">
+                <a href="./Evol/index.html">
+                    <div class="conta">
+                    <div class="card">
+                        <div class="card-image">
+                            <img src="./img/Evol.png" alt="">
+                            <span class="card-title">Evolution</span>
+                        </div>
+                    </div>
+                </div>
+                </a>
             </div>
         </div>
     </div>
@@ -158,18 +256,18 @@ fisica.mode('SCC')
     </script>
     <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
     <script src="./materialize/js/materialize.min.js"></script>
-    <!--
+    
     <script>
         window.onload = function () {
             Particles.init({
                 selector: '.background',
                 maxParticles: 250,
-                color: '#ffffff',
+                color: '#000000',
                 connectParticles: false,
             });
         };
     </script>
--->
+
 
 </body>
 
