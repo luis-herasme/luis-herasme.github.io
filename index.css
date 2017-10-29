@@ -2,8 +2,10 @@
 @import url('https://fonts.googleapis.com/css?family=Lato');
 
 body {
-    background-color: #ffffff;
-    
+background: #36D1DC;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
 }
 
 * {
@@ -60,7 +62,7 @@ h1, h6, .b {
 
 h1 {
   font-weight: bold;
-  color: black;
+  color: white;
   font-weight: lighter;
   font-family: 'Roboto', cursive;
 }
@@ -78,8 +80,10 @@ body {
 .conta:hover {
     transition: 500ms;
     padding: 0px !important;
+    position: relative;
 }
 */
+
 .background {
     position: absolute;
     display: block;
