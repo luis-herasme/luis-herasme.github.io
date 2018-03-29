@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Forces</title>
+  <style>
+    * {
+      margin: 0px;
+      padding: 0px;
+    }
+
+    canvas {
+      z-index: 0;
+      display: block;
+    }
+
+    button {
+      position: relative;
+      left: 0px;
+      padding: 10px;
+      width: 100%;
+      background-color: white;
+      color: black;
+      border: 0px;
+      transition: 0.25s;
+    }
+
+    button:hover {
+      cursor: pointer;
+      background-color: black;
+      color: white;
+    }
+        
+    #ui {
+      z-index: 100;
+      position: absolute;
+      top: 0px;
+      padding: 10px;
+      opacity: 0.95;
+      left: 0px;
+      background-color: gray;
+      border: solid 3px white;
+      color: white;
+      margin: 5px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    }
+
+  </style>
+</head>
+<body>
+  <canvas id='lienzo'></canvas>
+  <div id="ui">
+    <p>Number of bodies: </p>
+    <input id='bodies' type="number" value="30">
+    <br>
+    <p>Average radius: </p>
+    <input id='av1' value="10" type="number">
+    <br>
+    <input id='av2' value="15" type="number">
+    <p>
+    Gravitational constant: 
+    </p>
+    <input id='gravity' value="0.05" type="number">
+    <br>
+    <p>
+    Electrical constant: 
+    </p>
+    <input id='electricity' value="1" type="number">
+    <p>
+    Coefficient of restitution: 
+  </p><input id='restitution' value="0.75" type="number">
+    <br>
+    <br>
+    <button id='start'>Set values and restart simulation</button>
+    
+  </div>
+  <script src='dist/bundle.js'></script>
+</body>
+</html>
