@@ -1,13 +1,11 @@
 @import url('https://fonts.googleapis.com/css?family=Roboto');
-html{
+
+html{   
+    background: #00B4DB;  /* fallback for old browsers */
+    background: -webkit-linear-gradient(to top, #0083B0, #00B4DB);  /* Chrome 10-25, Safari 5.1-6 */
+    background: linear-gradient(to top, #0083B0, #00B4DB); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
     
-    background: #36D1DC;
-    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
-    background: linear-gradient(to right, #5B86E5, #36D1DC);
-    background-image: url('img/bg.jpg')
 }
-
-
 
 h1,
 h6,
@@ -26,7 +24,14 @@ h1,h2 {
     color: #ffffff;
 
 }
+.conta {
+    text-align: center;
+}
 
+.title {
+    color: #FFF;
+    font-weight: bold;
+}
 html,
 body {
     margin: 0;
@@ -35,6 +40,13 @@ body {
 }
 .gitBtn {
     border-radius: 50px !important;
+}
+
+.gitBtn:hover {
+    transition: 1000ms;
+    color: white !important;
+    box-shadow: none;
+    background-color: #005AA7 !important;
 }
 .github-button{
     border-radius: 50px !important;

@@ -9,7 +9,7 @@ const proyectos = [
   {
     link: 'https://suplementos-santo-domingo.herokuapp.com/',
     img: './img/suplementos.png',
-    name: ''
+    name: 'Suplementos santo domingo'
   },
   {
     link: './Gravity/index.html',
@@ -95,10 +95,11 @@ for (let counter = 0; counter < proyectos.length; counter++) {
   card.innerHTML = `
     <a href="${proyecto.link}">
         <div class="conta">
+        <span class="title">${proyecto.name}</span>
             <div class="card">
                 <div class="card-image">
                     <img src="${proyecto.img}" alt="">
-                    <span class="card-title">${proyecto.name}</span>
+                    
                 </div>
             </div>
         </div>
@@ -107,11 +108,3 @@ for (let counter = 0; counter < proyectos.length; counter++) {
 
   lista.appendChild(card)
 }
-window.onload = function () {
-  Particles.init({
-      selector: '.background',
-      maxParticles: 250,
-      color: '#FFFFFF',
-      connectParticles: false,
-  });
-};
