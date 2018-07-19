@@ -1,89 +1,44 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto+Mono');
-@import url('https://fonts.googleapis.com/css?family=Lato');
-
-body {
-background: #36D1DC;  /* fallback for old browsers */
-background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);  /* Chrome 10-25, Safari 5.1-6 */
-background: linear-gradient(to right, #5B86E5, #36D1DC); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-
-}
-
-* {
-  font-family: 'Lato', sans-serif;
+@import url('https://fonts.googleapis.com/css?family=Roboto');
+html{
+    
+    background: #36D1DC;
+    background: -webkit-linear-gradient(to right, #5B86E5, #36D1DC);
+    background: linear-gradient(to right, #5B86E5, #36D1DC);
+    background-image: url('img/bg.jpg')
 }
 
 
-h1, h6, .b {
+
+h1,
+h6,
+.b {
+    font-family: 'Roboto', sans-serif;
     text-align: center;
 }
 
-.typed-cursor {
-    opacity: 1;
-    -webkit-animation: blink 0.7s infinite;
-    -moz-animation: blink 0.7s infinite;
-    animation: blink 0.7s infinite;
+.card-title {
+    font-family: 'Roboto', sans-serif;
 }
 
-@keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
+h1,h2 {
+    font-weight: bolder;
+    
+    color: #ffffff;
 
-@-webkit-keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-@-moz-keyframes blink {
-    0% {
-        opacity: 1;
-    }
-    50% {
-        opacity: 0;
-    }
-    100% {
-        opacity: 1;
-    }
-}
-
-h1 {
-  font-weight: bold;
-  color: white;
-  font-weight: lighter;
-  font-family: 'Roboto', cursive;
 }
 
 html,
 body {
     margin: 0;
+    
     padding: 0;
 }
-/*
-.conta {
-    padding: 10px !important;
+.gitBtn {
+    border-radius: 50px !important;
 }
-
-.conta:hover {
-    transition: 500ms;
-    padding: 0px !important;
-    position: relative;
+.github-button{
+    border-radius: 50px !important;
 }
-*/
-
 .background {
     position: absolute;
     display: block;
@@ -94,4 +49,9 @@ body {
 
 p {
     font-size: 16px;
+}
+
+
+.blackText{
+    color: #333 !important;
 }
