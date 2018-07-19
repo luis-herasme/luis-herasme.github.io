@@ -43,10 +43,11 @@ body {
 }
 
 .gitBtn:hover {
+    border-radius: 0px !important;
     transition: 1000ms;
     color: white !important;
     box-shadow: none;
-    background-color: #005AA7 !important;
+    background-color: rgba(0, 0, 0, 0) !important;
 }
 .github-button{
     border-radius: 50px !important;
