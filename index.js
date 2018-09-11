@@ -21,6 +21,11 @@ const proyectos = [
     img: './img/aventurero.png',
     name: 'Aventurero'
   },
+    {
+    link: 'http://comprayapp.com/',
+    img: './img/comprayapp.png',
+    name: 'comprayapp'
+  },
   {
     link: './2d/index.html',
     img: './img/2D Collisions.png',
@@ -60,6 +65,10 @@ const proyectos = [
     link: './Planet formation/index.html',
     img: './img/Planet.png',
     name: 'Planet formation'
+  },{
+    link: 'https://luisherasme.github.io/LienzoEngine/',
+    img: './img/lienzoengine.png',
+    name: 'Lienzo Engine'
   },
   {
     link: './Electricity/index.html',
@@ -99,7 +108,6 @@ for (let counter = 0; counter < proyectos.length; counter++) {
             <div class="card">
                 <div class="card-image">
                     <img src="${proyecto.img}" alt="">
-                    
                 </div>
             </div>
         </div>
