@@ -1,106 +1,107 @@
-const lista = document.getElementById('listaDeProyectos')
+const lista = document.getElementById("listaDeProyectos");
 
 const proyectos = [
   {
-    link: './coins/index.html',
-    img: './img/coins.png',
-    name: 'KonCoins'
+    link: "./coins/index.html",
+    img: "./img/coins.png",
+    name: "KonCoins"
   },
   {
-    link: 'https://suplementos-santo-domingo.herokuapp.com/',
-    img: './img/suplementos.png',
-    name: 'Suplementos santo domingo'
+    link: "https://suplementos-santo-domingo.herokuapp.com/",
+    img: "./img/suplementos.png",
+    name: "Suplementos santo domingo"
   },
   {
-    link: './Gravity/index.html',
-    img: './img/Gravity.png',
-    name: 'Gravity'
+    link: "./Gravity/index.html",
+    img: "./img/Gravity.png",
+    name: "Gravity"
   },
   {
-    link: './game project/P/index.html',
-    img: './img/aventurero.png',
-    name: 'Aventurero'
-  },
-    {
-    link: 'http://comprayapp.com/',
-    img: './img/comprayapp.png',
-    name: 'comprayapp'
+    link: "./game project/P/index.html",
+    img: "./img/aventurero.png",
+    name: "Aventurero"
   },
   {
-    link: './2d/index.html',
-    img: './img/2D Collisions.png',
-    name: '2D Particles simulation'
+    link: "http://comprayapp.com/",
+    img: "./img/comprayapp.png",
+    name: "comprayapp"
   },
   {
-    link: './3d/index.html',
-    img: './img/3D Collisions.png',
-    name: '3D Particles simulation'
+    link: "./2d/index.html",
+    img: "./img/2D Collisions.png",
+    name: "2D Particles simulation"
   },
   {
-    link: './snake/index.html',
-    img: './img/Snake.png',
-    name: 'Snake game'
+    link: "./3d/index.html",
+    img: "./img/3D Collisions.png",
+    name: "3D Particles simulation"
   },
   {
-    link: './cubeGame/index.html',
-    img: './img/gameOfCubes.png',
-    name: 'Game of cubes'
+    link: "./snake/index.html",
+    img: "./img/Snake.png",
+    name: "Snake game"
   },
   {
-    link: './eco/index.html',
-    img: './img/Evolution.png',
-    name: 'Ecosistem simulation'
+    link: "./cubeGame/index.html",
+    img: "./img/gameOfCubes.png",
+    name: "Game of cubes"
   },
   {
-    link: './Ecosistem simulator/index.html',
-    img: './img/Evolution2.png',
-    name: 'Ecosistem simulation2'
+    link: "./eco/index.html",
+    img: "./img/Evolution.png",
+    name: "Ecosistem simulation"
   },
   {
-    link: './tree/index.html',
-    img: './img/Tree.png',
-    name: 'Tree generator'
+    link: "./Ecosistem simulator/index.html",
+    img: "./img/Evolution2.png",
+    name: "Ecosistem simulation2"
   },
   {
-    link: './Planet formation/index.html',
-    img: './img/Planet.png',
-    name: 'Planet formation'
-  },{
-    link: 'https://luisherasme.github.io/LienzoEngine/',
-    img: './img/lienzoengine.png',
-    name: 'Lienzo Engine'
+    link: "./tree/index.html",
+    img: "./img/Tree.png",
+    name: "Tree generator"
   },
   {
-    link: './Electricity/index.html',
-    img: './img/Electricity.png',
-    name: 'Electricity'
+    link: "./Planet formation/index.html",
+    img: "./img/Planet.png",
+    name: "Planet formation"
   },
   {
-    link: './Tanks/index.html',
-    img: './img/Tanks.png',
-    name: 'Tanks Game'
+    link: "https://luisherasme.github.io/LienzoEngine/",
+    img: "./img/lienzoengine.png",
+    name: "Lienzo Engine"
   },
   {
-    link: './Cellular Automata/index.html',
-    img: './img/Celular.png',
-    name: 'Cellular automata'
+    link: "./Electricity/index.html",
+    img: "./img/Electricity.png",
+    name: "Electricity"
   },
   {
-    link: './spaceShip/index.html',
-    img: './img/Space.png',
-    name: 'Spaceship'
+    link: "./Tanks/index.html",
+    img: "./img/Tanks.png",
+    name: "Tanks Game"
   },
   {
-    link: './Evol/index.html',
-    img: './img/Evol.png',
-    name: 'Evolution'
+    link: "./Cellular Automata/index.html",
+    img: "./img/Celular.png",
+    name: "Cellular automata"
+  },
+  {
+    link: "./spaceShip/index.html",
+    img: "./img/Space.png",
+    name: "Spaceship"
+  },
+  {
+    link: "./Evol/index.html",
+    img: "./img/Evol.png",
+    name: "Evolution"
   }
-]
+];
 
 for (let counter = 0; counter < proyectos.length; counter++) {
-  let proyecto = proyectos[counter]
-  const card = document.createElement('div')
-  card.setAttribute('class', 'col m3')
+  let proyecto = proyectos[counter];
+  const card = document.createElement("div");
+  card.setAttribute("class", "col m4");
   card.innerHTML = `
     <a href="${proyecto.link}">
         <div class="conta">
@@ -112,7 +113,7 @@ for (let counter = 0; counter < proyectos.length; counter++) {
             </div>
         </div>
     </a>
-  `
+  `;
 
-  lista.appendChild(card)
+  lista.appendChild(card);
 }

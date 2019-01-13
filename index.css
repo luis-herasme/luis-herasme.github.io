@@ -1,69 +1,70 @@
-@import url('https://fonts.googleapis.com/css?family=Roboto');
-
-html{   
-    background: #00d2ff;  /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #3a7bd5, #00d2ff);  /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #3a7bd5, #00d2ff); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    }
-
+@import url("https://fonts.googleapis.com/css?family=Roboto");
+* {
+  box-shadow: none !important;
+}
+html {
+  background: #eee;
+}
 h1,
 h6,
+h4,
 .b {
-    font-family: 'Roboto', sans-serif;
-    text-align: center;
+  font-family: "Roboto", sans-serif;
 }
-
 .card-title {
-    font-family: 'Roboto', sans-serif;
+  font-family: "Roboto", sans-serif;
 }
-
-h1,h2 {
-    font-weight: bolder;
-    
-    color: #ffffff;
-
+h1,
+h2,
+h4 {
+  font-weight: bolder;
+  color: #111 !important;
 }
 .conta {
-    text-align: center;
+  text-align: center;
 }
-
 .title {
-    color: #FFF;
-    font-weight: bold;
+  text-transform: lowercase !important;
+  color: #111;
 }
 html,
 body {
-    margin: 0;
-    
-    padding: 0;
-}
-.gitBtn {
-    border-radius: 50px !important;
+  margin: 0;
+  padding: 0;
 }
 
+.github-button {
+  border-radius: 50px !important;
+}
+
+.page-footer {
+  padding-top: 0px;
+}
+
+.footer-copyright {
+  background: #fff !important;
+}
+
+.gitBtn {
+  box-shadow: none;
+  background-color: #3a7bd5;
+}
 .gitBtn:hover {
-    border-radius: 0px !important;
-    transition: 1000ms;
-    color: white !important;
-    box-shadow: none;
-    background-color: rgba(0, 0, 0, 0) !important;
+  background-color: #1d60bd;
 }
-.github-button{
-    border-radius: 50px !important;
-}
+
 .background {
-    position: absolute;
-    display: block;
-    top: 0;
-    left: 0;
-    z-index: 0;
+  position: absolute;
+  display: block;
+  top: 0;
+  left: 0;
+  z-index: 0;
 }
 
 p {
-    font-size: 16px;
+  font-size: 16px;
 }
 
-
-.blackText{
-    color: #333 !important;
+.blackText {
+  color: #333 !important;
 }
