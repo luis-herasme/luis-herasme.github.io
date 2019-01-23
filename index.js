@@ -117,3 +117,15 @@ for (let counter = 0; counter < proyectos.length; counter++) {
 
   lista.appendChild(card);
 }
+let lights = true;
+const lights_btn = document.getElementById("lights");
+lights_btn.addEventListener("click", () => {
+  if (lights) {
+    document.body.style.backgroundColor = "#222";
+    lights_btn.innerHTML = "Encender las luces 🛌";
+  } else {
+    document.body.style.backgroundColor = "#56ccf2";
+    lights_btn.innerHTML = "Apagar las luces 💡";
+  }
+  lights = !lights;
+});

@@ -1,14 +1,51 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto");
-* {
-  box-shadow: none !important;
+
+body {
+  overflow-x: hidden;
 }
-html {
-  background: #eee;
+#can {
+  z-index: 100000;
 }
-h1,
-h6,
-h4,
-.b {
+
+#can {
+  position: fixed;
+  display: block !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  top: 0;
+  left: 0;
+  z-index: 0;
+}
+#lights {
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+.logo {
+  color: white;
+}
+
+.card {
+}
+nav {
+  border-radius: 2px;
+}
+.tap {
+  border-radius: 2px !important;
+}
+.active {
+  border-radius: 2px !important;
+}
+
+body {
+  background: #56ccf2;
+  /*
+  background: -webkit-linear-gradient(to right, #2f80ed, #56ccf2);
+  background: linear-gradient(to right, #2f80ed, #56ccf2);
+  */
+}
+
+h1 {
   font-family: "Roboto", sans-serif;
 }
 .card-title {
@@ -18,7 +55,6 @@ h1,
 h2,
 h4 {
   font-weight: bolder;
-  color: #111 !important;
 }
 .conta {
   text-align: center;
@@ -27,44 +63,21 @@ h4 {
   text-transform: lowercase !important;
   color: #111;
 }
-html,
-body {
+html {
   margin: 0;
   padding: 0;
 }
-
 .github-button {
   border-radius: 50px !important;
 }
-
 .page-footer {
+  background: #ffffff !important;
   padding-top: 0px;
 }
-
 .footer-copyright {
-  background: #fff !important;
+  color: black !important;
+  /* background: none !important; */
 }
-
-.gitBtn {
-  box-shadow: none;
-  background-color: #3a7bd5;
-}
-.gitBtn:hover {
-  background-color: #1d60bd;
-}
-
-.background {
-  position: absolute;
-  display: block;
-  top: 0;
-  left: 0;
-  z-index: 0;
-}
-
 p {
   font-size: 16px;
-}
-
-.blackText {
-  color: #333 !important;
 }
