@@ -124,7 +124,7 @@ lights_btn.addEventListener("click", () => {
     document.body.style.backgroundColor = "#222";
     lights_btn.innerHTML = "Encender las luces 🛌";
   } else {
-    document.body.style.backgroundColor = "#56ccf2";
+    document.body.style.backgroundColor = "#eee";
     lights_btn.innerHTML = "Apagar las luces 💡";
   }
   lights = !lights;

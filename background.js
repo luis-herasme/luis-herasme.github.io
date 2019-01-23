@@ -69,7 +69,7 @@ class Body {
     if (red > 255) {
       red = 255;
     }
-    this.color = `rgb(${red},255,255)`;
+    this.color = `rgb(${red},150,150)`;
     circle(this.x, this.y, this.size, this.color);
     /*
     context.translate(this.x, this.y);
