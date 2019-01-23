@@ -1,5 +1,10 @@
-@import url("https://fonts.googleapis.com/css?family=Roboto");
+/*
+@import url("https://fonts.googleapis.com/css?family=Lato");
 
+* {
+  font-family: "Lato", sans-serif !important;
+}
+*/
 body {
   overflow-x: hidden;
 }
@@ -16,33 +21,23 @@ body {
   left: 0;
   z-index: 0;
 }
-#lights {
+
+#control {
+  z-index: 10;
   position: fixed;
   bottom: 50px;
   right: 50px;
 }
+
 .logo {
   color: white;
-}
-
-.card {
 }
 nav {
   border-radius: 2px;
 }
-.tap {
-  border-radius: 2px !important;
-}
-.active {
-  border-radius: 2px !important;
-}
 
 body {
   background: #56ccf2;
-  /*
-  background: -webkit-linear-gradient(to right, #2f80ed, #56ccf2);
-  background: linear-gradient(to right, #2f80ed, #56ccf2);
-  */
 }
 
 h1 {
@@ -51,33 +46,34 @@ h1 {
 .card-title {
   font-family: "Roboto", sans-serif;
 }
-h1,
-h2,
-h4 {
+
+h1 {
   font-weight: bolder;
 }
+
 .conta {
   text-align: center;
 }
+
 .title {
   text-transform: lowercase !important;
   color: #111;
 }
+
 html {
   margin: 0;
   padding: 0;
 }
+
 .github-button {
   border-radius: 50px !important;
 }
+
 .page-footer {
   background: #ffffff !important;
   padding-top: 0px;
 }
+
 .footer-copyright {
   color: black !important;
-  /* background: none !important; */
-}
-p {
-  font-size: 16px;
 }
