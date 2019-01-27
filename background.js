@@ -121,7 +121,20 @@ function update() {
   Bodies.forEach(body => body.update());
 }
 
+let bees = false;
+let first_time = true;
+let bees_interval;
+
 document.getElementById("bees").addEventListener("click", () => {
-  init();
-  setInterval(update, 1000 / 60);
+  if (!bees) {
+    if (first_time) {
+      init();
+      first_time = false;
+    }
+    bees_interval = setInterval(update, 1000 / 60);
+  } else {
+    clear();
+    clearInterval(bees_interval);
+  }
+  bees = !bees;
 });

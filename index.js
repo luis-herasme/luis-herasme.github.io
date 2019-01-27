@@ -119,13 +119,16 @@ for (let counter = 0; counter < proyectos.length; counter++) {
 }
 let lights = true;
 const lights_btn = document.getElementById("lights");
+const logo = document.getElementById("logo");
 lights_btn.addEventListener("click", () => {
   if (lights) {
     document.body.style.backgroundColor = "#222";
-    lights_btn.innerHTML = "Encender las luces 🛌";
+    logo.style.color = "#DDD";
+    lights_btn.innerHTML = "🛌";
   } else {
     document.body.style.backgroundColor = "#eee";
-    lights_btn.innerHTML = "Apagar las luces 💡";
+    lights_btn.innerHTML = "💡";
+    logo.style.color = "#333";
   }
   lights = !lights;
 });
