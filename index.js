@@ -122,7 +122,7 @@ const lights_btn = document.getElementById("lights");
 const logo = document.getElementById("logo");
 lights_btn.addEventListener("click", () => {
   if (lights) {
-    document.body.style.backgroundColor = "#222";
+    document.body.style.backgroundColor = "rgb(8, 20, 30)";
     logo.style.color = "#DDD";
     lights_btn.innerHTML = "🛌";
   } else {
