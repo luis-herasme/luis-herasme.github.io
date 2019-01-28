@@ -2,6 +2,11 @@ const lista = document.getElementById("listaDeProyectos");
 
 const proyectos = [
   {
+    link: "./Fractales/index.html",
+    img: "./img/fractales.png",
+    name: "Fractales"
+  },
+  {
     link: "./coins/index.html",
     img: "./img/coins.png",
     name: "KonCoins"
@@ -122,12 +127,12 @@ const logo = document.getElementById("logo");
 lights_btn.addEventListener("click", () => {
   if (lights) {
     document.body.style.backgroundColor = "rgb(8, 20, 30)";
-    logo.style.color = "#FFF";
+    // logo.style.color = "#FFF";
     lights_btn.innerHTML = "🛌";
   } else {
-    document.body.style.backgroundColor = "#eee";
+    document.body.style.backgroundColor = "steelblue";
     lights_btn.innerHTML = "💡";
-    logo.style.color = "#333";
+    //   logo.style.color = "#333";
   }
   lights = !lights;
 });
