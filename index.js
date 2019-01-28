@@ -107,14 +107,13 @@ for (let counter = 0; counter < proyectos.length; counter++) {
         <div class="conta">
         <span class="title">${proyecto.name}</span>
             <div class="card">
-                <div class="card-image">
+                <div class="card-image project">
                     <img src="${proyecto.img}" alt="">
                 </div>
             </div>
         </div>
     </a>
   `;
-
   lista.appendChild(card);
 }
 let lights = true;
@@ -123,7 +122,7 @@ const logo = document.getElementById("logo");
 lights_btn.addEventListener("click", () => {
   if (lights) {
     document.body.style.backgroundColor = "rgb(8, 20, 30)";
-    logo.style.color = "#DDD";
+    logo.style.color = "#FFF";
     lights_btn.innerHTML = "🛌";
   } else {
     document.body.style.backgroundColor = "#eee";
