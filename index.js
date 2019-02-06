@@ -120,7 +120,9 @@ for (let counter = 0; counter < proyectos.length;) {
     card.innerHTML = `
     <div class="card">
       <div class="card-image waves-effect waves-block waves-light">
-        <img class="activator" src="${proyecto.img}">
+      <a href="${proyecto.link}">
+        <img class="" src="${proyecto.img}">
+        </a>
       </div>
       <div class="card-content">
         <span class="truncate card-title activator grey-text text-darken-4""><i class="material-icons right">more_vert</i>${proyecto.name}</span>
