@@ -4,13 +4,50 @@
 * {
   /*
   font-family: "Lato", sans-serif !important;
-  */
+  
   box-shadow: none !important;
+  */
 }
 
 body {
-  /*  background-image: url("./img/frac.png");*/
+
   overflow-x: hidden;
+  padding: 0px;
+  margin: 0px;
+
+  background-color:#222; 
+}
+
+.btn-large {
+  border-radius: 0px ;
+}
+
+#main_btn:hover {
+  transition: all 1s;
+  border-radius: 100px;
+}
+
+#background_color {
+  background: #111;
+    width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+#background {
+  background-repeat: no-repeat;
+  background-image: url("./img/b.jpg");
+  background-size: 100%;
+  opacity: 0.05;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
 }
 
 #can {
@@ -38,25 +75,18 @@ body {
 }
 
 .logo {
-  color: #eee;
+  color: #FFF;
 }
 
 nav {
   border-radius: 2px;
 }
 
-body {
-  background-color: steelblue;
-}
+
+
 
 h1 {
-  font-family: "Roboto", sans-serif;
-}
-.card-title {
-  font-family: "Roboto", sans-serif;
-}
-
-h1 {
+  z-index: 10;
   font-weight: bolder;
 }
 
@@ -79,10 +109,12 @@ html {
 }
 
 .page-footer {
-  background: #ffffff !important;
-  padding-top: 0px;
+  background: #FFF !important;
+  color: black !important;
+  
 }
 
 .footer-copyright {
+   background: #CCC !important;
   color: black !important;
 }

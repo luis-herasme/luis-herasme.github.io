@@ -6,6 +6,14 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Luis Herasme</title>
     <link rel="stylesheet" href="./materialize/css/materialize.min.css" />
+    <link rel="stylesheet" type="text/css" href="static/index.css">
+    <style type="text/css">
+      @import url('https://rsms.me/inter/inter.css');
+html { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  html { font-family: 'Inter var', sans-serif; }
+}
+    </style>
     <link
       href="http://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -15,10 +23,8 @@
   <body>
     <!--<canvas id="hide_can"> </canvas> --><canvas id="can"> </canvas>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-    <div class="container" style="text-align:center;">
-      <h1 class="logo" id="logo">Luis Herasme</h1>
-
-      <a
+<div style="position: absolute; top: 15px;right: 15px;">
+<a
         class="github-button"
         href="https://github.com/LuisHerasme/luisherasme.github.io"
         data-icon="octicon-star"
@@ -36,6 +42,47 @@
         aria-label="Follow @LuisHerasme on GitHub"
         >Follow @LuisHerasme</a
       >
+</div>
+
+<div class="row" style="height: 100vh;margin-bottom: 0px;" >
+        <div class="col m3" style="padding: 0px;height: 100vh;">
+          <div class="card" style="margin-top: 0px; height: 100vh; border-radius: 0px;background-color: rgba(255,255,255,1);color: black;box-shadow: none;">
+            <div class="card-content">
+              <div>
+                <!--<div class="container">-->
+
+                <p style="font-size:16px;margin-top: 50%;">
+                  Hi👋, my name is Luis Herasme, I'm a programmer from the
+                  Dominican Republic and an electronic engineering student at
+                  Intec.
+                </p>
+                <br />
+                <!--
+                <a
+                  href="https://github.com/LuisHerasme"
+                  class=" gitBtn waves-effect waves-effect btn light-blue lighten-5 black-text "
+                  >Github</a
+                >
+                -->
+                <a  href="https://github.com/LuisHerasme" class=" gitBtn waves-effect waves-effect btn-large    white-text " style="background-color: #111;">Github</a>
+
+                <!--</div>-->
+              </div>
+            </div>
+          </div>
+          </div>
+          <div class="col m9  " style="text-align: center;">
+            <div id="background_color"></div>
+            <div id="background"></div>
+
+            <div style="transform: translateY(-50%);margin-top: 50vh;">
+      <h1 class="logo" id="logo">Luis Herasme 👨🏾‍💻</h1>
+<a href="#pro" class=" gitBtn waves-effect waves-effect btn-large white   black-text " id="main_btn" style=" ">Ver proyectos</a>
+</div>
+      </div>
+      </div>
+    
+      <!--
       <div id="control">
         <button
           id="lights"
@@ -44,37 +91,106 @@
           💡
         </button>
       </div>
-    </div>
-    <br />
-    <div class="container">
+    -->
+
+    <!--
+    <nav
+            class="nav-extended"
+            style="background-color:#fff;margin-bottom: 15px;"
+          >
+          <div class="container">
+            <div class="nav-content">
+              <ul class="tabs tabs-transparent">
+                <li class="tab">
+                  <a class="active black-text" href="#test1">Projects</a>
+                </li>
+                <li class="tab disabled">
+                  <a class=" black-text" href="#test2">Blog</a>
+                </li>
+              </ul>
+            </div>
+            </div>
+          </nav>
+-->
+    <div class="container" id="pro" style=" ">
       <div class="row" style="margin-bottom: 0px !important;">
-        <div class="col m4">
-          <div class="card" style="margin-top: 0px;">
+  
+
+        <div class="col m12">
+     
+          <div class="">
+            <!---->
+
             <div class="card-content">
-              <div>
-                <!--<div class="container">-->
+              <!--
+        style="border-left: 1px solid #40444794;overflow-y:scroll;height:100vh;"
+        -->
 
-                <p style="font-size:16px;">
-                  Hi👋, my name is Luis Herasme, I'm a programmer from the
-                  Dominican Republic and an electronic engineering student at
-                  Intec.
-                </p>
+             <!-- <div id="test1"> -->
+                <!--
+                <h4>Proyectos</h4>
+                <hr
+                  style="height: 5px;border:none;background-color: #56ccf2;margin-top:0px;width: 40px; float:left;"
+                />
                 <br />
-                <a
-                  href="https://github.com/LuisHerasme"
-                  class=" gitBtn waves-effect waves-effect btn light-blue lighten-5 black-text "
-                  >Github</a
-                >
+                <br />
+                -->
+                <div id="listaDeProyectos" style="text-align: center;">
+                  
+                  <h2 style="font-weight: bold; color: white;">Proyectos 🗃</h2>
 
-                <!--</div>-->
-              </div>
+                  <hr style="height: 4px;width: 10%;border: none;background-color: white;">
+                  <br>
+
+                </div>
+              <!-- </div> -->
+              
+
+              <!--
+              <nav>
+                <div class="nav-wrapper" style="background-color:#3a7bd5;">
+                  <ul id="nav-mobile" class="left hide-on-med-and-down">
+                    <li><a href="sass.html">Projects</a></li>
+                    <li><a href="badges.html">Blog</a></li>
+                    <li><a href="collapsible.html">JavaScript</a></li>
+                  </ul>
+                </div>
+              </nav>
+              <br />
+               -->
             </div>
           </div>
+        </div>
+      </div>
+    </div>
 
-          <div class="card">
-            <div class="card-content">
+
+
+
+
+<footer class="page-footer">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <h5 class="">Contacto</h5>
+                <p class=""> <a
+        class="github-button"
+        href="https://github.com/LuisHerasme"
+        data-size="large"
+        data-show-count="true"
+        aria-label="Follow @LuisHerasme on GitHub"
+        >Follow @LuisHerasme</a
+      ></p>
+<p>
+      herasmebusiness@gmail.com
+      </p>
+
+              </div>
+              <div class="col l4 offset-l2 s12">
+      
+      
               <div>
-                <h5 class="blackText">Documentations</h5>
+                <h5 class="blackText">Otros proyectos</h5>
                 <ul class="collection">
                   <li class="collection-item">
                     <a
@@ -113,82 +229,30 @@
                   </li>
                 </ul>
               </div>
-            </div>
-          </div>
-        </div>
-        <div class="col m8">
-          <nav
-            class="nav-extended"
-            style="background-color:#fff;margin-bottom: 15px;"
-          >
-            <div class="nav-content">
-              <ul class="tabs tabs-transparent">
-                <li class="tab">
-                  <a class="active black-text" href="#test1">Projects</a>
-                </li>
-                <li class="tab disabled">
-                  <a class=" black-text" href="#test2">Blog</a>
-                </li>
-              </ul>
-            </div>
-          </nav>
+      
+         
 
-          <div class="card">
-            <!---->
-
-            <div class="card-content">
-              <!--
-        style="border-left: 1px solid #40444794;overflow-y:scroll;height:100vh;"
-        -->
-
-              <div id="test1">
-                <!--
-                <h4>Proyectos</h4>
-                <hr
-                  style="height: 5px;border:none;background-color: #56ccf2;margin-top:0px;width: 40px; float:left;"
-                />
-                <br />
-                <br />
-                -->
-                <div class="row"><div id="listaDeProyectos"></div></div>
               </div>
-              <div id="test2" class="col s12">Blog</div>
-
-              <!--
-              <nav>
-                <div class="nav-wrapper" style="background-color:#3a7bd5;">
-                  <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="sass.html">Projects</a></li>
-                    <li><a href="badges.html">Blog</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
-                  </ul>
-                </div>
-              </nav>
-              <br />
-               -->
             </div>
           </div>
-        </div>
-      </div>
-    </div>
-
-    <footer class="page-footer ">
-      <div class="footer-copyright">
-        <div class="container ">
-          2019 Luis Herasme
-          <button
+          <div class="footer-copyright">
+            <div class="container">
+            © 2019 Luis Herasme      <button
             style="margin-left: 5%;"
             id="bees"
             class=" gitBtn waves-effect waves-effect btn light-blue lighten-5 black-text "
           >
             Enable Bees 🐝
           </button>
-          <a class="right" href="https://github.com/LuisHerasme"
+
+                      <a class="right" class="white-text" href="https://github.com/LuisHerasme"
             >More projects</a
           >
-        </div>
-      </div>
-    </footer>
+            </div>
+          </div>
+        </footer>
+            
+
 
     <script
       type="text/javascript"
@@ -200,3 +264,4 @@
     <link rel="stylesheet" href="./index.css" />
   </body>
 </html>
+      

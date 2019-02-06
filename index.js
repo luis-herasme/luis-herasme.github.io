@@ -79,7 +79,8 @@ const proyectos = [
   {
     link: "./Electricity/index.html",
     img: "./img/Electricity.png",
-    name: "Electricity"
+    name: "Electricity",
+    desciption: "Simulacion del comportamiento de particulas cargadas."
   },
   {
     link: "./Tanks/index.html",
@@ -103,11 +104,40 @@ const proyectos = [
   }
 ];
 
-for (let counter = 0; counter < proyectos.length; counter++) {
-  let proyecto = proyectos[counter];
-  const card = document.createElement("div");
-  card.setAttribute("class", "col m4");
-  card.innerHTML = `
+const des = (d) => {
+  if (!d) return "No descripción disponible.";
+  return d;
+}
+
+for (let counter = 0; counter < proyectos.length;) {
+  const cards = document.createElement("div");
+  cards.setAttribute("class", "row");
+  for (let i = 0; i < 4; i ++) {
+    let proyecto = proyectos[counter];
+    counter++;
+    const card = document.createElement("div");
+    card.setAttribute("class", "col m3");
+    card.innerHTML = `
+    <div class="card">
+      <div class="card-image waves-effect waves-block waves-light">
+        <img class="activator" src="${proyecto.img}">
+      </div>
+      <div class="card-content">
+        <span class="card-title activator grey-text text-darken-4">${proyecto.name}<i class="material-icons right">more_vert</i></span>
+        <p><a href="${proyecto.link}">Ver demo</a></p>
+      </div>
+      <div class="card-reveal">
+        <span class="card-title grey-text text-darken-4">${proyecto.name}<i class="material-icons right">close</i></span>
+        <p>${des(proyecto.desciption)}</p>
+      </div>
+    </div>
+    `;
+    cards.appendChild(card);
+  }
+  lista.appendChild(cards);
+}
+/*
+
     <a href="${proyecto.link}">
         <div class="conta">
         <span class="title">${proyecto.name}</span>
@@ -118,9 +148,8 @@ for (let counter = 0; counter < proyectos.length; counter++) {
             </div>
         </div>
     </a>
-  `;
-  lista.appendChild(card);
-}
+*/
+
 let lights = true;
 const lights_btn = document.getElementById("lights");
 const logo = document.getElementById("logo");
