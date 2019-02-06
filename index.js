@@ -123,12 +123,16 @@ for (let counter = 0; counter < proyectos.length;) {
         <img class="activator" src="${proyecto.img}">
       </div>
       <div class="card-content">
-        <span class="card-title activator grey-text text-darken-4">${proyecto.name}<i class="material-icons right">more_vert</i></span>
+        <span class="truncate card-title activator grey-text text-darken-4""><i class="material-icons right">more_vert</i>${proyecto.name}</span>
         <p><a href="${proyecto.link}">Ver demo</a></p>
       </div>
       <div class="card-reveal">
         <span class="card-title grey-text text-darken-4">${proyecto.name}<i class="material-icons right">close</i></span>
-        <p>${des(proyecto.desciption)}</p>
+        <p>${des(proyecto.desciption)}
+        <br>
+        <a class="gitBtn waves-effect waves-effect btn white-text" href="${proyecto.link}" style="background-color: #001f3f; position:absolute; bottom:10px;left:10px;">Ver demo</a>
+        </p>
+
       </div>
     </div>
     `;
