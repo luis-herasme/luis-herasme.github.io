@@ -131,7 +131,7 @@ for (let counter = 0; counter < proyectos.length;) {
     let proyecto = proyectos[counter];
     counter++;
     const card = document.createElement("div");
-    card.setAttribute("class", "col m3");
+    card.setAttribute("class", "col-md-3 col-sm-12");
     card.innerHTML = `
 <div class="card mb-5">
   <a href="${proyecto.link}">

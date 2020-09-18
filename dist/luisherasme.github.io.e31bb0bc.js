@@ -227,7 +227,7 @@ for (var counter = 0; counter < proyectos.length;) {
     var proyecto = proyectos[counter];
     counter++;
     var card = document.createElement("div");
-    card.setAttribute("class", "col m3");
+    card.setAttribute("class", "col-md-3 col-sm-12");
     card.innerHTML = "\n<div class=\"card mb-5\">\n  <a href=\"".concat(proyecto.link, "\">\n    <img class=\"card-img-top\" src=\"").concat(proyecto.img, "\">\n  </a>\n  <div class=\"card-body\">\n    <div class=\"card-title mb-0\">\n      <span class=\"truncate card-title\">").concat(proyecto.name, "</span>\n    </div>\n  </div>\n</div>\n    ");
     cards.appendChild(card);
   }
@@ -278,7 +278,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "49716" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50163" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
