@@ -2,7 +2,7 @@ const lista = document.getElementById("listaDeProyectos");
 
 const proyectos = [
   {
-    link: "https://github.com/LuisHerasme/Fractals",
+    link: "https://github.com/LuisHerasme/fractalsWGL/index.html",
     img: "./img/fractalWebGl.png",
     name: "Fractales WebGL"
   },
