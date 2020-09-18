@@ -1,0 +1,132 @@
+@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: url("/font.7d9ba6ac.woff2") format("woff2");
+}
+
+.material-icons {
+  font-family: "Material Icons";
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+  -webkit-font-feature-settings: "liga";
+  -webkit-font-smoothing: antialiased;
+}
+body {
+  overflow-x: hidden;
+  padding: 0px;
+  margin: 0px;
+  background-color: #121212;
+}
+
+p {
+  font-size: 22px;
+}
+
+.btn-large {
+  border-radius: 0px;
+}
+
+#main_btn:hover {
+  transition: all 1s;
+  top: 1px;
+}
+
+#background_color {
+  /*background: #001f3f;*/
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+#background {
+  background-repeat: no-repeat;
+  background-image: url("/electricidad.8d0f7798.gif");
+  background-size: 100%;
+  opacity: 0.1;
+  width: 100%;
+  height: 100vh;
+  position: absolute;
+  left: 0px;
+  top: 0px;
+  z-index: -1;
+}
+
+#can {
+  position: fixed;
+  display: block !important;
+  padding: 0px !important;
+  margin: 0px !important;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 100000;
+}
+
+.project:hover {
+  transition: all 600ms cubic-bezier(0.075, 0.82, 0.165, 1);
+  opacity: 0.9;
+  top: -1px;
+}
+
+#control {
+  z-index: 10;
+  position: fixed;
+  bottom: 50px;
+  right: 50px;
+}
+
+.logo {
+  color: white;
+}
+
+nav {
+  border-radius: 2px;
+}
+
+h1 {
+  z-index: 10;
+  font-weight: bolder;
+}
+
+.conta {
+  text-align: center;
+}
+
+.title {
+  text-transform: lowercase !important;
+  color: #111;
+}
+
+html {
+  margin: 0;
+  padding: 0;
+}
+
+.github-button {
+  border-radius: 50px !important;
+}
+
+.page-footer {
+  background: #fff !important;
+  color: black !important;
+}
+
+.footer-copyright {
+  background: black !important;
+  color: white !important;
+}
+
+
+/*# sourceMappingURL=/luisherasme.github.io.9ad09f98.css.map */

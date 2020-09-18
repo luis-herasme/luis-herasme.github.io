@@ -1,23 +1,12 @@
-/*
-@import url("https://fonts.googleapis.com/css?family=Lato");
-*/
-* {
-  /*
-  font-family: "Lato", sans-serif !important;
-  
-  box-shadow: none !important;
-  */
-}
-/* fallback */
 @font-face {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-style: normal;
   font-weight: 400;
-  src: url("static/font.woff2") format('woff2');
+  src: url("static/font.woff2") format("woff2");
 }
 
 .material-icons {
-  font-family: 'Material Icons';
+  font-family: "Material Icons";
   font-weight: normal;
   font-style: normal;
   font-size: 24px;
@@ -28,32 +17,32 @@
   white-space: nowrap;
   word-wrap: normal;
   direction: ltr;
-  -webkit-font-feature-settings: 'liga';
+  -webkit-font-feature-settings: "liga";
   -webkit-font-smoothing: antialiased;
 }
 body {
-
   overflow-x: hidden;
   padding: 0px;
   margin: 0px;
+  background-color: #121212;
+}
 
-  background-color:#121212; 
+p {
+  font-size: 22px;
 }
 
 .btn-large {
-  border-radius: 0px ;
+  border-radius: 0px;
 }
 
 #main_btn:hover {
   transition: all 1s;
-  top:1px;
-
- 
+  top: 1px;
 }
 
 #background_color {
-  background: #001f3f;
-    width: 100%;
+  /*background: #001f3f;*/
+  width: 100%;
   height: 100vh;
   position: absolute;
   left: 0px;
@@ -63,11 +52,9 @@ body {
 
 #background {
   background-repeat: no-repeat;
-  
-  background-image: url("./img/b.jpg");
-  
+  background-image: url("./img/electricidad.gif");
   background-size: 100%;
-  opacity: 0.05;
+  opacity: 0.1;
   width: 100%;
   height: 100vh;
   position: absolute;
@@ -101,18 +88,14 @@ body {
 }
 
 .logo {
-color: white;
+  color: white;
 }
 
 nav {
   border-radius: 2px;
 }
 
-
-
-
 h1 {
-
   z-index: 10;
   font-weight: bolder;
 }
@@ -136,12 +119,11 @@ html {
 }
 
 .page-footer {
-  background: #FFF !important;
+  background: #fff !important;
   color: black !important;
-  
 }
 
 .footer-copyright {
-   background: #CCC !important;
-  color: black !important;
+  background: black !important;
+  color: white !important;
 }

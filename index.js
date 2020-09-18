@@ -2,6 +2,21 @@ const lista = document.getElementById("listaDeProyectos");
 
 const proyectos = [
   {
+    link: "https://github.com/LuisHerasme/Fractals",
+    img: "./img/fractalWebGl.png",
+    name: "Fractales WebGL"
+  },
+  {
+    link: "https://github.com/LuisHerasme/Game-made-in-C",
+    img: "./img/zombie.png",
+    name: "Zombie"
+  },
+  {
+    link: "https://github.com/LuisHerasme/intec_man",
+    img: "./img/intecMan.png",
+    name: "IntecMan"
+  },
+  {
     link: "./Fractales/index.html",
     img: "./img/fractales.png",
     name: "Fractales"
@@ -112,49 +127,27 @@ const des = (d) => {
 for (let counter = 0; counter < proyectos.length;) {
   const cards = document.createElement("div");
   cards.setAttribute("class", "row");
-  for (let i = 0; i < 4; i ++) {
+  for (let i = 0; i < 4; i++) {
     let proyecto = proyectos[counter];
     counter++;
     const card = document.createElement("div");
     card.setAttribute("class", "col m3");
     card.innerHTML = `
-    <div class="card">
-      <div class="card-image waves-effect waves-block waves-light">
-      <a href="${proyecto.link}">
-        <img class="" src="${proyecto.img}">
-        </a>
-      </div>
-      <div class="card-content">
-        <span class="truncate card-title activator grey-text text-darken-4""><i class="material-icons right">more_vert</i>${proyecto.name}</span>
-        <p><a href="${proyecto.link}">Ver demo</a></p>
-      </div>
-      <div class="card-reveal">
-        <span class="card-title grey-text text-darken-4">${proyecto.name}<i class="material-icons right">close</i></span>
-        <p>${des(proyecto.desciption)}
-        <br>
-        <a class="gitBtn waves-effect waves-effect btn white-text" href="${proyecto.link}" style="background-color: #001f3f; position:absolute; bottom:10px;left:10px;">Ver demo</a>
-        </p>
-
-      </div>
+<div class="card mb-5">
+  <a href="${proyecto.link}">
+    <img class="card-img-top" src="${proyecto.img}">
+  </a>
+  <div class="card-body">
+    <div class="card-title mb-0">
+      <span class="truncate card-title">${proyecto.name}</span>
     </div>
+  </div>
+</div>
     `;
     cards.appendChild(card);
   }
   lista.appendChild(cards);
 }
-/*
-
-    <a href="${proyecto.link}">
-        <div class="conta">
-        <span class="title">${proyecto.name}</span>
-            <div class="card">
-                <div class="card-image project">
-                    <img src="${proyecto.img}" alt="">
-                </div>
-            </div>
-        </div>
-    </a>
-*/
 
 let lights = true;
 const lights_btn = document.getElementById("lights");

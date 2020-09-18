@@ -1,27 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>Luis Herasme</title>
-    <link rel="stylesheet" href="./materialize/css/materialize.min.css" />
-    <link rel="stylesheet" type="text/css" href="static/index.css">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+      integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+      integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"
+      integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"
+      integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV"
+      crossorigin="anonymous"
+    ></script>
+    <title>Luis Herasme</title>
+    <link rel="stylesheet" type="text/css" href="/index.css" />
     <style type="text/css">
-      @import url('https://rsms.me/inter/inter.css');
-html { font-family: 'Inter', sans-serif; }
-@supports (font-variation-settings: normal) {
-  html { font-family: 'Inter var', sans-serif; }
-}
+      @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
+      html {
+        font-family: "Montserrat", sans-serif !important;
+      }
+      @supports (font-variation-settings: normal) {
+        html {
+          font-family: "Montserrat", sans-serif !important;
+        }
+      }
     </style>
-
   </head>
 
   <body>
-    <!--<canvas id="hide_can"> </canvas> --><canvas id="can"> </canvas>
+    <canvas id="can"> </canvas>
     <script async defer src="https://buttons.github.io/buttons.js"></script>
-<div style="position: absolute; top: 15px;right: 15px;">
-<a
+    <div style="position: absolute; top: 5%; right: 5%">
+      <a
         class="github-button"
         href="https://github.com/LuisHerasme/luisherasme.github.io"
         data-icon="octicon-star"
@@ -39,230 +65,132 @@ html { font-family: 'Inter', sans-serif; }
         aria-label="Follow @LuisHerasme on GitHub"
         >Follow @LuisHerasme</a
       >
-</div>
+    </div>
 
-<div class="row" style="height: 100vh;margin-bottom: 0px;" >
-        <!--
-     
-                              -->
+    <div class="row" style="height: 100vh; margin-bottom: 0px">
+      <div class="col m12" style="text-align: center">
+        <div id="background_color"></div>
+        <div id="background"></div>
 
-     
-
-          
-          <div class="col m12  " style="text-align: center;">
-            <div id="background_color"></div>
-            <div id="background"></div>
-
-            <div style="transform: translateY(-50%);margin-top: 50vh;">
-
-
-               
-
-
-
-
-      <h1 class="logo" id="logo">Luis Herasme 👨🏾‍💻</h1>
-    <div style="text-align: center;width:35%; margin: auto;">
-
-      <p style=" color: white; ">
-        Hi👋, my name is Luis Herasme, I'm a programmer from the
-        Dominican Republic and an electronic engineering student at
-        Intec.
-      </p>
-      </div>
-<a href="#pro" class=" gitBtn waves-effect waves-effect btn-large white   black-text " id="main_btn" style=" ">Ver proyectos</a>
-                <a  href="https://github.com/LuisHerasme" class=" gitBtn waves-effect waves-effect btn-large    white-text " id="main_btn" style="background-color: #111;">Github</a>  
-      
-
-
-
-
-               
-
-</div>
-      </div>
-      </div>
-    
-      <!--
-      <div id="control">
-        <button
-          id="lights"
-          class=" waves-effect waves-effect btn-floating  btn light-blue lighten-5 black-text "
-        >
-          💡
-        </button>
-      </div>
-    -->
-
-    <!--
-    <nav
-            class="nav-extended"
-            style="background-color:#fff;margin-bottom: 15px;"
+        <div style="transform: translateY(-50%); margin-top: 50vh">
+          <h3 className="mt-0" style="color: white">Personal website</h3>
+          <h1 class="logo" id="logo">Luis Alberto Herasme Cuevas</h1>
+          <div style="text-align: center; width: 35%; margin: auto">
+            <p style="color: white">
+              Hi👋, my name is Luis Herasme. I am a programmer from the
+              Dominican Republic and an Electronic and Communications
+              Engineering student at INTEC.
+            </p>
+          </div>
+          <a href="#pro" class="btn btn-light mr-2 btn-lg">Ver proyectos</a>
+          <a href="https://github.com/LuisHerasme" class="btn btn-dark btn-lg"
+            >Github</a
           >
-          <div class="container">
-            <div class="nav-content">
-              <ul class="tabs tabs-transparent">
-                <li class="tab">
-                  <a class="active black-text" href="#test1">Projects</a>
-                </li>
-                <li class="tab disabled">
-                  <a class=" black-text" href="#test2">Blog</a>
-                </li>
-              </ul>
-            </div>
-            </div>
-          </nav>
--->
-    <div class="container" id="pro" style=" ">
-      <div class="row" style="margin-bottom: 0px !important;">
-  
+        </div>
+      </div>
+    </div>
 
+    <div class="container" id="pro">
+      <div class="row" style="margin-bottom: 0px !important">
         <div class="col m12">
-     
-          <div class="">
-            <!---->
-
-            <div class="card-content">
-              <!--
-        style="border-left: 1px solid #40444794;overflow-y:scroll;height:100vh;"
-        -->
-
-             <!-- <div id="test1"> -->
-                <!--
-                <h4>Proyectos</h4>
+          <div class="card-content">
+            <div id="listaDeProyectos" style="text-align: center">
+              <h2 class="mt-5 mb-5" style="font-weight: bold; color: white">
+                Proyectos
                 <hr
-                  style="height: 5px;border:none;background-color: #56ccf2;margin-top:0px;width: 40px; float:left;"
+                  style="
+                    height: 4px;
+                    width: 10%;
+                    border: none;
+                    background-color: white;
+                    border-radius: 5px;
+                  "
                 />
-                <br />
-                <br />
-                -->
-                <div id="listaDeProyectos" style="text-align: center;">
-                  
-                  <h2 style="font-weight: bold; color: white;">Proyectos 🗃</h2>
-
-                  <hr style="height: 4px;width: 10%;border: none;background-color: white;">
-                  <br>
-
-                </div>
-              <!-- </div> -->
-              
-
-              <!--
-              <nav>
-                <div class="nav-wrapper" style="background-color:#3a7bd5;">
-                  <ul id="nav-mobile" class="left hide-on-med-and-down">
-                    <li><a href="sass.html">Projects</a></li>
-                    <li><a href="badges.html">Blog</a></li>
-                    <li><a href="collapsible.html">JavaScript</a></li>
-                  </ul>
-                </div>
-              </nav>
-              <br />
-               -->
+              </h2>
             </div>
           </div>
         </div>
       </div>
     </div>
 
-
-
-
-
-<footer class="page-footer">
-          <div class="container">
-            <div class="row">
-              <div class="col l6 s12">
-                <h5 class="">Contacto</h5>
-                <p class=""> <a
-        class="github-button"
-        href="https://github.com/LuisHerasme"
-        data-size="large"
-        data-show-count="true"
-        aria-label="Follow @LuisHerasme on GitHub"
-        >Follow @LuisHerasme</a
-      ></p>
-<p>
-      herasmebusiness@gmail.com
-      </p>
-
-              </div>
-              <div class="col l4 offset-l2 s12">
-      
-      
-              <div>
-                <h5 class="blackText">Otros proyectos</h5>
-                <ul class="collection">
-                  <li class="collection-item">
-                    <a
-                      href="https://luisherasme.github.io/LienzoEngine/"
-                      class="truncate"
-                      >LienzoEngine
-                    </a>
-                  </li>
-                  <li class="collection-item">
-                    <a
-                      href="https://github.com/LuisHerasme/vectorFunctionsJs"
-                      class="truncate"
-                      >VectorFunctionsJs</a
-                    >
-                  </li>
-                  <li class="collection-item">
-                    <a
-                      href="https://github.com/LuisHerasme/FisicaJS"
-                      class="truncate"
-                      >FisicaJS</a
-                    >
-                  </li>
-                  <li class="collection-item">
-                    <a
-                      href="https://github.com/LuisHerasme/vector"
-                      class="truncate"
-                      >Vector</a
-                    >
-                  </li>
-                  <li class="collection-item">
-                    <a
-                      href="https://github.com/LuisHerasme/JavaSctipGL"
-                      class="truncate"
-                      >JavaSctipGL</a
-                    >
-                  </li>
-                </ul>
-              </div>
-      
-         
-
-              </div>
+    <footer class="page-footer">
+      <div class="container pt-5 pb-5">
+        <div class="row">
+          <div class="col l6 s12">
+            <h4 class="">Contacto</h4>
+            <p>herasmebusiness@gmail.com</p>
+            <p class="">
+              <a
+                class="github-button"
+                href="https://github.com/LuisHerasme"
+                data-size="large"
+                data-show-count="true"
+                aria-label="Follow @LuisHerasme on GitHub"
+                >Follow @LuisHerasme</a
+              >
+            </p>
+          </div>
+          <div class="col l4 offset-l2 s12">
+            <div>
+              <h4 class="blackText">Otros proyectos</h4>
+              <ul class="collection">
+                <li class="collection-item">
+                  <a
+                    href="https://luisherasme.github.io/LienzoEngine/"
+                    class="truncate"
+                    >LienzoEngine
+                  </a>
+                </li>
+                <li class="collection-item">
+                  <a
+                    href="https://github.com/LuisHerasme/vectorFunctionsJs"
+                    class="truncate"
+                    >VectorFunctionsJs</a
+                  >
+                </li>
+                <li class="collection-item">
+                  <a
+                    href="https://github.com/LuisHerasme/FisicaJS"
+                    class="truncate"
+                    >FisicaJS</a
+                  >
+                </li>
+                <li class="collection-item">
+                  <a
+                    href="https://github.com/LuisHerasme/vector"
+                    class="truncate"
+                    >Vector</a
+                  >
+                </li>
+                <li class="collection-item">
+                  <a
+                    href="https://github.com/LuisHerasme/JavaSctipGL"
+                    class="truncate"
+                    >JavaSctipGL</a
+                  >
+                </li>
+              </ul>
             </div>
           </div>
-          <div class="footer-copyright">
-            <div class="container">
-            © 2019 Luis Herasme      <button
-            style="margin-left: 5%;"
-            id="bees"
-            class=" gitBtn waves-effect waves-effect btn light-blue lighten-5 black-text "
-          >
+        </div>
+      </div>
+      <div style="padding: 5px" class="footer-copyright">
+        <div class="container">
+          2020 - Luis Herasme
+          <button style="margin-left: 5%" id="bees" class="btn btn-dark">
             Enable Bees 🐝
           </button>
-
-                      <a class="right" class="white-text" href="https://github.com/LuisHerasme"
-            >More projects</a
-          >
-            </div>
-          </div>
-        </footer>
-            
-
+        </div>
+      </div>
+    </footer>
 
     <script
       type="text/javascript"
       src="https://code.jquery.com/jquery-2.1.1.min.js"
     ></script>
-    <script src="./materialize/js/materialize.min.js"></script>
+
     <script src="./index.js"></script>
     <script src="./background.js"></script>
     <link rel="stylesheet" href="./index.css" />
   </body>
 </html>
-      
