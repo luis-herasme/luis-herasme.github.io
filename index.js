@@ -23,6 +23,11 @@ const proyectos = [
     name: "Home management system (C)"
   },
   {
+    link: "https://luisagario.herokuapp.com/",
+    img: "./img/luisagario.png",
+    name: "LuisAgario"
+  },
+  {
     link: "",
     img: "./img/hotdog.png",
     name: "Hot dog or not"
