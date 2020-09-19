@@ -1,7 +1,7 @@
 const lista = document.getElementById("listaDeProyectos");
 
 const proyectos = [
- 
+
   {
     link: "https://github.com/LuisHerasme/Raycasting-python",
     img: "https://github.com/LuisHerasme/Raycasting-python/blob/master/show.gif?raw=true",
@@ -16,6 +16,16 @@ const proyectos = [
     link: "./fractalsWGL/index.html",
     img: "./img/fractalWebGl.png",
     name: "Fractales WebGL"
+  },
+  {
+    link: "",
+    img: "./img/SistemaGestionHogar.png",
+    name: "Home management system (C)"
+  },
+  {
+    link: "",
+    img: "./img/hotdog.png",
+    name: "Hot dog or not"
   },
   {
     link: "https://github.com/LuisHerasme/Game-made-in-C",
@@ -144,9 +154,11 @@ for (let counter = 0; counter < proyectos.length;) {
     const card = document.createElement("div");
     card.setAttribute("class", "col-md-4 col-sm-12");
     card.innerHTML = `
-<div class="card mb-5">
+<div class="card mb-5 ">
   <a href="${proyecto.link}">
-    <img class="card-img-top" src="${proyecto.img}">
+    <div class=" embed-responsive embed-responsive-16by9">
+      <img class="card-img-top embed-responsive-item" src="${proyecto.img}">
+    </div>
   </a>
   <div class="card-body">
     <div class="card-title mb-0">

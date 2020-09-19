@@ -120,7 +120,7 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"index.js":[function(require,module,exports) {
 var lista = document.getElementById("listaDeProyectos");
 var proyectos = [{
-  link: "https://github.com/LuisHerasme/Fractals",
+  link: "./fractalsWGL/index.html",
   img: "./img/fractalWebGl.png",
   name: "Fractales WebGL"
 }, {
@@ -278,7 +278,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "50163" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52376" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
