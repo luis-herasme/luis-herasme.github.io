@@ -1,6 +1,17 @@
 const lista = document.getElementById("listaDeProyectos");
 
 const proyectos = [
+ 
+  {
+    link: "https://github.com/LuisHerasme/Raycasting-python",
+    img: "https://github.com/LuisHerasme/Raycasting-python/blob/master/show.gif?raw=true",
+    name: "3D raycasting made in python"
+  },
+  {
+    link: "https://github.com/LuisHerasme/Render",
+    img: "https://raw.githubusercontent.com/LuisHerasme/Render/master/show.gif",
+    name: "Render 3D, (Python)"
+  },
   {
     link: "./fractalsWGL/index.html",
     img: "./img/fractalWebGl.png",
