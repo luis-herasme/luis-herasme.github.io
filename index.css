@@ -1,3 +1,13 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
+html {
+  font-family: "Montserrat", sans-serif !important;
+}
+@supports (font-variation-settings: normal) {
+  html {
+    font-family: "Montserrat", sans-serif !important;
+  }
+}
+
 @font-face {
   font-family: "Material Icons";
   font-style: normal;
@@ -5,30 +15,11 @@
   src: url("static/font.woff2") format("woff2");
 }
 
-.material-icons {
-  font-family: "Material Icons";
-  font-weight: normal;
-  font-style: normal;
-  font-size: 24px;
-  line-height: 1;
-  letter-spacing: normal;
-  text-transform: none;
-  display: inline-block;
-  white-space: nowrap;
-  word-wrap: normal;
-  direction: ltr;
-  -webkit-font-feature-settings: "liga";
-  -webkit-font-smoothing: antialiased;
-}
 body {
   overflow-x: hidden;
   padding: 0px;
   margin: 0px;
   background-color: #121212;
-}
-
-p {
-  font-size: 22px;
 }
 
 .btn-large {

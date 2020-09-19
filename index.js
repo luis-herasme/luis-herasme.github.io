@@ -127,11 +127,11 @@ const des = (d) => {
 for (let counter = 0; counter < proyectos.length;) {
   const cards = document.createElement("div");
   cards.setAttribute("class", "row");
-  for (let i = 0; i < 4; i++) {
+  for (let i = 0; i < 3; i++) {
     let proyecto = proyectos[counter];
     counter++;
     const card = document.createElement("div");
-    card.setAttribute("class", "col-md-3 col-sm-12");
+    card.setAttribute("class", "col-md-4 col-sm-12");
     card.innerHTML = `
 <div class="card mb-5">
   <a href="${proyecto.link}">

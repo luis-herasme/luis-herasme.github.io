@@ -223,11 +223,11 @@ for (var counter = 0; counter < proyectos.length;) {
   var cards = document.createElement("div");
   cards.setAttribute("class", "row");
 
-  for (var i = 0; i < 4; i++) {
+  for (var i = 0; i < 3; i++) {
     var proyecto = proyectos[counter];
     counter++;
     var card = document.createElement("div");
-    card.setAttribute("class", "col-md-3 col-sm-12");
+    card.setAttribute("class", "col-md-4 col-sm-12");
     card.innerHTML = "\n<div class=\"card mb-5\">\n  <a href=\"".concat(proyecto.link, "\">\n    <img class=\"card-img-top\" src=\"").concat(proyecto.img, "\">\n  </a>\n  <div class=\"card-body\">\n    <div class=\"card-title mb-0\">\n      <span class=\"truncate card-title\">").concat(proyecto.name, "</span>\n    </div>\n  </div>\n</div>\n    ");
     cards.appendChild(card);
   }

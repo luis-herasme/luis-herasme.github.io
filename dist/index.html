@@ -10,68 +10,74 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
     <title>Luis Herasme</title>
     <link rel="stylesheet" type="text/css" href="/luisherasme.github.io.9ad09f98.css">
-    <style>@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;700;900&display=swap");
-      html {
-        font-family: "Montserrat", sans-serif !important;
-      }
-      @supports (font-variation-settings: normal) {
-        html {
-          font-family: "Montserrat", sans-serif !important;
-        }
-      }</style>
   <script src="/luisherasme.github.io.9ad09f98.js"></script></head>
 
   <body>
-    <canvas id="can"> </canvas>
+    <canvas id="can"></canvas>
     <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
-    <div style="position: absolute; top: 5%; right: 5%">
-      <a class="github-button" href="https://github.com/LuisHerasme/luisherasme.github.io" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star LuisHerasme/luisherasme.github.io on GitHub">Star</a>
-
-      <a class="github-button" href="https://github.com/LuisHerasme" data-size="large" data-show-count="true" aria-label="Follow @LuisHerasme on GitHub">Follow @LuisHerasme</a>
-    </div>
 
     <div class="row" style="height: 100vh; margin-bottom: 0px">
       <div class="col m12" style="text-align: center">
+        <div style="
+            position: absolute;
+            margin-left: auto;
+            margin-right: auto;
+            top: 5%;
+            left: 0;
+            right: 0;
+            text-align: center;
+          ">
+          <a class="github-button" href="https://github.com/LuisHerasme/luisherasme.github.io" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star LuisHerasme/luisherasme.github.io on GitHub">Star</a>
+
+          <a class="github-button" href="https://github.com/LuisHerasme" data-size="large" data-show-count="true" aria-label="Follow @LuisHerasme on GitHub">Follow @LuisHerasme</a>
+        </div>
         <div id="background_color"></div>
         <div id="background"></div>
 
         <div style="transform: translateY(-50%); margin-top: 50vh">
           <div class="row align-items-center justify-content-center">
-            <div class="col-lg-6 col-sm-8">
+            <div class="col-lg-4 col-sm-8">
               <h3 className="mt-0" style="color: white">Personal website</h3>
               <h1 class="logo" id="logo">Luis Alberto Herasme Cuevas</h1>
+              <hr style="
+                  height: 4px;
+                  width: 20%;
+                  border: none;
+                  background-color: white;
+                ">
+              <p style="color: white; font-size: 26px" class="mb-4">
+                Hi👋, my name is Luis Herasme. I am a programmer from the
+                Dominican Republic and an Electronic and Communications
+                Engineering student at INTEC.
+              </p>
 
-              <div style="text-align: center; margin: auto">
-                <p style="color: white">
-                  Hi👋, my name is Luis Herasme. I am a programmer from the
-                  Dominican Republic and an Electronic and Communications
-                  Engineering student at INTEC.
-                </p>
-              </div>
-              <a href="#pro" class="btn btn-light mr-2 btn-lg">Ver proyectos</a>
-              <a href="https://github.com/LuisHerasme" class="btn btn-dark btn-lg">Github</a>
+              <a href="#pro" class="btn btn-light mr-4 btn-lg">Ver proyectos</a>
+              <!--
+              <a
+                href="https://github.com/LuisHerasme"
+                class="btn btn-dark btn-lg"
+                >Github</a
+              >
+              -->
             </div>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="container" id="pro">
-      <div class="row" style="margin-bottom: 0px !important">
-        <div class="col m12">
-          <div class="card-content">
-            <div id="listaDeProyectos" style="text-align: center">
-              <h2 class="mt-5 mb-5" style="font-weight: bold; color: white">
-                Proyectos
-                <hr style="
-                    height: 4px;
-                    width: 10%;
-                    border: none;
-                    background-color: white;
-                    border-radius: 5px;
-                  ">
-              </h2>
-            </div>
+    <div style="background-color: white">
+      <div class="container" id="pro">
+        <div class="card-content">
+          <div id="listaDeProyectos" style="text-align: center">
+            <h2 class="pt-5 pb-5" style="font-weight: bold; color: black">
+              Proyectos
+              <hr style="
+                  height: 4px;
+                  width: 20%;
+                  border: none;
+                  background-color: black;
+                ">
+            </h2>
           </div>
         </div>
       </div>
