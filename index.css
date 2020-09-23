@@ -32,26 +32,35 @@ body {
 }
 
 #background_color {
-  /*background: #001f3f;*/
+  /*background: #001f3f;
   width: 100%;
-  height: 100vh;
+  
+  min-height: 100vh;
+  
   position: absolute;
+  */
+  /*
   left: 0px;
   top: 0px;
-  z-index: -1;
+  z-index: -1; */
 }
 
 #background {
   background-repeat: no-repeat;
-  background-image: url("./img/electricidad.gif");
+  /* background-image: url("./img/electricidad.gif"); */
+  /* background-image: url("https://media.giphy.com/media/9PrqNHPAdWyJVOXntF/giphy.gif"); */
   background-size: cover;
-  opacity: 0.1;
+  /* background-color: rgba(0, 0, 0, 0.5); */
+
+  /*
   width: 100%;
-  height: 100vh;
   position: absolute;
+  
   left: 0px;
   top: 0px;
+  
   z-index: -1;
+  */
 }
 
 #can {
@@ -78,16 +87,13 @@ body {
   right: 50px;
 }
 
-.logo {
-  color: white;
-}
-
 nav {
   border-radius: 2px;
 }
 
 h1 {
   z-index: 10;
+  font-size: 50px;
   font-weight: bolder;
 }
 
