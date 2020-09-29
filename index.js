@@ -1,7 +1,11 @@
 const lista = document.getElementById("listaDeProyectos");
 
 const proyectos = [
-
+  {
+    link: "./optical/vid.mp4",
+    img: "./img/optic.png",
+    name: "Optical communication system"
+  },
   {
     link: "https://github.com/LuisHerasme/Raycasting-python",
     img: "https://github.com/LuisHerasme/Raycasting-python/blob/master/show.gif?raw=true",
