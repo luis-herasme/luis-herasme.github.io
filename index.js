@@ -162,11 +162,12 @@ for (let counter = 0; counter < proyectos.length;) {
     counter++;
     const card = document.createElement("div");
     card.setAttribute("class", "col-md-4 col-sm-12");
+    card.setAttribute("style", "padding: 0px 7.5px 0px 7.5px;");
     card.innerHTML = `
-<div class="card mb-5 ">
+<div class="card mb-3" style="border-radius: 0px;">
   <a href="${proyecto.link}">
-    <div class=" embed-responsive embed-responsive-16by9">
-      <img class="card-img-top embed-responsive-item" src="${proyecto.img}">
+    <div class="embed-responsive embed-responsive-16by9">
+      <img class="card-img-top embed-responsive-item" style="border-radius: 0px;" src="${proyecto.img}">
     </div>
   </a>
   <div class="card-body">
