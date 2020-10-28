@@ -124,158 +124,124 @@ function _defineProperties(target, props) { for (var i = 0; i < props.length; i+
 
 function _createClass(Constructor, protoProps, staticProps) { if (protoProps) _defineProperties(Constructor.prototype, protoProps); if (staticProps) _defineProperties(Constructor, staticProps); return Constructor; }
 
-var canvas = document.getElementById("can");
-canvas.width = window.innerWidth;
-canvas.height = window.innerHeight;
-var context = canvas.getContext("2d");
-/*
-const arrow = new Image();
-arrow.src =
-  "https://upload.wikimedia.org/wikipedia/commons/7/72/Arrow_southeast.svg";
-*/
+window.onload = function () {
+  var canvas = document.getElementById("can");
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+  var context = canvas.getContext("2d");
+  var MOUSE = {
+    x: 0,
+    y: 0
+  };
+  var Bodies = [];
+  document.body.addEventListener("mousemove", function (e) {
+    MOUSE.x = e.clientX;
+    MOUSE.y = e.clientY;
+  });
 
-var MOUSE = {
-  x: 0,
-  y: 0
-};
-var Bodies = [];
-document.body.addEventListener("mousemove", function (e) {
-  MOUSE.x = e.clientX;
-  MOUSE.y = e.clientY;
-});
+  var Body = /*#__PURE__*/function () {
+    function Body(x, y) {
+      _classCallCheck(this, Body);
 
-var Body = /*#__PURE__*/function () {
-  function Body(x, y) {
-    _classCallCheck(this, Body);
+      this.x = x;
+      this.y = y;
+      this.color = "#fffde7";
+      this.velocity = {
+        x: 0,
+        y: 0
+      };
+      this.acceleration = {
+        x: 0,
+        y: 0
+      };
+      this.size = 1;
+    }
 
-    this.x = x;
-    this.y = y;
-    this.color = "#fffde7";
-    this.velocity = {
-      x: 0,
-      y: 0
-    };
-    this.acceleration = {
-      x: 0,
-      y: 0
-    };
-    this.size = 1;
+    _createClass(Body, [{
+      key: "update",
+      value: function update(data) {
+        var x = MOUSE.x - this.x;
+        var y = MOUSE.y - this.y;
+        var mag = Math.hypot(x, y);
+        x = x * 1 / mag;
+        y = y * 1 / mag;
+        this.velocity.x += -1 + Math.random() * 2;
+        this.velocity.y += -1 + Math.random() * 2;
+
+        if (mag < 50) {
+          this.velocity.x -= x;
+          this.velocity.y -= y;
+        } else {
+          this.velocity.x += x;
+          this.velocity.y += y;
+        }
+
+        this.x += this.velocity.x / 4;
+        this.y += this.velocity.y / 4;
+        this.velocity.x *= 0.99;
+        this.velocity.y *= 0.99;
+        var red = Math.round(mag);
+
+        if (red > 255) {
+          red = 255;
+        }
+
+        this.color = "rgb(".concat(red, ",150,150)");
+        circle(this.x, this.y, this.size, this.color);
+      }
+    }]);
+
+    return Body;
+  }();
+
+  var AMOUNT = 60;
+
+  function init() {
+    for (var x = 0; x < AMOUNT; x++) {
+      for (var y = 0; y < AMOUNT; y++) {
+        Bodies.push(new Body(x * (window.innerWidth / AMOUNT), y * (window.innerHeight / AMOUNT)));
+      }
+    }
   }
 
-  _createClass(Body, [{
-    key: "update",
-    value: function update(data) {
-      //let color = getPixel(this.x / 40, this.y / 40, data);
-      //console.log(`rgb(${color.r}, ${color.g}, ${color.b})`);
-      //this.color = `rgb(${color.r}, ${color.g}, ${color.b})`;
-      var x = MOUSE.x - this.x;
-      var y = MOUSE.y - this.y; //let angle = Math.atan2(y, x);
+  function clear() {
+    context.clearRect(0, 0, canvas.width, canvas.height);
+  }
 
-      var mag = Math.hypot(x, y);
-      x = x * 1 / mag;
-      y = y * 1 / mag;
-      this.velocity.x += -1 + Math.random() * 2;
-      this.velocity.y += -1 + Math.random() * 2;
+  function circle(x, y, s, c) {
+    context.beginPath();
+    context.fillStyle = c;
+    context.arc(x, y, s, 0, Math.PI * 2);
+    context.fill();
+  }
 
-      if (mag < 50) {
-        this.velocity.x -= x;
-        this.velocity.y -= y;
-      } else {
-        this.velocity.x += x;
-        this.velocity.y += y;
-      } //if (this.velocity.x > 5) this.velocity.x = 5;
-      //if (this.velocity.y > 5) this.velocity.y = 5;
+  function update() {
+    clear();
+    Bodies.forEach(function (body) {
+      return body.update();
+    });
+  }
 
-
-      this.x += this.velocity.x / 4;
-      this.y += this.velocity.y / 4;
-      this.velocity.x *= 0.99;
-      this.velocity.y *= 0.99;
-      /*
-      this.x -= x;
-      this.y -= y;
-      */
-
-      var red = Math.round(mag);
-
-      if (red > 255) {
-        red = 255;
+  var bees = false;
+  var first_time = true;
+  var bees_interval;
+  document.getElementById("bees").addEventListener("click", function () {
+    if (!bees) {
+      if (first_time) {
+        init();
+        first_time = false;
       }
 
-      this.color = "rgb(".concat(red, ",150,150)");
-      circle(this.x, this.y, this.size, this.color);
-      /*
-      context.translate(this.x, this.y);
-      context.rotate(angle);
-      img(arrow, 0, 0);
-      context.rotate(-angle);
-      context.translate(-this.x, -this.y);
-      */
-
-      /*
-      this.velocity.x += this.acceleration.x;
-      this.velocity.y += this.acceleration.y;
-      this.acceleration.x = 0;
-      this.acceleration.y = 0;
-      */
+      bees_interval = setInterval(update, 1000 / 60);
+    } else {
+      clear();
+      clearInterval(bees_interval);
     }
-  }]);
 
-  return Body;
-}();
-
-var AMOUNT = 60;
-
-function init() {
-  for (var x = 0; x < AMOUNT; x++) {
-    for (var y = 0; y < AMOUNT; y++) {
-      Bodies.push(new Body(x * (window.innerWidth / AMOUNT), y * (window.innerHeight / AMOUNT)));
-    }
-  }
-}
-
-function clear() {
-  context.clearRect(0, 0, canvas.width, canvas.height);
-}
-
-function circle(x, y, s, c) {
-  context.beginPath();
-  context.fillStyle = c;
-  context.arc(x, y, s, 0, Math.PI * 2); //  context.rect(x, y, 10, 1);
-
-  context.fill();
-}
-
-function img(img, x, y) {
-  context.drawImage(img, x, y, 15, 15);
-}
-
-function update() {
-  clear();
-  Bodies.forEach(function (body) {
-    return body.update();
+    bees = !bees;
   });
-}
-
-var bees = false;
-var first_time = true;
-var bees_interval;
-document.getElementById("bees").addEventListener("click", function () {
-  if (!bees) {
-    if (first_time) {
-      init();
-      first_time = false;
-    }
-
-    bees_interval = setInterval(update, 1000 / 60);
-  } else {
-    clear();
-    clearInterval(bees_interval);
-  }
-
-  bees = !bees;
-});
-},{}],"../Users/luish/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+};
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -303,7 +269,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52376" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60220" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -479,5 +445,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../Users/luish/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js","background.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js","background.js"], null)
 //# sourceMappingURL=/background.f0f12a5f.js.map

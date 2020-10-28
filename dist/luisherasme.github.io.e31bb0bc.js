@@ -120,9 +120,33 @@ parcelRequire = (function (modules, cache, entry, globalName) {
 })({"index.js":[function(require,module,exports) {
 var lista = document.getElementById("listaDeProyectos");
 var proyectos = [{
+  link: "./optical/vid.mp4",
+  img: "./img/optic.png",
+  name: "Optical communication system"
+}, {
+  link: "https://github.com/LuisHerasme/Raycasting-python",
+  img: "https://github.com/LuisHerasme/Raycasting-python/blob/master/show.gif?raw=true",
+  name: "3D raycasting made in python"
+}, {
+  link: "https://github.com/LuisHerasme/Render",
+  img: "https://raw.githubusercontent.com/LuisHerasme/Render/master/show.gif",
+  name: "Render 3D, (Python)"
+}, {
   link: "./fractalsWGL/index.html",
   img: "./img/fractalWebGl.png",
   name: "Fractales WebGL"
+}, {
+  link: "",
+  img: "./img/SistemaGestionHogar.png",
+  name: "Home management system (C)"
+}, {
+  link: "https://luisagario.herokuapp.com/",
+  img: "./img/luisagario.png",
+  name: "LuisAgario"
+}, {
+  link: "",
+  img: "./img/hotdog.png",
+  name: "Hot dog or not"
 }, {
   link: "https://github.com/LuisHerasme/Game-made-in-C",
   img: "./img/zombie.png",
@@ -224,33 +248,20 @@ for (var counter = 0; counter < proyectos.length;) {
   cards.setAttribute("class", "row");
 
   for (var i = 0; i < 3; i++) {
-    var proyecto = proyectos[counter];
-    counter++;
-    var card = document.createElement("div");
-    card.setAttribute("class", "col-md-4 col-sm-12");
-    card.innerHTML = "\n<div class=\"card mb-5\">\n  <a href=\"".concat(proyecto.link, "\">\n    <img class=\"card-img-top\" src=\"").concat(proyecto.img, "\">\n  </a>\n  <div class=\"card-body\">\n    <div class=\"card-title mb-0\">\n      <span class=\"truncate card-title\">").concat(proyecto.name, "</span>\n    </div>\n  </div>\n</div>\n    ");
-    cards.appendChild(card);
+    if (counter < proyectos.length) {
+      var proyecto = proyectos[counter];
+      counter++;
+      var card = document.createElement("div");
+      card.setAttribute("class", "col-md-4 col-sm-12");
+      card.setAttribute("style", "padding: 0px 7.5px 0px 7.5px;");
+      card.innerHTML = "\n        <div class=\"card mb-3\" style=\"border-radius: 0px;\">\n          <a href=\"".concat(proyecto.link, "\">\n            <div class=\"embed-responsive embed-responsive-16by9\">\n              <img class=\"card-img-top embed-responsive-item\" style=\"border-radius: 0px;\" src=\"").concat(proyecto.img, "\">\n            </div>\n          </a>\n          <div class=\"card-body\">\n            <div class=\"card-title mb-0\">\n              <span class=\"truncate card-title\">").concat(proyecto.name, "</span>\n            </div>\n          </div>\n        </div>\n    ");
+      cards.appendChild(card);
+    }
   }
 
   lista.appendChild(cards);
 }
-
-var lights = true;
-var lights_btn = document.getElementById("lights");
-var logo = document.getElementById("logo");
-lights_btn.addEventListener("click", function () {
-  if (lights) {
-    document.body.style.backgroundColor = "rgb(8, 20, 30)"; // logo.style.color = "#FFF";
-
-    lights_btn.innerHTML = "🛌";
-  } else {
-    document.body.style.backgroundColor = "steelblue";
-    lights_btn.innerHTML = "💡"; //   logo.style.color = "#333";
-  }
-
-  lights = !lights;
-});
-},{}],"../Users/luish/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
+},{}],"../../../AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js":[function(require,module,exports) {
 var global = arguments[3];
 var OVERLAY_ID = '__parcel__error__overlay__';
 var OldModule = module.bundle.Module;
@@ -278,7 +289,7 @@ var parent = module.bundle.parent;
 if ((!parent || !parent.isParcelRequire) && typeof WebSocket !== 'undefined') {
   var hostname = "" || location.hostname;
   var protocol = location.protocol === 'https:' ? 'wss' : 'ws';
-  var ws = new WebSocket(protocol + '://' + hostname + ':' + "52376" + '/');
+  var ws = new WebSocket(protocol + '://' + hostname + ':' + "60220" + '/');
 
   ws.onmessage = function (event) {
     checkedAssets = {};
@@ -454,5 +465,5 @@ function hmrAcceptRun(bundle, id) {
     return true;
   }
 }
-},{}]},{},["../Users/luish/AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
+},{}]},{},["../../../AppData/Roaming/npm/node_modules/parcel/src/builtins/hmr-runtime.js","index.js"], null)
 //# sourceMappingURL=/luisherasme.github.io.e31bb0bc.js.map

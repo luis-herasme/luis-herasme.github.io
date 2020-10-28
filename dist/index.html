@@ -8,130 +8,189 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-    <title>Luis Herasme</title>
-    <link rel="stylesheet" type="text/css" href="/luisherasme.github.io.9ad09f98.css">
+
+    <script src="/background.f0f12a5f.js"></script>
+    <link rel="stylesheet" href="/luisherasme.github.io.9ad09f98.css">
   <script src="/luisherasme.github.io.9ad09f98.js"></script></head>
 
   <body>
     <canvas id="can"></canvas>
-    <script async="" defer="" src="https://buttons.github.io/buttons.js"></script>
 
-    <div class="row" style="height: 100vh; margin-bottom: 0px">
-      <div class="col m12" style="text-align: center">
-        <div style="
-            position: absolute;
-            margin-left: auto;
-            margin-right: auto;
-            top: 5%;
-            left: 0;
-            right: 0;
-            text-align: center;
-          ">
-          <a class="github-button" href="https://github.com/LuisHerasme/luisherasme.github.io" data-icon="octicon-star" data-size="large" data-show-count="true" aria-label="Star LuisHerasme/luisherasme.github.io on GitHub">Star</a>
+    <div class="container mt-2" style="width: 100%">
+      <ul class="nav nav-pills mb-3 nav-justified" id="pills-tab" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link" id="pills-profile-tab" data-toggle="pill" href="#pills-profile" role="tab" aria-controls="pills-profile" aria-selected="false">Projects</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link active" id="pills-contact-tab" data-toggle="pill" href="#pills-contact" role="tab" aria-controls="pills-contact" aria-selected="true">Curriculum vitae</a>
+        </li>
+      </ul>
+    </div>
 
-          <a class="github-button" href="https://github.com/LuisHerasme" data-size="large" data-show-count="true" aria-label="Follow @LuisHerasme on GitHub">Follow @LuisHerasme</a>
-        </div>
-        <div id="background_color"></div>
-        <div id="background"></div>
-
-        <div style="transform: translateY(-50%); margin-top: 50vh">
-          <div class="row align-items-center justify-content-center">
-            <div class="col-lg-4 col-sm-8">
-              <h3 className="mt-0" style="color: white">Personal website</h3>
-              <h1 class="logo" id="logo">Luis Alberto Herasme Cuevas</h1>
-              <hr style="
-                  height: 4px;
-                  width: 20%;
-                  border: none;
-                  background-color: white;
-                ">
-              <p style="color: white; font-size: 26px" class="mb-4">
-                Hi👋, my name is Luis Herasme. I am a programmer from the
-                Dominican Republic and an Electronic and Communications
-                Engineering student at INTEC.
-              </p>
-
-              <a href="#pro" class="btn btn-light mr-4 btn-lg">Ver proyectos</a>
-              <!--
-              <a
-                href="https://github.com/LuisHerasme"
-                class="btn btn-dark btn-lg"
-                >Github</a
-              >
-              -->
+    <div class="tab-content container" id="pills-tabContent">
+      <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+        <div style="background-color: white; padding-bottom: 10vh">
+          <div class="container" id="pro">
+            <div class="card-content">
+              <div id="listaDeProyectos" style="text-align: center"></div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <div style="background-color: white">
-      <div class="container" id="pro">
-        <div class="card-content">
-          <div id="listaDeProyectos" style="text-align: center">
-            <h2 class="pt-5 pb-5" style="font-weight: bold; color: black">
-              Proyectos
-              <hr style="
-                  height: 4px;
-                  width: 20%;
-                  border: none;
-                  background-color: black;
-                ">
-            </h2>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <footer class="page-footer">
-      <div class="container pt-5 pb-5">
-        <div class="row">
-          <div class="col l6 s12">
-            <h4 class="">Contacto</h4>
-            <p>herasmebusiness@gmail.com</p>
-            <p class="">
-              <a class="github-button" href="https://github.com/LuisHerasme" data-size="large" data-show-count="true" aria-label="Follow @LuisHerasme on GitHub">Follow @LuisHerasme</a>
-            </p>
-          </div>
-          <div class="col l4 offset-l2 s12">
-            <div>
-              <h4 class="blackText">Otros proyectos</h4>
-              <ul class="collection">
-                <li class="collection-item">
-                  <a href="https://luisherasme.github.io/LienzoEngine/" class="truncate">LienzoEngine
-                  </a>
-                </li>
-                <li class="collection-item">
-                  <a href="https://github.com/LuisHerasme/vectorFunctionsJs" class="truncate">VectorFunctionsJs</a>
-                </li>
-                <li class="collection-item">
-                  <a href="https://github.com/LuisHerasme/FisicaJS" class="truncate">FisicaJS</a>
-                </li>
-                <li class="collection-item">
-                  <a href="https://github.com/LuisHerasme/vector" class="truncate">Vector</a>
-                </li>
-                <li class="collection-item">
-                  <a href="https://github.com/LuisHerasme/JavaSctipGL" class="truncate">JavaSctipGL</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div style="padding: 5px" class="footer-copyright">
+      <div class="tab-pane fade show active" id="pills-contact" role="tabpanel" aria-labelledby="pills-contact-tab">
         <div class="container">
-          2020 - Luis Herasme
-          <button style="margin-left: 5%" id="bees" class="btn btn-dark">
+          <div class="row align-items-center justify-content-center">
+            <div class="col-lg-8 col-sm-9">
+              <div class="">
+                <div class="pb-5" style="text-align: center; padding: 15px">
+                  <h1 class="mb-2">Luis Alberto<br>Herasme Cuevas</h1>
+                  <p class="mb-0 text-truncate">luis.alberto.herasme.cuevas@gmail.com</p>
+                  <p class="mb-2">+1 849 859 4949</p>
+                  <p style="
+                      text-align: left;
+                      padding: 10px;
+                      font-weight: lighter;
+                    " class="mb-2">
+                    Hi👋. I am a programmer from the Dominican Republic and an
+                    Electronic and Communications Engineering student at INTEC.
+                  </p>
+
+                  <div style="text-align: left">
+                    <h4 style="color: rgb(41 41 41); font-weight: lighter">
+                      Education
+                    </h4>
+                    <span style="color: rgb(41 41 41); font-weight: lighter">
+                      AUG 2018 - EXPECTED JAN 2022
+                    </span>
+                    <p style="color: rgb(41 41 41)">
+                      Instituto Tecnológico de Santo Domingo, Dominican Republic
+                      Bachelor in Electronics and Communications Engr. (3.89
+                      GPA)
+                    </p>
+                  </div>
+
+                  <div style="text-align: left">
+                    <h4 style="color: rgb(41 41 41); font-weight: lighter">
+                      Experience
+                    </h4>
+                    <ul style="color: rgb(41 41 41); text-align: justify">
+                      <li>
+                        <p>
+                          <span style="color: rgb(41 41 41); font-weight: lighter">SEPT 2020 - PRESENT</span>
+                          <br>
+                          INTEC, Dominican Republic - Vice President of the
+                          Electronic and Communications Engineering Committee.
+                        </p>
+                      </li>
+
+                      <li>
+                        <p>
+                          <span style="color: rgb(41 41 41); font-weight: lighter">SEPT 2020 - PRESENT</span>
+                          <br>
+                          INTEC, Dominican Republic- Member of Apolo27 Apolo 27
+                          is a team of the Instituto Tecnológico de Santo
+                          Domingo, participant of the <b>NASA Human Exploration
+                          Rover Challenge.</b>
+                          <i>I am currently working on the rover's wireless
+                            communication systems.</i>
+                        </p>
+                      </li>
+                    </ul>
+                  </div>
+
+                  <div>
+                    <div>
+                      <h4 style="
+                          color: rgb(41 41 41);
+                          font-weight: lighter;
+                          text-align: left;
+                        ">
+                        Skills
+                      </h4>
+                      <ul style="color: rgb(41 41 41); text-align: justify">
+                        <li>Programming with C & C++</li>
+                        <li>
+                          Back end developer (Python, Node.js, Flask,
+                          Express.js)
+                        </li>
+                        <li>
+                          Circuit simulation and design (LTSpice & Proteus)
+                        </li>
+                        <li>
+                          Front end developer (JavaScript, React, TypeScript,
+                          Bootstrap)
+                        </li>
+                        <li>
+                          Microcontrollers programming, Assembly (MPASM) &
+                          Arduino
+                        </li>
+                        <li>Hardware design (VHDL)</li>
+                        <li>Numeric analysis with MATLAB/Octave</li>
+                        <li>Languages, Spanish (native) & English (fluent)</li>
+                      </ul>
+                    </div>
+                  </div>
+
+                  <div class="mt-5">
+                    <a href="https://github.com/LuisHerasme" style="
+                        background-color: black;
+                        color: white;
+                        padding: 10px 20px 10px 20px;
+                      " class="btn mainBtn">GitHub</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="pt-5 pb-5" style="text-align: center">
+      <div style="margin: 0px auto;">
+        <h4>Contact</h4>
+        <p class="mb-1 text-truncate">luis.alberto.herasme.cuevas@gmail.com</p>
+        <p>+1 849 859 4949</p>
+
+       <!-- <h4>Otros proyectos</h4>
+          <ul>
+            <li>
+              <a
+                href="https://github.com/LuisHerasme/vectorFunctionsJs"
+                class="truncate"
+                >VectorFunctionsJs</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/LuisHerasme/FisicaJS" class="truncate"
+                >FisicaJS</a
+              >
+            </li>
+            <li>
+              <a href="https://github.com/LuisHerasme/vector" class="truncate"
+                >Vector</a
+              >
+            </li>
+            <li>
+              <a
+                href="https://github.com/LuisHerasme/JavaSctipGL"
+                class="truncate"
+                >JavaSctipGL</a
+              >
+            </li>
+          </ul>
+      </div> -->
+
+      <div style="text-align: center; margin-top: 20px">
+        <div class="container">
+          <p style="display: inline" class="m-2">2020 - Luis Herasme</p>
+          <button id="bees" class="btn d-sm-none d-md-inline m-2" style="color: black; background-color: white">
             Enable Bees 🐝
           </button>
         </div>
       </div>
-    </footer>
-
-    <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    </div></footer>
 
     <script src="/luisherasme.github.io.e31bb0bc.js"></script>
-    <script src="/background.f0f12a5f.js"></script>
-    <link rel="stylesheet" href="/luisherasme.github.io.9ad09f98.css">
   </body>
 </html>
