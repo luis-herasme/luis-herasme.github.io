@@ -1,11 +1,20 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inconsolata&display=swap');
 
 * {
   font-family: 'Inconsolata', monospace;
 }
 
+.blanco {
+  color: #000;
+}
+
 a {
-  color: white;
+  color: #3772FF ;
+}
+
+body {
+  background-color: #FEFDFF ;
 }
 
 body {
@@ -13,19 +22,14 @@ body {
 }
 
 .nav-pills .nav-link.active, .nav-pills .show>.nav-link {
-  background-color:white;
-  color:  black;
+  background-color: #FEFDFF;
+  color: #000;
   text-decoration: underline;
 }
 
 .nav-pills .nav-link {
-  background-color: white;
-  color: black;
-}
-
-.mainBtn:hover {
-  transition: all 2s !important;
-  border-radius: 0px !important;
+  background-color: #FEFDFF;
+  color: #000;
 }
 
 #can {
@@ -40,21 +44,12 @@ body {
 }
 
 .truncate {
- 
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 
-h1 {
-  font-size: 28px;
-  font-weight: bold;
-  font-family: 'Inconsolata', monospace;
-  color: rgb(41 41 41);
-}
-
 footer {
-  font-family: 'Inconsolata', monospace;
-  background: #000 !important;
+  background: #24272B !important;
   color: white !important;
 }
