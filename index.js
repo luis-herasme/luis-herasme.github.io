@@ -28,6 +28,7 @@
       link: "",
       img: "./img/SistemaGestionHogar.png",
       name: "Home management system (C)",
+      disabled: true,
     },
     {
       link: "https://luisagario.herokuapp.com/",
@@ -38,6 +39,7 @@
       link: "",
       img: "./img/hotdog.png",
       name: "Hot dog or not",
+      disabled: true,
     },
     {
       link: "https://github.com/LuisHerasme/Game-made-in-C",
@@ -167,11 +169,27 @@
       const card = document.createElement("div");
       card.setAttribute("class", "col-md-4 col-sm-12");
       card.setAttribute("style", "padding: 0px 7.5px 0px 7.5px;");
-      card.innerHTML = `
+      if (proyecto.disabled) {
+        card.innerHTML = `
+        <div class="card mb-3" style="border-radius: 0px;">
+          
+            <div class="embed-responsive embed-responsive-16by9">
+              <img class="card-img-top embed-responsive-item" alt="${proyecto.name}" style="border-radius: 0px;" src="${proyecto.img}">
+            </div>
+          
+          <div class="card-body">
+            <div class="card-title mb-0">
+              <span class="truncate card-title">${proyecto.name}</span>
+            </div>
+          </div>
+        </div>
+      `;
+      } else {
+        card.innerHTML = `
         <div class="card mb-3" style="border-radius: 0px;">
           <a href="${proyecto.link}">
             <div class="embed-responsive embed-responsive-16by9">
-              <img class="card-img-top embed-responsive-item" style="border-radius: 0px;" src="${proyecto.img}">
+              <img class="card-img-top embed-responsive-item" alt="${proyecto.name}" style="border-radius: 0px;" src="${proyecto.img}">
             </div>
           </a>
           <div class="card-body">
@@ -180,7 +198,9 @@
             </div>
           </div>
         </div>
-    `;
+      `;        
+      }
+
       cards.appendChild(card);
     }
     }
