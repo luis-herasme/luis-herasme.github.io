@@ -591,7 +591,7 @@ var positive = 0;
 var balls = 100;
 
 for (var i = 0; i < balls; i++) {
-  var charge = Math.random() < 0.75 ? true : false;
+  var charge = Math.random() < 0.5 ? true : false;
   if (charge) positive++;
   objects.push(new Electric(charge, [(0, _Utils.randomNumber)(_render2.default.width / 2), (0, _Utils.randomNumber)(_render2.default.width / 2)]));
 }
@@ -608,7 +608,7 @@ _events2.default.mouse.mousedown = function (e) {
   }
   if (e.button === 2) {
     nuevo.charge = false;
-    nuevo.draw = new _Point2.default(nuevo.position, 'E', nuevo.size / 6, '#00f');
+    nuevo.draw = new _Point2.default(nuevo.position, 'N', nuevo.size / 6, '#00f');
   }
   objects.push(nuevo);
 };
